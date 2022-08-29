@@ -7,7 +7,7 @@ The lab is to create a C++ shared library implementing graph data structure and 
 ## Get Started
 
 ```shell
-$ git clone git@git.nju.edu.cn:psv/ps2021-3-lab.git
+$ git clone https://git.nju.edu.cn/psv/ps2021-3-lab.git
 ```
 
 ## Compile
