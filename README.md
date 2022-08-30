@@ -14,11 +14,9 @@ $ git clone https://git.nju.edu.cn/psv/ps2021-3-lab.git
 
 On Windows, install CLion or Visual Studio and open lab folder.
 
-On Linux/macOS, install CLion or use cmake directly:
+On Linux/macOS, install CLion or use make directly:
 
 ```shell
-$ mkdir -p build && cd build
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ make
 ```
 
