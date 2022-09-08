@@ -65,15 +65,15 @@ assert(e.GetDestination() == 2);
 ```c++
 Graph g; // 创建一张新的图
 
-assert(g.AddVertice(1) == true);
-assert(g.AddVertice(2) == true);
-assert(g.AddVertice(3) == true);
-assert(g.AddVertice(3) == false); // 3号点已经存在了
-assert(g.AddVertice(4) == true);
-assert(g.ContainsVertex(4) == true);
-assert(g.RemoveVertice(4) == true);
-assert(g.ContainsVertex(4) == false);
-assert(g.RemoveVertice(5) == false);
+assert(g.AddVertex(1) == true);
+assert(g.AddVertex(2) == true);
+assert(g.AddVertex(3) == true);
+assert(g.AddVertex(3) == false); // 3号点已经存在了
+assert(g.AddVertex(4) == true);
+assert(g.CountVertices(4) == true);
+assert(g.RemoveVertex(4) == true);
+assert(g.CountVertices(4) == false);
+assert(g.RemoveVertex(5) == false);
 
 assert(g.AddEdge(1, 2) == true);
 assert(g.AddEdge(1, 3) == true);
