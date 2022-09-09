@@ -1,11 +1,11 @@
 #include <DataStructures/Edge.h>
+#include <DataStructures/Graph.h>
 #include <assert.h>
 #include <iostream>
 
 int main()
 {
-    Edge e = Edge(1, 2);
-    assert(e.GetDestination());
-    assert(e.GetSource());
-    std::cout << "succeeded!";
+    Graph G = Graph();
+    assert(G.AddVertex(1));
+    assert(!G.AddVertex(1));
 }

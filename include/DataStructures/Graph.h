@@ -2,7 +2,11 @@
 #define GRAPH_H
 
 #include <vector>
+#include <map>
+#include <utility>
+#include <algorithm>
 #include <DataStructures/Edge.h>
+#define MAXN 1005
 
 class Graph {
  public:
@@ -24,6 +28,14 @@ class Graph {
   std::vector<Edge> GetOutgoingEdges(int vertex) const;
   int GetDegree(int vertex) const;
   std::vector<int> GetNeighbors(int vertex) const;
+
+ private:
+  //int nexFreePoint[MAXN];
+  int totId;
+  std::map <int, std::vector<Edge>> edges;
+  std::map <int, int> id;
+  int name[MAXN], index[MAXN], outdex[MAXN];
+  int vertexNum, edgeNum;
 };
 
 #endif
