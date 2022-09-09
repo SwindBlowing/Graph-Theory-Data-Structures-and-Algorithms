@@ -34,15 +34,16 @@ bool Graph::RemoveVertex(int vertex)
 
 bool Graph::AddEdge(int vertex1, int vertex2)
 {
+    Edge e = Edge(vertex1, vertex2);
     std::map <int, int>::iterator it1 = id.find(vertex1);
     std::map <int, int>::iterator it2 = id.find(vertex2);
     if (it1 == id.end() || it2 == id.end())
         return 0;
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
-    std::vector<Edge>::iterator t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
+    std::vector<Edge>::iterator t = std::find(it->second.begin(), it->second.end(), e);
     if (t != it->second.end()) return 0;
-    it->second.push_back(Edge(vertex1, vertex2));
+    it->second.push_back(e);
     outdex[id1]++; index[id2]++;
     edgeNum++;
     return 1;
