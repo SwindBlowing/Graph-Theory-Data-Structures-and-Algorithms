@@ -49,11 +49,13 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     it->second.push_back(e);
     outdex[id1]++; index[id2]++;
     edgeNum++;
+    allEdges.insert(e);
     return 1;
 }
 
 bool Graph::RemoveEdge(int vertex1, int vertex2)
 {
+    Edge e = Edge(vertex1, vertex2);
     std::map <int, int>::iterator it1 = id.find(vertex1);
     std::map <int, int>::iterator it2 = id.find(vertex2);
     if (it1 == id.end() || it2 == id.end())
@@ -68,7 +70,28 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
             it->second.erase(t);
             outdex[id1]--; index[id2]--;
             edgeNum--;
+            allEdges.erase(e);
             return 1;
         }
     return 0;
+}
+
+int Graph::CountVertices() const
+{
+    return vertexNum;
+}
+
+int Graph::CountEdges() const
+{
+    return edgeNum;
+}
+
+bool Graph::ContainsVertex(int vertex) const
+{
+    return id.find(vertex) != id.end();
+}
+
+bool Graph::ContainsEdge(int vertex1, int vertex2) const
+{
+    return allEdges.find(Edge(vertex1, vertex2)) != allEdges.end(); 
 }
