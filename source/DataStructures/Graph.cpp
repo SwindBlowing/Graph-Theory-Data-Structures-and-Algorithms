@@ -36,9 +36,9 @@ bool Graph::AddEdge(int vertex1, int vertex2)
 {
     if (id.find(vertex1) == id.end() || id.find(vertex2) == id.end())
         return 0;
-    /*std::map <int, std::vector<Edge>>::iterator it = edges.find(vertex1);
+    std::map <int, std::vector<Edge>>::iterator it = edges.find(vertex1);
     std::vector<Edge>::iterator t = std::find(it->second.begin(), it->second.end(), vertex2);
-    if (t != it->second.end()) return 0;
+    /*if (t != it->second.end()) return 0;
     it->second.push_back(Edge(vertex1, vertex2));
     outdex[vertex1]++; index[vertex2]++;
     edgeNum++;
