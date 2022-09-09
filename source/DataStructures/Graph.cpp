@@ -86,7 +86,7 @@ int Graph::CountEdges() const
     return edgeNum;
 }
 
-bool Graph::ContainsVertex(int vertex) const
+/*bool Graph::ContainsVertex(int vertex) const
 {
     return id.find(vertex) != id.end();
 }
@@ -94,4 +94,4 @@ bool Graph::ContainsVertex(int vertex) const
 bool Graph::ContainsEdge(int vertex1, int vertex2) const
 {
     return allEdges.find(Edge(vertex1, vertex2)) != allEdges.end(); 
-}
+}*/
