@@ -69,9 +69,9 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
     std::vector<Edge>::iterator t;
-    //t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
-    //if (t == it->second.end()) return 0;
-    for (t = it->second.begin(); t != it->second.end(); t++)
+    t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
+    if (t == it->second.end()) return 0;
+    /*for (t = it->second.begin(); t != it->second.end(); t++)
         if (t->GetDestination() == vertex2) {
             it->second.erase(t);
             outdex[id1]--; index[id2]--;
@@ -82,8 +82,16 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
                     break;
                 }
             return 1;
+        }*/
+    it->second.erase(t);
+    outdex[id1]--; index[id2]--;
+    edgeNum--;
+    for (std::vector<Edge>::iterator t2 = allEdges.begin(); t2 != allEdges.end(); t2++)
+        if (*t2 == e) {
+            allEdges.erase(t2);
+            break;
         }
-    return 0;
+    return 1;
 }
 
 int Graph::CountVertices() const
