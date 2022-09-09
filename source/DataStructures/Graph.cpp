@@ -49,7 +49,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     it->second.push_back(e);
     outdex[id1]++; index[id2]++;
     edgeNum++;
-    //allEdges.insert(e);
+    allEdges.insert(Edge(vertex1, vertex2));
     return 1;
 }
 
