@@ -70,7 +70,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
             it->second.erase(t);
             outdex[id1]--; index[id2]--;
             edgeNum--;
-            //allEdges.erase(e);
+            allEdges.erase(e);
             return 1;
         }
     return 0;
