@@ -33,11 +33,11 @@ class Graph {
  private:
   //int nexFreePoint[MAXN];
   int totId;
-  std::map <int, std::vector<Edge>> edges;
+  std::map <int, std::vector<Edge>> inEdges, outEdges;
   std::map <int, int> id;
   int name[MAXN], index[MAXN], outdex[MAXN];
   int vertexNum, edgeNum;
-  std::vector <Edge> allEdges;
+  std::vector <Edge> edges;
   std::vector <int> vertices;
 };
 

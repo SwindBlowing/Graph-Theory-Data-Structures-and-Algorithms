@@ -13,7 +13,8 @@ bool Graph::AddVertex(int vertex)
     int nowId = ++totId;
     //nexFreePoint[0] = nexFreePoint[nowId];
     id.insert(std::pair<int, int> {vertex, nowId});
-    edges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
+    inEdges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
+    outEdges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
     name[nowId] = vertex;
     vertexNum++;
     vertices.push_back(vertex);
@@ -27,8 +28,10 @@ bool Graph::RemoveVertex(int vertex)
     int nowId = it->second;
     name[nowId] = 0;
     vertexNum--;
-    std::map <int, std::vector<Edge>>::iterator it2 = edges.find(nowId);
-    edgeNum -= it2->second.size();
+    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(nowId);
+    edgeNum -= it_in->second.size();
+    std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(nowId);
+    edgeNum -= it_out->second.size();
     id.erase(it);
     for (std::vector<int>::iterator t = vertices.begin(); t != vertices.end(); t++)
         if (*t == vertex) {
@@ -46,15 +49,17 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     if (it1 == id.end() || it2 == id.end())
         return 0;
     int id1 = it1->second, id2 = it2->second;
-    std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
-    std::vector<Edge>::iterator t = std::find(it->second.begin(), it->second.end(), e);
+    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(id1);
+    std::vector<Edge>::iterator t = std::find(it_in->second.begin(), it_in->second.end(), e);
     //for (t = it->second.begin(); t != it->second.end(); t++)
     //    if (t->GetDestination() == vertex2) return 0;
-    if (t != it->second.end()) return 0;
-    it->second.push_back(e);
+    if (t != it_out->second.end()) return 0;
+    it_in->second.push_back(e);
+    it_out->second.push_back(e);
     outdex[id1]++; index[id2]++;
     edgeNum++;
-    allEdges.push_back(e);
+    edges.push_back(e);
     return 1;
 }
 
@@ -66,10 +71,11 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     if (it1 == id.end() || it2 == id.end())
         return 0;
     int id1 = it1->second, id2 = it2->second;
-    std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(id1);
     std::vector<Edge>::iterator t;
-    t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
-    if (t == it->second.end()) return 0;
+    t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
+    if (t == it_in->second.end()) return 0;
     /*for (t = it->second.begin(); t != it->second.end(); t++)
         if (t->GetDestination() == vertex2) {
             it->second.erase(t);
@@ -82,12 +88,14 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
                 }
             return 1;
         }*/
-    it->second.erase(t);
+    it_in->second.erase(t);
+    t = std::find(it_out->second.begin(), it_out->second.end(), Edge(vertex1, vertex2));
+    it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
     edgeNum--;
-    for (std::vector<Edge>::iterator t2 = allEdges.begin(); t2 != allEdges.end(); t2++)
+    for (std::vector<Edge>::iterator t2 = edges.begin(); t2 != edges.end(); t2++)
         if (*t2 == e) {
-            allEdges.erase(t2);
+            edges.erase(t2);
             break;
         }
     return 1;
@@ -110,10 +118,27 @@ bool Graph::ContainsVertex(int vertex) const
 
 bool Graph::ContainsEdge(int vertex1, int vertex2) const
 {
-    return std::find(allEdges.begin(), allEdges.end(), Edge(vertex1, vertex2)) != allEdges.end(); 
+    return std::find(edges.begin(), edges.end(), Edge(vertex1, vertex2)) != edges.end(); 
 }
 
 std::vector<int> Graph::GetVertices() const
 {
     return vertices;
+}
+
+std::vector<Edge> Graph::GetEdges() const
+{
+    return edges;
+}
+
+std::vector<Edge> Graph::GetIncomingEdges(int vertex) const
+{
+    if (!ContainsVertex(vertex)) return {};
+    return inEdges.find(id.find(vertex)->second)->second;
+}
+
+std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const
+{
+    if (!ContainsVertex(vertex)) return {};
+    return outEdges.find(id.find(vertex)->second)->second;
 }
