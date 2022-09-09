@@ -76,7 +76,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     return 0;
 }
 
-int Graph::CountVertices() const
+/*int Graph::CountVertices() const
 {
     return vertexNum;
 }
