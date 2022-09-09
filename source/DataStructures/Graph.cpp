@@ -42,7 +42,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
     std::vector<Edge>::iterator t;
-    t = std::find(it->second.begin(), it->second.end(), e);
+    //t = std::find(it->second.begin(), it->second.end(), e);
     for (t = it->second.begin(); t != it->second.end(); t++)
         if (t->GetDestination() == vertex2) return 0;
     //if (t != it->second.end()) return 0;
@@ -51,7 +51,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     edgeNum++;
     return 1;
 }
-/*
+
 bool Graph::RemoveEdge(int vertex1, int vertex2)
 {
     std::map <int, int>::iterator it1 = id.find(vertex1);
@@ -60,10 +60,15 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
         return 0;
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
-    std::vector<Edge>::iterator t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
-    if (t == it->second.end()) return 0;
-    it->second.erase(t);
-    outdex[id1]--; index[id2]--;
-    edgeNum--;
-    return 1;
-}*/
+    std::vector<Edge>::iterator t;
+    //t = std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2));
+    //if (t == it->second.end()) return 0;
+    for (t = it->second.begin(); t != it->second.end(); t++)
+        if (t->GetDestination() == vertex2) {
+            it->second.erase(t);
+            outdex[id1]--; index[id2]--;
+            edgeNum--;
+            return 1;
+        }
+    return 0;
+}
