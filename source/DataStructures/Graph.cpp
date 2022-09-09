@@ -42,7 +42,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it = edges.find(id1);
     std::vector<Edge>::iterator t;
-    // = std::find(it->second.begin(), it->second.end(), e);
+    t = std::find(it->second.begin(), it->second.end(), e);
     for (t = it->second.begin(); t != it->second.end(); t++)
         if (t->GetDestination() == vertex2) return 0;
     //if (t != it->second.end()) return 0;
