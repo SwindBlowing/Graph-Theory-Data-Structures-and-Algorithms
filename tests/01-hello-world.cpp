@@ -22,4 +22,8 @@ int main()
     assert(!G.RemoveEdge(2, 4));
     assert(G.CountEdges() == 1);
     assert(G.CountVertices() == 4);
+    assert(G.ContainsVertex(4));
+    assert(!G.ContainsVertex(1));
+    assert(G.ContainsEdge(4, 5));
+    assert(!G.ContainsEdge(2, 3));
 }
