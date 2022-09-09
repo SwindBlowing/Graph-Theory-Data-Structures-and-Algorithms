@@ -32,7 +32,7 @@ bool Graph::RemoveVertex(int vertex)
     return 1;
 }
 
-bool Graph::AddEdge(int vertex1, int vertex2)
+/*bool Graph::AddEdge(int vertex1, int vertex2)
 {
     if (id.find(vertex1) == id.end() || id.find(vertex2) == id.end())
         return 0;
@@ -56,4 +56,4 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     outdex[vertex1]--; index[vertex1]++;
     edgeNum--;
     return 1;
-}
+}*/
