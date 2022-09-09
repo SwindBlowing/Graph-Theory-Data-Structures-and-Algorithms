@@ -8,6 +8,9 @@ class Edge {
   public:
    int GetSource() const;
    int GetDestination() const;
+  
+  private:
+   int source, destination;
  };
 
 #endif
