@@ -37,7 +37,7 @@ class Graph {
   std::map <int, int> id;
   int name[MAXN], index[MAXN], outdex[MAXN];
   int vertexNum, edgeNum;
-  std::set <int> allEdges;
+  std::set <Edge> allEdges;
 };
 
 #endif

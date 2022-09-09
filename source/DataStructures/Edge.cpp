@@ -15,3 +15,8 @@ int Edge::GetSource() const {
 int Edge::GetDestination() const {
     return this->destination;
 }
+
+bool Edge::operator <(const Edge &a) const
+{
+    return this->source < a.source;
+}
