@@ -20,5 +20,5 @@ int main()
     assert(G.RemoveEdge(2, 3));
     assert(!G.RemoveEdge(2, 3));
     assert(!G.RemoveEdge(2, 4));
-    //assert(G.CountEdges() == 1);
+    assert(G.CountEdges() == 1);
 }
