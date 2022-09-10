@@ -30,7 +30,7 @@ bool Graph::RemoveVertex(int vertex)
     vertexNum--;
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(nowId);
     edgeNum -= it_in->second.size();
-    std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(nowId);
+    std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(nowId);
     edgeNum -= it_out->second.size();
     id.erase(it);
     for (std::vector<int>::iterator t = vertices.begin(); t != vertices.end(); t++)
@@ -72,10 +72,10 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
         return 0;
     int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
-    std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(id1);
     std::vector<Edge>::iterator t;
     //std::cout << "arrived!";
-    t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
+    t = std::find(it_in->second.begin(), it_in->second.end(), e);
     if (t == it_in->second.end()) return 0;
     //std::cout << "arrived!";
     /*for (t = it->second.begin(); t != it->second.end(); t++)
@@ -91,7 +91,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
             return 1;
         }*/
     it_in->second.erase(t);
-    t = std::find(it_out->second.begin(), it_out->second.end(), Edge(vertex1, vertex2));
+    t = std::find(it_out->second.begin(), it_out->second.end(), e);
     assert(t != it_out->second.end());
     it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
