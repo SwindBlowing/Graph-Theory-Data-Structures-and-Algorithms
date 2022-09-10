@@ -38,7 +38,7 @@ bool Graph::RemoveVertex(int vertex)
     for (auto t = it_out->second.begin(); t != it_out->second.end();)
     {
         RemoveEdge(t->GetSource(), t->GetDestination());
-        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
+        std::cout << nex->GetSource() << ' ' << nex->GetDestination() << std::endl;
         t = nex;
         if (nex != it_out->second.end()) nex++;
     }
