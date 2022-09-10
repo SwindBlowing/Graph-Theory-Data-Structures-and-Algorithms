@@ -6,6 +6,7 @@
 #include <set>
 #include <utility>
 #include <algorithm>
+#include <iostream>
 #include <DataStructures/Edge.h>
 #define MAXN 1005
 
