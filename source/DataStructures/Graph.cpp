@@ -93,10 +93,10 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
     edgeNum--;
-    std::cout << "arrived!";
+    //std::cout << "arrived!";
     for (std::vector<Edge>::iterator t2 = edges.begin(); t2 != edges.end(); t2++)
     {
-        std::cout << t2->GetSource() << std::endl;
+        //std::cout << t2->GetSource() << std::endl;
         if (*t2 == e) {
             edges.erase(t2);
             break;
