@@ -5,7 +5,7 @@
 
 int main()
 {
-    Graph G = Graph();
+   /* Graph G = Graph();
     assert(G.AddVertex(1));
     assert(!G.AddVertex(1));
     assert(G.RemoveVertex(1));
@@ -25,7 +25,7 @@ int main()
     assert(G.ContainsVertex(4));
     assert(!G.ContainsVertex(1));
     assert(G.ContainsEdge(4, 5));
-    assert(!G.ContainsEdge(2, 3));
+    assert(!G.ContainsEdge(2, 3));*/
 
     Graph g; // 创建一张新的图
 
