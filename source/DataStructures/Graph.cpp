@@ -101,7 +101,11 @@ bool Graph::ContainsVertex(int vertex) const
 
 bool Graph::ContainsEdge(int vertex1, int vertex2) const
 {
-    return std::find(edges.begin(), edges.end(), Edge(vertex1, vertex2)) != edges.end(); 
+    //return std::find(edges.begin(), edges.end(), Edge(vertex1, vertex2)) != edges.end(); 
+    if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2)) return 0;
+    int id1 = id.find(vertex1)->second, id2 = id.find(vertex2)->second;
+    auto it = outEdges.find(id1);
+    return std::find(it->second.begin(), it->second.end(), Edge(vertex1, vertex2)) != it->second.end();
 }
 
 std::vector<int> Graph::GetVertices() const
