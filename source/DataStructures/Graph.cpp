@@ -25,16 +25,16 @@ bool Graph::RemoveVertex(int vertex)
     int nowId = it->second;
     name[nowId] = 0;
     vertexNum--;
-    auto it_in = inEdges.find(nowId);
+    /*auto it_in = inEdges.find(nowId);
     auto nex = it_in->second.begin(); nex++;
     for (auto t = it_in->second.begin(); t != it_in->second.end();)
     {
         RemoveEdge(t->GetSource(), t->GetDestination());
         t = nex;
         if (nex != it_in->second.end()) nex++;
-    }
+    }*/
     auto it_out = outEdges.find(nowId);
-    nex = it_out->second.begin(); //nex++;
+    auto nex = it_out->second.begin(); //nex++;
     std::cout << nex->GetSource() << ' ' << nex->GetDestination() << std::endl;
     /*for (auto t = it_out->second.begin(); t != it_out->second.end();)
     {
