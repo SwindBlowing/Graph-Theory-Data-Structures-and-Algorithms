@@ -50,8 +50,8 @@ int main()
     assert(g.GetIncomingEdges(1).size() == 0);
     assert(g.GetOutgoingEdges(1).size() == 2); // {{1, 2}, {1, 3}}
     /*assert(g.RemoveEdge(1, 3) == true);
-    assert(g.RemoveEdge(1, 3) == false);
-    assert(g.GetDegree(1) == 1);*/
+    assert(g.RemoveEdge(1, 3) == false);*/
+    assert(g.GetDegree(1) == 2);
     //assert(g.GetNeighbors(1).size() == 2); // {2, 3}
     //assert(g.GetNeighbors(2).size() == 0);
 }
