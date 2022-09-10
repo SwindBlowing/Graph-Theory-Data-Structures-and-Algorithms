@@ -54,7 +54,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     std::vector<Edge>::iterator t = std::find(it_in->second.begin(), it_in->second.end(), e);
     //for (t = it->second.begin(); t != it->second.end(); t++)
     //    if (t->GetDestination() == vertex2) return 0;
-    if (t != it_out->second.end()) return 0;
+    if (t != it_in->second.end()) return 0;
     it_in->second.push_back(e);
     it_out->second.push_back(e);
     outdex[id1]++; index[id2]++;
