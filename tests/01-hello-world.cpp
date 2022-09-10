@@ -48,7 +48,7 @@ int main()
     assert(g.GetVertices().size() == g.CountVertices()); // 4
     assert(g.GetEdges().size() == 2);
     assert(g.GetIncomingEdges(1).size() == 0);
-    assert(g.GetOutgoingEdges(1).size() == 3); // {{1, 2}, {1, 3}}
+    assert(g.GetOutgoingEdges(1).size() == 2); // {{1, 2}, {1, 3}}
     std::cout << "arrived!";
     assert(g.RemoveEdge(1, 3) == true);
     std::cout << "arrived!";
