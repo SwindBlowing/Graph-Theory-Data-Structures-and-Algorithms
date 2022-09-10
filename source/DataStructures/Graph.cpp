@@ -91,12 +91,12 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
             return 1;
         }*/
     it_in->second.erase(t);
-    /*t = std::find(it_out->second.begin(), it_out->second.end(), Edge(vertex1, vertex2));
+    t = std::find(it_out->second.begin(), it_out->second.end(), Edge(vertex1, vertex2));
     it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
     edgeNum--;
     //std::cout << "arrived!";
-    t = std::find(edges.begin(), edges.end(), e);
+    /*t = std::find(edges.begin(), edges.end(), e);
     //std::cout << "arrived!";
     edges.erase(t);
     //std::cout << "arrived!";
