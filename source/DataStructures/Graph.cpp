@@ -33,6 +33,14 @@ bool Graph::RemoveVertex(int vertex)
         t = nex;
         if (nex != it_in->second.end()) nex++;
     }
+    auto it_out = outEdges.find(nowId);
+    auto nex = it_out->second.begin(); nex++;
+    for (auto t = it_out->second.begin(); t != it_out->second.end();)
+    {
+        RemoveEdge(t->GetSource(), t->GetDestination());
+        t = nex;
+        if (nex != it_out->second.end()) nex++;
+    }
     id.erase(it);
     return 1;
 }
