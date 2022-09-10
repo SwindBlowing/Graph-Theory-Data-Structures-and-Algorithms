@@ -34,15 +34,11 @@ bool Graph::RemoveVertex(int vertex)
         if (nex != it_in->second.end()) nex++;
     }*/
     auto it_out = outEdges.find(nowId);
-    auto nex = it_out->second.begin(); 
-    if (nex != it_out->second.end()) nex++;
-    for (auto t = it_out->second.begin(); t != it_out->second.end();)
+    auto nex = it_out->second.begin();
+    for (auto t = it_out->second.begin(); t != it_out->second.end(); t = nex)
     {
-        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
-        RemoveEdge(t->GetSource(), t->GetDestination());
-        t = nex;
-        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
         if (nex != it_out->second.end()) nex++;
+        RemoveEdge(t->GetSource(), t->GetDestination());
     }
     id.erase(it);
     return 1;
