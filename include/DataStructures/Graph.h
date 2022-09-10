@@ -39,8 +39,6 @@ class Graph {
   std::map <int, int> id;
   int name[MAXN] = {0}, index[MAXN] = {0}, outdex[MAXN] = {0};
   int vertexNum = 0, edgeNum = 0;
-  std::vector <Edge> edges;
-  std::vector <int> vertices;
 };
 
 #endif

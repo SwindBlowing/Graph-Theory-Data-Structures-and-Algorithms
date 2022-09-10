@@ -15,7 +15,6 @@ bool Graph::AddVertex(int vertex)
     outEdges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
     name[nowId] = vertex;
     vertexNum++;
-    vertices.push_back(vertex);
     return 1;
 }
 
@@ -35,8 +34,6 @@ bool Graph::RemoveVertex(int vertex)
         if (nex != it_in->second.end()) nex++;
     }
     id.erase(it);
-    std::vector<int>::iterator t = std::find(vertices.begin(), vertices.end(), vertex);
-    vertices.erase(t);
     return 1;
 }
 
@@ -56,7 +53,6 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     it_out->second.push_back(e);
     outdex[id1]++; index[id2]++;
     edgeNum++;
-    edges.push_back(e);
     return 1;
 }
 
@@ -79,8 +75,6 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
     edgeNum--;
-    t = std::find(edges.begin(), edges.end(), e);
-    edges.erase(t);
     return 1;
 }
 
@@ -110,11 +104,23 @@ bool Graph::ContainsEdge(int vertex1, int vertex2) const
 
 std::vector<int> Graph::GetVertices() const
 {
+    //return vertices;
+    std::vector <int> vertices; vertices.clear();
+    for (auto it = id.begin(); it != id.end(); it++)
+        vertices.push_back(it->first);
     return vertices;
 }
 
 std::vector<Edge> Graph::GetEdges() const
 {
+    //return edges;
+    std::vector <Edge> edges; edges.clear();
+    for (auto it = id.begin(); it != id.end(); it++) {
+        int id = it->second;
+        auto t = outEdges.find(id);
+        for (auto now = t->second.begin(); now != t->second.end(); now++)
+            edges.push_back(*now);
+    }
     return edges;
 }
 
