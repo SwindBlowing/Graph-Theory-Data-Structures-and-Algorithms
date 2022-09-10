@@ -38,6 +38,7 @@ bool Graph::RemoveVertex(int vertex)
     for (auto t = it_out->second.begin(); t != it_out->second.end(); t = nex)
     {
         if (nex != it_out->second.end()) nex++;
+        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
         RemoveEdge(t->GetSource(), t->GetDestination());
     }
     id.erase(it);
