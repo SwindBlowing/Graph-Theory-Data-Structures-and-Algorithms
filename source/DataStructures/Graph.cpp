@@ -74,7 +74,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(id1);
     std::vector<Edge>::iterator t;
-    t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
+    t = std::find(it_in->second.begin(), it_in->second.end(), e);
     if (t == it_in->second.end()) return 0;
     /*for (t = it->second.begin(); t != it->second.end(); t++)
         if (t->GetDestination() == vertex2) {
@@ -94,15 +94,16 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     outdex[id1]--; index[id2]--;
     edgeNum--;
     //std::cout << "arrived!";
-    for (std::vector<Edge>::iterator t2 = edges.begin(); t2 != edges.end(); t2++)
+    t = std::find(edges.begin(), edges.end(), e);
+    edges.erase(t);
+    /*for (std::vector<Edge>::iterator t2 = edges.begin(); t2 != edges.end(); t2++)
     {
         std::cout << t2->GetSource() << ' ' << t2->GetDestination() << std::endl;
         if (*t2 == e) {
             edges.erase(t2);
             break;
         }
-    }
-        
+    }*/
     return 1;
 }
 
