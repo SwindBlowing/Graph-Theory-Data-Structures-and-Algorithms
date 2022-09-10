@@ -2,7 +2,6 @@
 
 Graph::Graph()
 {
-    //for (int i = 0; i < MAXN; i++) nexFreePoint[i] = i + 1;
 }
 
 Graph::~Graph(){}
@@ -11,7 +10,6 @@ bool Graph::AddVertex(int vertex)
 {
     if (id.find(vertex) != id.end()) return 0;
     int nowId = ++totId;
-    //nexFreePoint[0] = nexFreePoint[nowId];
     id.insert(std::pair<int, int> {vertex, nowId});
     inEdges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
     outEdges.insert(std::pair<int, std::vector<Edge>> {nowId, {}});
@@ -29,15 +27,16 @@ bool Graph::RemoveVertex(int vertex)
     name[nowId] = 0;
     vertexNum--;
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(nowId);
-    edgeNum -= it_in->second.size();
-    std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(nowId);
-    edgeNum -= it_out->second.size();
+    std::vector<Edge>::iterator nex = it_in->second.begin(); nex++;
+    for (std::vector<Edge>::iterator t = it_in->second.begin(); t != it_in->second.end();)
+    {
+        RemoveEdge(t->GetSource(), t->GetDestination());
+        t = nex;
+        if (nex != it_in->second.end()) nex++;
+    }
     id.erase(it);
-    for (std::vector<int>::iterator t = vertices.begin(); t != vertices.end(); t++)
-        if (*t == vertex) {
-            vertices.erase(t);
-            break;
-        }
+    std::vector<int>::iterator t = std::find(vertices.begin(), vertices.end(), vertex);
+    vertices.erase(t);
     return 1;
 }
 
@@ -52,8 +51,6 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(id1);
     std::vector<Edge>::iterator t = std::find(it_in->second.begin(), it_in->second.end(), e);
-    //for (t = it->second.begin(); t != it->second.end(); t++)
-    //    if (t->GetDestination() == vertex2) return 0;
     if (t != it_in->second.end()) return 0;
     it_in->second.push_back(e);
     it_out->second.push_back(e);
@@ -74,41 +71,16 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(id1);
     std::vector<Edge>::iterator t;
-    //std::cout << "arrived!";
     t = std::find(it_in->second.begin(), it_in->second.end(), e);
     if (t == it_in->second.end()) return 0;
-    //std::cout << "arrived!";
-    /*for (t = it->second.begin(); t != it->second.end(); t++)
-        if (t->GetDestination() == vertex2) {
-            it->second.erase(t);
-            outdex[id1]--; index[id2]--;
-            edgeNum--;
-            for (std::vector<Edge>::iterator t2 = allEdges.begin(); t2 != allEdges.end(); t2++)
-                if (*t2 == e) {
-                    allEdges.erase(t2);
-                    break;
-                }
-            return 1;
-        }*/
     it_in->second.erase(t);
     t = std::find(it_out->second.begin(), it_out->second.end(), e);
     assert(t != it_out->second.end());
     it_out->second.erase(t);
     outdex[id1]--; index[id2]--;
     edgeNum--;
-    //std::cout << "arrived!";
     t = std::find(edges.begin(), edges.end(), e);
-    //std::cout << "arrived!";
     edges.erase(t);
-    //std::cout << "arrived!";
-    /*for (std::vector<Edge>::iterator t2 = edges.begin(); t2 != edges.end(); t2++)
-    {
-        std::cout << t2->GetSource() << ' ' << t2->GetDestination() << std::endl;
-        if (*t2 == e) {
-            edges.erase(t2);
-            break;
-        }
-    }*/
     return 1;
 }
 
