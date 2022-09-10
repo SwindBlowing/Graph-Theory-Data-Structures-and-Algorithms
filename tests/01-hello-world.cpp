@@ -54,4 +54,7 @@ int main()
     assert(g.GetDegree(1) == 1);
     assert(g.GetNeighbors(1).size() == 1); // {2, 3}
     assert(g.GetNeighbors(2).size() == 0);
+    assert(g.RemoveVertex(1));
+    assert(g.GetDegree(2) == 0);
+    assert(g.GetNeighbors(1).size() == 0);
 }
