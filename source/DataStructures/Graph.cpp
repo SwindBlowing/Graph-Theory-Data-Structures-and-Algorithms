@@ -49,7 +49,7 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     if (it1 == id.end() || it2 == id.end())
         return 0;
     int id1 = it1->second, id2 = it2->second;
-    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = outEdges.find(id1);
     std::vector<Edge>::iterator t = std::find(it_in->second.begin(), it_in->second.end(), e);
     //for (t = it->second.begin(); t != it->second.end(); t++)
@@ -71,7 +71,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     if (it1 == id.end() || it2 == id.end())
         return 0;
     int id1 = it1->second, id2 = it2->second;
-    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id1);
+    std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(id1);
     std::vector<Edge>::iterator t;
     t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
