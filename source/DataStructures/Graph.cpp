@@ -70,12 +70,12 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     std::map <int, int>::iterator it2 = id.find(vertex2);
     if (it1 == id.end() || it2 == id.end())
         return 0;
-    /*int id1 = it1->second, id2 = it2->second;
+    int id1 = it1->second, id2 = it2->second;
     std::map <int, std::vector<Edge>>::iterator it_in = inEdges.find(id2);
     std::map <int, std::vector<Edge>>::iterator it_out = inEdges.find(id1);
     std::vector<Edge>::iterator t;
     //std::cout << "arrived!";
-    t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
+    /*t = std::find(it_in->second.begin(), it_in->second.end(), Edge(vertex1, vertex2));
     if (t == it_in->second.end()) return 0;
     //std::cout << "arrived!";
     for (t = it->second.begin(); t != it->second.end(); t++)
