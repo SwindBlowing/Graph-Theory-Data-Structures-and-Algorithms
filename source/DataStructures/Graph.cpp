@@ -20,6 +20,7 @@ bool Graph::AddVertex(int vertex)
 
 bool Graph::RemoveVertex(int vertex)
 {
+    std::vector <Edge> Pause; Pause.clear();
     std::map <int, int>::iterator it = id.find(vertex);
     if (!ContainsVertex(vertex)) return 0;
     int nowId = it->second;
@@ -34,25 +35,10 @@ bool Graph::RemoveVertex(int vertex)
         if (nex != it_in->second.end()) nex++;
     }*/
     auto it_out = outEdges.find(nowId);
-    auto nex = it_out->second.begin();
-    auto t = it_out->second.begin();
-    while (1) {
-        if (nex != it_out->second.end()) nex++;
-        else {
-            std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
-            RemoveEdge(t->GetSource(), t->GetDestination());
-            break;
-        }
-        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
+    for (auto t = it_out->second.begin(); t != it_out->second.end(); t++)
+        Pause.push_back(*t);
+    for (auto t = Pause.begin(); t != Pause.end(); t++)
         RemoveEdge(t->GetSource(), t->GetDestination());
-        t = nex;
-    }
-    /*for (auto t = it_out->second.begin(); t != it_out->second.end(); t = nex)
-    {
-        if (nex != it_out->second.end()) nex++;
-        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
-        RemoveEdge(t->GetSource(), t->GetDestination());
-    }*/
     id.erase(it);
     return 1;
 }
