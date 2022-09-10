@@ -41,6 +41,7 @@ bool Graph::RemoveVertex(int vertex)
         std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
         RemoveEdge(t->GetSource(), t->GetDestination());
         t = nex;
+        std::cout << t->GetSource() << ' ' << t->GetDestination() << std::endl;
         if (nex != it_out->second.end()) nex++;
     }
     id.erase(it);
