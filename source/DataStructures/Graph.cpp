@@ -141,3 +141,14 @@ int Graph::GetDegree(int vertex) const
     if (!ContainsVertex(vertex)) return 0;
     return outdex[id.find(vertex)->second];
 }
+
+std::vector<int> Graph::GetNeighbors(int vertex) const
+{
+    if (!ContainsVertex(vertex)) return {};
+    std::vector <int> neighbors; neighbors.clear();
+    int nowId = id.find(vertex)->second;
+    auto it = outEdges.find(nowId);
+    for (auto t = it->second.begin(); t != it->second.end(); t++)
+        neighbors.push_back(t->GetDestination());
+    return neighbors;
+}
