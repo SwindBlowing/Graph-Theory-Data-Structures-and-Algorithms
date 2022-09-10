@@ -146,6 +146,5 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const
 int Graph::GetDegree(int vertex) const
 {
     if (!ContainsVertex(vertex)) return 0;
-    std::cout << id.find(vertex)->second;
     return outdex[id.find(vertex)->second];
 }
