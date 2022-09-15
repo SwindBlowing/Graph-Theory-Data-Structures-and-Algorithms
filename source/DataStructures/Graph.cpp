@@ -4,7 +4,6 @@ Graph::Graph()
 {
     vertices.clear();
     inEdges.clear(); outEdges.clear();
-    index.clear(); outdex.clear();
     vertexNum = 0; edgeNum = 0;
 }
 
@@ -12,7 +11,6 @@ Graph::~Graph()
 {
     vertices.clear();
     inEdges.clear(); outEdges.clear();
-    index.clear(); outdex.clear();
     vertexNum = 0; edgeNum = 0;
 }
 
@@ -22,8 +20,6 @@ bool Graph::AddVertex(int vertex)
     vertices.insert(vertex);
     inEdges.insert(std::pair<int, std::vector<Edge>> {vertex, {}});
     outEdges.insert(std::pair<int, std::vector<Edge>> {vertex, {}});
-    index.insert(std::pair<int, int> {vertex, 0});
-    outdex.insert(std::pair<int, int> {vertex, 0});
     vertexNum++;
     return 1;
 }
@@ -57,7 +53,6 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     auto it_out = outEdges.find(vertex1);
     it_in->second.push_back(e);
     it_out->second.push_back(e);
-    outdex[vertex1]++; index[vertex2]++;
     edgeNum++;
     return 1;
 }
@@ -75,7 +70,6 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     t = std::find(it_out->second.begin(), it_out->second.end(), e);
     assert(t != it_out->second.end());
     it_out->second.erase(t);
-    outdex[vertex1]--; index[vertex2]--;
     edgeNum--;
     return 1;
 }
@@ -136,7 +130,7 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const
 int Graph::GetDegree(int vertex) const
 {
     if (!ContainsVertex(vertex)) return 0;
-    return outdex.at(vertex).size();
+    return outEdges.at(vertex).size();
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const
