@@ -28,7 +28,7 @@ int main()
 
     assert(g.GetWeight(1, 2) == 3);
     assert(g.GetWeight(1, 3) == 2);
-    assert(g.GetWeight(1, 2) == 1);
+    assert(g.GetWeight(1, 2) == 3);
 
     assert(g.GetVertices().size() == g.CountVertices()); // 4
     assert(g.GetEdges().size() == 2);
