@@ -12,6 +12,8 @@ bool Graph::AddVertex(int vertex)
     vertices.insert(vertex);
     inEdges.insert(std::pair<int, std::vector<Edge>> {vertex, {}});
     outEdges.insert(std::pair<int, std::vector<Edge>> {vertex, {}});
+    index.insert(std::pair<int, int> {vertex, 0});
+    outdex.insert(std::pair<int, int> {vertex, 0});
     vertexNum++;
     return 1;
 }
