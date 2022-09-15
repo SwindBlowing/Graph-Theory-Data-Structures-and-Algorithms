@@ -16,7 +16,7 @@ bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight)
 
 int WeightedGraph::GetWeight(int vertex1, int vertex2) const
 {
-    if (!ContainsEdge(vertex1) || !ContainsEdge(vertex2))
+    if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2))
         return 0;
     auto it_out = outEdges.at(vertex1);
     auto t = std::find(it_out.begin(), it_out.end(), (WeightedEdge){vertex1, vertex2, 0});
