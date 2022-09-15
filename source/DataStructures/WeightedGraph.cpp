@@ -29,7 +29,7 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const
     return t->GetWeight();
 }
 
-std::vector<WeightedEdge> WeightedEdge::GetEdges() const {
+std::vector<WeightedEdge> WeightedGraph::GetEdges() const {
     std::vector <WeightedEdge> edges; edges.clear();
     for (auto it = vertices.begin(); it != vertices.end(); it++) {
         auto t = outEdges.find(*it);
@@ -39,12 +39,12 @@ std::vector<WeightedEdge> WeightedEdge::GetEdges() const {
     return edges;
 }
 
-std::vector<WeightedEdge> WeightedEdge::GetIncomingEdges(int vertex) const {
+std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const {
     if (!ContainsVertex(vertex)) return {};
     return inEdges.at(vertex);
 }
 
-std::vector<WeightedEdge> WeightedEdge::GetOutgoingEdges(int vertex) const {
+std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const {
     if (!ContainsVertex(vertex)) return {};
     return outEdges.at(vertex);
 }
