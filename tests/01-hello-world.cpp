@@ -20,10 +20,15 @@ int main()
     assert(g.RemoveVertex(5) == false);
 
     assert(g.AddEdge(1, 2, 1) == true);
-    assert(g.AddEdge(1, 3, 1) == true);
-    assert(g.AddEdge(2, 5, 1) == false); // 5号点不存在
+    assert(g.AddEdge(1, 3, 2) == true);
+    assert(g.AddEdge(2, 5, 3) == false); // 5号点不存在
+    assert(g.AddEdge(1, 2, 3) == false);
     assert(g.ContainsEdge(1, 2) == true);
     assert(g.ContainsEdge(2, 5) == false);
+
+    assert(g.GetWeight(1, 2) == 1);
+    assert(g.GetWeight(1, 3) == 2);
+    assert(g.GetWeight(1, 2) == 1);
 
     assert(g.GetVertices().size() == g.CountVertices()); // 4
     assert(g.GetEdges().size() == 2);
