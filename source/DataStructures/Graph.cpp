@@ -5,9 +5,16 @@ Graph::Graph()
     vertices.clear();
     inEdges.clear(); outEdges.clear();
     index.clear(); outdex.clear();
+    vertexNum = 0; edgeNum = 0;
 }
 
-Graph::~Graph(){}
+Graph::~Graph()
+{
+    vertices.clear();
+    inEdges.clear(); outEdges.clear();
+    index.clear(); outdex.clear();
+    vertexNum = 0; edgeNum = 0;
+}
 
 bool Graph::AddVertex(int vertex)
 {
@@ -129,7 +136,7 @@ std::vector<Edge> Graph::GetOutgoingEdges(int vertex) const
 int Graph::GetDegree(int vertex) const
 {
     if (!ContainsVertex(vertex)) return 0;
-    return outdex.at(vertex);
+    return outdex.at(vertex).size();
 }
 
 std::vector<int> Graph::GetNeighbors(int vertex) const
