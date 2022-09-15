@@ -14,8 +14,8 @@
 
 class WeightedGraph : public Graph {
  public:
-  WeightedGraph() {inEdges.clear(); outEdges.clear();}
-  ~WeightedGraph() {inEdges.clear(); outEdges.clear();}
+  WeightedGraph() {Weights.clear();}
+  ~WeightedGraph() {Weights.clear();}
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
