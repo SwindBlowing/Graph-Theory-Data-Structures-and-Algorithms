@@ -9,6 +9,7 @@ class Edge {
    int GetSource() const;
    int GetDestination() const;
    bool operator ==(const Edge &a) const;
+   bool operator <(const Edge &a) const;
   private:
    int source, destination;
  };

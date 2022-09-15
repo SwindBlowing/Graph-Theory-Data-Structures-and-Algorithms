@@ -20,3 +20,8 @@ bool Edge::operator ==(const Edge &a) const
 {
     return this->source == a.source && this->destination == a.destination;
 }
+
+bool Edge::operator <(const Edge &a) const
+{
+    return (this->source == a.source) ? this->source < a.source : this->destination < a.destination;
+}
