@@ -2,6 +2,9 @@
 
 Graph::Graph()
 {
+    vertices.clear();
+    inEdges.clear(); outEdges.clear();
+    index.clear(); outdex.clear();
 }
 
 Graph::~Graph(){}
