@@ -23,7 +23,7 @@ bool Graph::RemoveVertex(int vertex)
     std::vector <Edge> Pause; Pause.clear();
     if (!ContainsVertex(vertex)) return 0;
     vertexNum--;
-    auto it_in = inEdges.find(vertex);
+    auto it_in = inEdges.at(vertex);
     for (auto t = it_in->second.begin(); t != it_in->second.end(); t++)
         Pause.push_back(*t);
     for (auto t = Pause.begin(); t != Pause.end(); t++)
