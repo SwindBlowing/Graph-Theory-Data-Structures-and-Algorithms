@@ -33,11 +33,9 @@ class Graph {
   std::vector<int> GetNeighbors(int vertex) const;
 
  private:
-  //int nexFreePoint[MAXN];
-  int totId = 0;
+  std::set <int> vertices;
   std::map <int, std::vector<Edge>> inEdges, outEdges;
-  std::map <int, int> id;
-  int name[MAXN] = {0}, index[MAXN] = {0}, outdex[MAXN] = {0};
+  std::map <int, int> index, outdex;
   int vertexNum = 0, edgeNum = 0;
 };
 
