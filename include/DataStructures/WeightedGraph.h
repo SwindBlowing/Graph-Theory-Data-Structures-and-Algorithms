@@ -36,7 +36,7 @@ class WeightedGraph : public Graph {
 
  private:
   //std::set <int> vertices;
-  //std::map <int, std::vector<WeightedEdge>> inEdges, outEdges;
+  std::map <int, std::vector<WeightedEdge>> inEdges, outEdges;
   //std::map <int, int> index, outdex;
   //int vertexNum = 0, edgeNum = 0;
 };

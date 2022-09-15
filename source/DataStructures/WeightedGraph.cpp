@@ -2,13 +2,9 @@
 
 bool WeightedGraph::AddVertex(int vertex)
 {
-    if (ContainsVertex(vertex)) return 0;
-    vertices.insert(vertex);
+    if (!Graph::AddVertex(vertex)) return 0;
     inEdges.insert(std::pair<int, std::vector<WeightedEdge>> {vertex, {}});
     outEdges.insert(std::pair<int, std::vector<WeightedEdge>> {vertex, {}});
-    index.insert(std::pair<int, int> {vertex, 0});
-    outdex.insert(std::pair<int, int> {vertex, 0});
-    vertexNum++;
     return 1;
 }
 
