@@ -55,9 +55,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2))
         return 0;
     Edge e = Edge(vertex1, vertex2);
-    auto it1 = id.find(vertex1);
-    auto it2 = id.find(vertex2);
-    auto it_in = inEdges.find(vertex2;
+    auto it_in = inEdges.find(vertex2);
     auto it_out = outEdges.find(vertex1);
     std::vector<Edge>::iterator t;
     t = std::find(it_in->second.begin(), it_in->second.end(), e);
