@@ -17,7 +17,7 @@ class WeightedGraph : public Graph {
   WeightedGraph() {inEdges.clear(); outEdges.clear();}
   ~WeightedGraph() {inEdges.clear(); outEdges.clear();}
  public:
-  bool AddVertex(int vertex);
+  //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
   bool AddEdge(int vertex1, int vertex2, int weight);
   //bool RemoveEdge(int vertex1, int vertex2);
@@ -36,7 +36,7 @@ class WeightedGraph : public Graph {
 
  private:
   //std::set <int> vertices;
-  std::map <int, std::vector<WeightedEdge>> inEdges, outEdges;
+  std::map <Edge, int> Weights;
   //std::map <int, int> index, outdex;
   //int vertexNum = 0, edgeNum = 0;
 };
