@@ -3,7 +3,7 @@
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight)
 {
     if (!Graph::AddEdge(vertex1, vertex2)) return 0;
-    Weights.insert((Edge){vertex1, vertex2}, weight);
+    Weights.insert(std::pair<Edge, int>{(Edge){vertex1, vertex2}, weight});
     return 1;
 }
 
