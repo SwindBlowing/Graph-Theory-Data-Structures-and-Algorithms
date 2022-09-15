@@ -1,5 +1,17 @@
 #include <DataStructures/WeightedGraph.h>
 
+bool WeightedGraph::AddVertex(int vertex)
+{
+    if (ContainsVertex(vertex)) return 0;
+    vertices.insert(vertex);
+    inEdges.insert(std::pair<int, std::vector<WeightedEdge>> {vertex, {}});
+    outEdges.insert(std::pair<int, std::vector<WeightedEdge>> {vertex, {}});
+    index.insert(std::pair<int, int> {vertex, 0});
+    outdex.insert(std::pair<int, int> {vertex, 0});
+    vertexNum++;
+    return 1;
+}
+
 bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight)
 {
     if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || ContainsEdge(vertex1, vertex2))
