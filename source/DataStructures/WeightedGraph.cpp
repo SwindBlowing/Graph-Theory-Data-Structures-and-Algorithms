@@ -28,3 +28,23 @@ int WeightedGraph::GetWeight(int vertex1, int vertex2) const
     if (t == it_out.end()) return 0;
     return t->GetWeight();
 }
+
+std::vector<WeightedEdge> WeightedEdge::GetEdges() const {
+    std::vector <WeightedEdge> edges; edges.clear();
+    for (auto it = vertices.begin(); it != vertices.end(); it++) {
+        auto t = outEdges.find(*it);
+        for (auto now = t->second.begin(); now != t->second.end(); now++)
+            edges.push_back(*now);
+    }
+    return edges;
+}
+
+std::vector<WeightedEdge> WeightedEdge::GetIncomingEdges(int vertex) const {
+    if (!ContainsVertex(vertex)) return {};
+    return inEdges.at(vertex);
+}
+
+std::vector<WeightedEdge> WeightedEdge::GetOutgoingEdges(int vertex) const {
+    if (!ContainsVertex(vertex)) return {};
+    return outEdges.at(vertex);
+}
