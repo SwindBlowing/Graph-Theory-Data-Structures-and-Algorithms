@@ -19,9 +19,9 @@ int main()
     assert(g.ContainsVertex(4) == false);
     assert(g.RemoveVertex(5) == false);
 
-    assert(g.AddEdge(1, 2) == true);
-    assert(g.AddEdge(1, 3) == true);
-    assert(g.AddEdge(2, 5) == false); // 5号点不存在
+    assert(g.AddEdge(1, 2, 1) == true);
+    assert(g.AddEdge(1, 3, 1) == true);
+    assert(g.AddEdge(2, 5, 1) == false); // 5号点不存在
     /*assert(g.ContainsEdge(1, 2) == true);
     assert(g.ContainsEdge(2, 5) == false);
 
