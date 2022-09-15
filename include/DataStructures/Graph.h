@@ -32,7 +32,7 @@ class Graph {
   int GetDegree(int vertex) const;
   std::vector<int> GetNeighbors(int vertex) const;
 
- private:
+ protected:
   std::set <int> vertices;
   std::map <int, std::vector<Edge>> inEdges, outEdges;
   std::map <int, int> index, outdex;
