@@ -26,7 +26,7 @@ std::vector<WeightedEdge> WeightedGraph::GetEdges() const
 std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const 
 {
     std::vector <WeightedEdge> wedges; wedges.clear();
-    std::vector <Edge> edges = Graph::GetIncomingEdges(int vertex);
+    std::vector <Edge> edges = Graph::GetIncomingEdges(vertex);
     for (auto t = edges.begin(); t != edges.end(); t++)
         wedges.push_back((WeightedEdge){t->GetSource(), t->GetDestination(), Weights.at(*t)});
     return wedges;
@@ -35,7 +35,7 @@ std::vector<WeightedEdge> WeightedGraph::GetIncomingEdges(int vertex) const
 std::vector<WeightedEdge> WeightedGraph::GetOutgoingEdges(int vertex) const 
 {
     std::vector <WeightedEdge> wedges; wedges.clear();
-    std::vector <Edge> edges = Graph::GetOutgoingEdges(int vertex);
+    std::vector <Edge> edges = Graph::GetOutgoingEdges(vertex);
     for (auto t = edges.begin(); t != edges.end(); t++)
         wedges.push_back((WeightedEdge){t->GetSource(), t->GetDestination(), Weights.at(*t)});
     return wedges;
