@@ -43,8 +43,8 @@ bool Graph::AddEdge(int vertex1, int vertex2)
     if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || ContainsEdge(vertex1, vertex2))
         return 0;
     Edge e = Edge(vertex1, vertex2);
-    auto it_in = inEdges.at(vertex2);
-    auto it_out = outEdges.at(vertex1);
+    std::vector<Edges>::iterator it_in = inEdges.at(vertex2);
+    std::vector<Edges>::iterator it_out = outEdges.at(vertex1);
     it_in.push_back(e);
     it_out.push_back(e);
     outdex[vertex1]++; index[vertex2]++;
