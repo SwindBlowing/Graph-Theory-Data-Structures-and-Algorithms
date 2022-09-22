@@ -35,6 +35,11 @@ int main()
     assert(g.GetNeighbors(1).size() == 2); // {2, 3}
     assert(g.GetNeighbors(2).size() == 1);
 
+    assert(g.AddEdge(1, 1) == true);
+    assert(g.AddEdge(1, 1) == false);
+    assert(g.CountEdges() == 3);
+    assert(g.GetDegree(1) == 4);
+
     assert(g.RemoveEdge(1, 2) == true);
     assert(g.ContainsEdge(2, 1) == false);
 }
