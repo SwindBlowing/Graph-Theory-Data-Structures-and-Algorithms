@@ -14,8 +14,8 @@
 
 class UndirectedGraph : public Graph {
  public:
-  UndirectedGraph() {};
-  ~UndirectedGraph() {};
+  UndirectedGraph() {selfLoop.clear();}
+  ~UndirectedGraph() {selfLoop.clear();}
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
