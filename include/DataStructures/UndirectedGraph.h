@@ -12,22 +12,22 @@
 #include <DataStructures/Edge.h>
 #define MAXN 1005
 
-class UndirectedGraph : virtual public Graph {
+class UndirectedGraph : public Graph {
  public:
   UndirectedGraph() {};
   ~UndirectedGraph() {};
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2) override;
-  bool RemoveEdge(int vertex1, int vertex2) override;
+  virtual bool AddEdge(int vertex1, int vertex2) override;
+  virtual bool RemoveEdge(int vertex1, int vertex2) override;
  public:
   //int CountVertices() const;
-  int CountEdges() const override;
+  virtual int CountEdges() const override;
   //bool ContainsVertex(int vertex) const;
   //bool ContainsEdge(int vertex1, int vertex2) const;
   //std::vector<int> GetVertices() const;
-  std::vector<Edge> GetEdges() const override;
+  virtual std::vector<Edge> GetEdges() const override;
   //std::vector<Edge> GetIncomingEdges(int vertex) const;
   //std::vector<Edge> GetOutgoingEdges(int vertex) const;
   //int GetDegree(int vertex) const;
