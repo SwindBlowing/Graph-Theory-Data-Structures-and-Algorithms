@@ -34,4 +34,6 @@ class UndirectedGraph : virtual public Graph {
   //std::vector<int> GetNeighbors(int vertex) const;
  private:
   std::map <Edge, int> visited;
-}
+};
+
+#endif
