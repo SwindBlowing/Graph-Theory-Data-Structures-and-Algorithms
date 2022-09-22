@@ -29,5 +29,6 @@ std::vector<Edge> UndirectedGraph::GetEdges() const
             visited[*t] = 1;
             edges.push_back(*t);
         }
+        else visited[*t] = 0;
     return edges;
 }
