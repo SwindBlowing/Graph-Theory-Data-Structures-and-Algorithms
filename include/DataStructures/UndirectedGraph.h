@@ -30,7 +30,7 @@ class UndirectedGraph : public Graph {
   //std::vector<Edge> GetEdges() const;
   //std::vector<Edge> GetIncomingEdges(int vertex) const;
   //std::vector<Edge> GetOutgoingEdges(int vertex) const;
-  int GetDegree(int vertex) const;
+  int GetDegree(int vertex) const override;
   //std::vector<int> GetNeighbors(int vertex) const;
  private:
   std::map <int, int> selfLoop;
