@@ -19,7 +19,7 @@ class UndirectedGraph : public Graph {
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2) override;
+  ///bool AddEdge(int vertex1, int vertex2) override;
   ///bool RemoveEdge(int vertex1, int vertex2) override;
  public:
   //int CountVertices() const;

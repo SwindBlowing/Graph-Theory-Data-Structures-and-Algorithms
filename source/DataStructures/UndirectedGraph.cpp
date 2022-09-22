@@ -1,6 +1,6 @@
 #include <DataStructures/UndirectedGraph.h>
 
-bool UndirectedGraph::AddEdge(int vertex1, int vertex2) 
+/*bool UndirectedGraph::AddEdge(int vertex1, int vertex2) 
 {
     //if (!Graph::AddEdge(vertex1, vertex2)) return 0;
     //if (vertex2 != vertex1) Graph::AddEdge(vertex2, vertex1);
