@@ -23,5 +23,8 @@ int UndirectedGraph::CountEdges() const
 
 int UndirectedGraph::GetDegree(int vertex) const
 {
-    return Graph::GetDegree(vertex) + selfLoop[vertex];
+    int now = Graph::GetDegree(vertex);
+    if (!now) return 0;
+    else if (selfLoop.find(vertex) == selfLoop.end()) return now;
+    else return now + selfLoop.at(vertex);
 }
