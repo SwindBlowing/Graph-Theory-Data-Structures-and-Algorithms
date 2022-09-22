@@ -3,32 +3,25 @@
 bool UndirectedGraph::AddEdge(int vertex1, int vertex2) 
 {
     if (!Graph::AddEdge(vertex1, vertex2)) return 0;
-    Graph::AddEdge(vertex2, vertex1);
+    if (vertex2 != vertex1) Graph::AddEdge(vertex2, vertex1);
+    else selfLoop[vertex1]++;
     return 1;
 }
 
 bool UndirectedGraph::RemoveEdge(int vertex1, int vertex2) 
 {
     if (!Graph::RemoveEdge(vertex1, vertex2)) return 0;
-    Graph::RemoveEdge(vertex2, vertex1);
+    if (vertex2 != vertex1) Graph::RemoveEdge(vertex2, vertex1);
+    else selfLoop[vertex1]--;
     return 1;
 }
 
 int UndirectedGraph::CountEdges() const 
 {
-    return Graph::CountEdges() / 2;
+    return (Graph::CountEdges() + selfLoopNum) / 2;
 }
 
-std::vector<Edge> UndirectedGraph::GetEdges() const 
+int UndirectedGraph::GetDegree(int vertex) const
 {
-    visited.clear();
-    std::vector <Edge> now = Graph::GetEdges();
-    std::vector <Edge> edges; edges.clear();
-    for (auto t = now.begin(); t != now.end(); t++)
-        if (!visited[*t]) {
-            visited[*t] = 1;
-            edges.push_back(*t);
-        }
-        else visited[*t] = 0;
-    return edges;
+    return Graph::GetDegree(vertex) + selfLoop[vertex];
 }

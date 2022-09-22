@@ -19,21 +19,22 @@ class UndirectedGraph : public Graph {
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  virtual bool AddEdge(int vertex1, int vertex2) override;
-  virtual bool RemoveEdge(int vertex1, int vertex2) override;
+  bool AddEdge(int vertex1, int vertex2) override;
+  bool RemoveEdge(int vertex1, int vertex2) override;
  public:
   //int CountVertices() const;
-  virtual int CountEdges() const override;
+  int CountEdges() const override;
   //bool ContainsVertex(int vertex) const;
   //bool ContainsEdge(int vertex1, int vertex2) const;
   //std::vector<int> GetVertices() const;
-  virtual std::vector<Edge> GetEdges() const override;
+  //std::vector<Edge> GetEdges() const;
   //std::vector<Edge> GetIncomingEdges(int vertex) const;
   //std::vector<Edge> GetOutgoingEdges(int vertex) const;
-  //int GetDegree(int vertex) const;
+  int GetDegree(int vertex) const;
   //std::vector<int> GetNeighbors(int vertex) const;
  private:
-  std::map <Edge, int> visited;
+  std::map <int, int> selfLoop;
+  int selfLoopNum = 0;
 };
 
 #endif

@@ -18,11 +18,11 @@ class Graph {
  public:
   bool AddVertex(int vertex);
   bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2);
-  bool RemoveEdge(int vertex1, int vertex2);
+  virtual bool AddEdge(int vertex1, int vertex2);
+  virtual bool RemoveEdge(int vertex1, int vertex2);
  public:
   int CountVertices() const;
-  int CountEdges() const;
+  virtual int CountEdges() const;
   bool ContainsVertex(int vertex) const;
   bool ContainsEdge(int vertex1, int vertex2) const;
   std::vector<int> GetVertices() const;
