@@ -3,6 +3,7 @@
 #include <DataStructures/WeightedEdge.h>
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedGraph.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 #include <assert.h>
 #include <iostream>
 
