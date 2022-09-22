@@ -12,7 +12,7 @@
 #include <DataStructures/Edge.h>
 #define MAXN 1005
 
-class UndirectedGraph : public Graph {
+class UndirectedGraph : virtual public Graph {
  public:
   UndirectedGraph() {};
   ~UndirectedGraph() {};
