@@ -9,7 +9,7 @@
 
 int main()
 {
-    UndirectedGraph g; // 创建一张新的图
+    UndirectedWeightedGraph g; // 创建一张新的图
 
     assert(g.AddVertex(1) == true);
     assert(g.AddVertex(2) == true);
@@ -21,10 +21,10 @@ int main()
     assert(g.ContainsVertex(4) == false);
     assert(g.RemoveVertex(5) == false);
 
-    assert(g.AddEdge(1, 2) == true);
-    assert(g.AddEdge(1, 3) == true);
-    assert(g.AddEdge(2, 5) == false); // 5号点不存在
-    assert(g.AddEdge(1, 2) == false);
+    assert(g.AddEdge(1, 2, 1) == true);
+    assert(g.AddEdge(1, 3, 2) == true);
+    assert(g.AddEdge(2, 5, 1) == false); // 5号点不存在
+    assert(g.AddEdge(1, 2, 3) == false);
     assert(g.ContainsEdge(2, 1) == true);
     assert(g.ContainsEdge(2, 5) == false);
 
@@ -36,8 +36,8 @@ int main()
     assert(g.GetNeighbors(1).size() == 2); // {2, 3}
     assert(g.GetNeighbors(2).size() == 1);
 
-    assert(g.AddEdge(1, 1) == true);
-    assert(g.AddEdge(1, 1) == false);
+    assert(g.AddEdge(1, 1, 2) == true);
+    assert(g.AddEdge(1, 1, 3) == false);
     assert(g.CountEdges() == 3);
     assert(g.GetDegree(1) == 4);
 
