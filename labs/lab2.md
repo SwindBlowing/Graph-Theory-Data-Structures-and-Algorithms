@@ -3,8 +3,8 @@
 本次实验我们需要实现`WeightedGraph`类表示有权图。你需要完成以下任务：
 
 1. 创建`include/DataStructures/WeightedEdge.h`和`include/DataStructures/WeightedGraph.h`头文件
-2. 在`WeightedEdge.h`中定义`WeightedEdge`类并实现各种接口
-3. 在`WeightedGraph.h`中定义`WeightedGraph`类并实现各种接口
+2. 在`WeightedEdge.h`中定义`WeightedEdge`类，并在`source/DataStructures`中创建对应cpp文件，实现各种接口
+3. 在`WeightedGraph.h`中定义`WeightedGraph`类，并在`source/DataStructures`中创建对应cpp文件，实现各种接口
 
 ## Step 1 - 实现`WeightedEdge`
 
@@ -34,9 +34,9 @@
 - `int CountEdges() const`
 - `bool ContainsVertex(int vertex) const`
 - `bool ContainsEdge(int vertex1, int vertex2) const`
-- `int GetWeight(int vertex1, int vertex2) const`：查询`v1`指向`v2`的边的权重，如果这条边不存在则属于UB
+- `int GetWeight(int vertex1, int vertex2) const`：查询`v1`指向`v2`的边的权重，如果这条边不存在则属于UB（未定义行为），你可返回任意值
 - `std::vector<int> GetVertices() const`
-- `std::vector<WeightedEdge> GetEdges() const`
+- `std::vector<WeightedEdge> GetEdges() const
 - `std::vector<WeightedEdge> GetIncomingEdges(int vertex) const`
 - `std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const`
 - `int GetDegree(int vertex) const`
@@ -44,6 +44,6 @@
 
 提示：
 
-1. 除构造函数、析构函数外，有十五个接口，其中有十三个的含义是和无权重有向图`Graph`完全一致的
+1. 除构造函数、析构函数外，有十五个接口，其中有十三个的含义是和无权重有向图`Graph`完全一致的。因此若你操作恰当，在继承`Graph`类后，仅可重写少量函数，添加较少代码即可完成。
 2. 这十三个接口中，有3个接口，其返回类型与`Graph`不一致
 3. 请注意务必在`WeightedGraph.h`中引入（include）`WeightedEdge.h`文件，否则在正式评测中可能会发生错误
