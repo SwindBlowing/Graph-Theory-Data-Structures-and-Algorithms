@@ -29,7 +29,7 @@ class Graph {
   std::vector<Edge> GetEdges() const;
   std::vector<Edge> GetIncomingEdges(int vertex) const;
   std::vector<Edge> GetOutgoingEdges(int vertex) const;
-  int GetDegree(int vertex) const;
+  virtual int GetDegree(int vertex) const;
   std::vector<int> GetNeighbors(int vertex) const;
 
  private:
