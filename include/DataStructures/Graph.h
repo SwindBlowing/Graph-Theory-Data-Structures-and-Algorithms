@@ -18,7 +18,7 @@ class Graph {
  public:
   bool AddVertex(int vertex);
   bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2);
+  virtual bool AddEdge(int vertex1, int vertex2);
   virtual bool RemoveEdge(int vertex1, int vertex2);
  public:
   int CountVertices() const;
