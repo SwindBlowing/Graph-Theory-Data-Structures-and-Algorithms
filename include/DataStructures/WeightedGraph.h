@@ -19,7 +19,7 @@ class WeightedGraph : public Graph {
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2, int weight);
+  virtual bool AddEdge(int vertex1, int vertex2, int weight);
   //bool RemoveEdge(int vertex1, int vertex2);
  public:
   //int CountVertices() const;
