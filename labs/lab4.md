@@ -4,24 +4,14 @@
 
 现实生活中的图可能具有各种类型的权重（比如说地图用实数表示距离，自动机用字符串表示转移），我们需要支持各种各样的权重。
 
+例如：
 ```c++
 template <typename T>
 class WeightedEdge {
     // ......
 };
-
-template <typename T>
-class WeightedGraph : public Generic<WeightedEdge<T>> {
-    // ......
-};
-
-
-template <typename T>
-class WeightedGraph {
-    private:
-        map<int, vector<WeightedEdge<T>>> edges; // 根据具体的类型创建不同的邻接表
-};
 ```
+所涉及的带权图，都需要使用模板类型。
 
 ## Step 2 - 提交代码进行测试
 
