@@ -12,6 +12,7 @@
 #include <DataStructures/Graph.h>
 #define MAXN 1005
 
+template <typename T>
 class WeightedGraph : public Graph {
  public:
   WeightedGraph() {Weights.clear();}
@@ -19,7 +20,7 @@ class WeightedGraph : public Graph {
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  virtual bool AddEdge(int vertex1, int vertex2, int weight);
+  virtual bool AddEdge(int vertex1, int vertex2, T weight);
   //bool RemoveEdge(int vertex1, int vertex2);
  public:
   //int CountVertices() const;
@@ -36,7 +37,7 @@ class WeightedGraph : public Graph {
 
  private:
   //std::set <int> vertices;
-  std::map <Edge, int> Weights;
+  std::map <Edge, T> Weights;
   //std::map <int, int> index, outdex;
   //int vertexNum = 0, edgeNum = 0;
 };

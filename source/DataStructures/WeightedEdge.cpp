@@ -1,5 +1,5 @@
 #include <DataStructures/WeightedEdge.h>
 
-int WeightedEdge::GetWeight() const {
+T WeightedEdge::GetWeight() const {
     return weight;
 }
