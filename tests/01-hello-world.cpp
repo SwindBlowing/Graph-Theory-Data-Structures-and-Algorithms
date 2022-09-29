@@ -9,7 +9,7 @@
 
 int main()
 {
-    UndirectedWeightedGraph g; // 创建一张新的图
+    UndirectedWeightedGraph<int> g; // 创建一张新的图
 
     assert(g.AddVertex(1) == true);
     assert(g.AddVertex(2) == true);
