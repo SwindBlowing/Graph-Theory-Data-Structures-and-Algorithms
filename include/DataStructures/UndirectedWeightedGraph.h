@@ -12,6 +12,7 @@
 #include <DataStructures/WeightedEdge.h>
 #define MAXN 1005
 
+template <typename T>
 class UndirectedWeightedGraph : public WeightedGraph {
  public:
   UndirectedWeightedGraph() {selfLoop.clear();}
