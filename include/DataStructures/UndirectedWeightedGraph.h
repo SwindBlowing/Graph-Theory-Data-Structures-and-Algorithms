@@ -19,7 +19,7 @@ class UndirectedWeightedGraph : public WeightedGraph {
  public:
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
-  bool AddEdge(int vertex1, int vertex2, int weight) override;
+  bool AddEdge(int vertex1, int vertex2, T weight) override;
   bool RemoveEdge(int vertex1, int vertex2) override;
  public:
   //int CountVertices() const;

@@ -1,13 +1,15 @@
 #include <DataStructures/WeightedGraph.h>
 
-bool WeightedGraph::AddEdge(int vertex1, int vertex2, int weight)
+template <typename T>
+bool WeightedGraph::AddEdge(int vertex1, int vertex2, T weight)
 {
     if (!Graph::AddEdge(vertex1, vertex2)) return 0;
     Weights.insert(std::pair<Edge, int>{(Edge){vertex1, vertex2}, weight});
     return 1;
 }
 
-int WeightedGraph::GetWeight(int vertex1, int vertex2) const
+template <typename T>
+T WeightedGraph::GetWeight(int vertex1, int vertex2) const
 {
     if (!ContainsVertex(vertex1) || !ContainsVertex(vertex2) || !ContainsEdge(vertex1, vertex2))
         return 0;

@@ -1,6 +1,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, int weight) 
+template <typename T>
+bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, T weight) 
 {
     if (!WeightedGraph::AddEdge(vertex1, vertex2, weight)) return 0;
     if (vertex2 != vertex1) WeightedGraph::AddEdge(vertex2, vertex1, weight);
