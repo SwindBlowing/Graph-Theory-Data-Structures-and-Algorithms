@@ -1,30 +1,33 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 
 template <typename T>
-bool UndirectedWeightedGraph::AddEdge(int vertex1, int vertex2, T weight) 
+bool UndirectedWeightedGraph<T>::AddEdge(int vertex1, int vertex2, T weight) 
 {
-    if (!WeightedGraph::AddEdge(vertex1, vertex2, weight)) return 0;
-    if (vertex2 != vertex1) WeightedGraph::AddEdge(vertex2, vertex1, weight);
+    if (!WeightedGraph<T>::AddEdge(vertex1, vertex2, weight)) return 0;
+    if (vertex2 != vertex1) WeightedGraph<T>::AddEdge(vertex2, vertex1, weight);
     else selfLoop[vertex1]++, selfLoopNum++;
     return 1;
 }
 
-bool UndirectedWeightedGraph::RemoveEdge(int vertex1, int vertex2) 
+template <typename T>
+bool UndirectedWeightedGraph<T>::RemoveEdge(int vertex1, int vertex2) 
 {
-    if (!WeightedGraph::RemoveEdge(vertex1, vertex2)) return 0;
-    if (vertex2 != vertex1) WeightedGraph::RemoveEdge(vertex2, vertex1);
+    if (!WeightedGraph<T>::RemoveEdge(vertex1, vertex2)) return 0;
+    if (vertex2 != vertex1) WeightedGraph<T>::RemoveEdge(vertex2, vertex1);
     else selfLoop[vertex1]--, selfLoopNum--;
     return 1;
 }
 
-int UndirectedWeightedGraph::CountEdges() const 
+template <typename T>
+int UndirectedWeightedGraph<T>::CountEdges() const 
 {
-    return (WeightedGraph::CountEdges() + selfLoopNum) / 2;
+    return (WeightedGraph<T>::CountEdges() + selfLoopNum) / 2;
 }
 
-int UndirectedWeightedGraph::GetDegree(int vertex) const
+template <typename T>
+int UndirectedWeightedGraph<T>::GetDegree(int vertex) const
 {
-    int now = WeightedGraph::GetDegree(vertex);
+    int now = WeightedGraph<T>::GetDegree(vertex);
     if (!now) return 0;
     else if (selfLoop.find(vertex) == selfLoop.end()) return now;
     else return now + selfLoop.at(vertex);
