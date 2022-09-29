@@ -29,9 +29,9 @@ class WeightedGraph : public Graph {
   //bool ContainsEdge(int vertex1, int vertex2) const;
   T GetWeight(int vertex1, int vertex2) const;
   //std::vector<int> GetVertices() const;
-  std::vector<WeightedEdge> GetEdges() const;
-  std::vector<WeightedEdge> GetIncomingEdges(int vertex) const;
-  std::vector<WeightedEdge> GetOutgoingEdges(int vertex) const;
+  std::vector<WeightedEdge<T>> GetEdges() const;
+  std::vector<WeightedEdge<T>> GetIncomingEdges(int vertex) const;
+  std::vector<WeightedEdge<T>> GetOutgoingEdges(int vertex) const;
   //int GetDegree(int vertex) const;
   //std::vector<int> GetNeighbors(int vertex) const;
 
