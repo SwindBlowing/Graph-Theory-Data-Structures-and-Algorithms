@@ -14,4 +14,9 @@ class WeightedEdge : public Edge{
    T weight;
  };
 
+template <typename T>
+T WeightedEdge<T>::GetWeight() const {
+    return weight;
+}
+
 #endif
