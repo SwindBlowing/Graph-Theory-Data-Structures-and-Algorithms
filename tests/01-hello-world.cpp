@@ -4,14 +4,6 @@
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
-
-#include <DataStructures/Edge.cpp>
-#include <DataStructures/Graph.cpp>
-#include <DataStructures/WeightedEdge.cpp>
-#include <DataStructures/WeightedGraph.cpp>
-#include <DataStructures/UndirectedGraph.cpp>
-#include <DataStructures/UndirectedWeightedGraph.cpp>
-
 #include <assert.h>
 #include <iostream>
 
