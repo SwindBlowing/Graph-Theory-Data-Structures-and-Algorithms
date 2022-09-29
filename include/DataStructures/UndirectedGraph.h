@@ -37,6 +37,4 @@ class UndirectedGraph : public Graph {
   int selfLoopNum = 0;
 };
 
-#include <source/DataStructures/UndirectedGraph.cpp>
-
 #endif
