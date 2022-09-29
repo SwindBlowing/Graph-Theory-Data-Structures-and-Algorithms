@@ -1,6 +1,6 @@
 #include <DataStructures/WeightedGraph.h>
 
-template <typename T>
+/*template <typename T>
 bool WeightedGraph<T>::AddEdge(int vertex1, int vertex2, T weight)
 {
     if (!Graph::AddEdge(vertex1, vertex2)) return 0;
@@ -44,4 +44,4 @@ std::vector<WeightedEdge<T>> WeightedGraph<T>::GetOutgoingEdges(int vertex) cons
     for (auto t = edges.begin(); t != edges.end(); t++)
         wedges.push_back((WeightedEdge<T>){t->GetSource(), t->GetDestination(), Weights.at(*t)});
     return wedges;
-}
+}*/

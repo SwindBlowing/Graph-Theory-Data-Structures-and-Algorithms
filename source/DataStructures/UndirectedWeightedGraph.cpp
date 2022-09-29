@@ -1,6 +1,6 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 
-template <typename T>
+/*template <typename T>
 bool UndirectedWeightedGraph<T>::AddEdge(int vertex1, int vertex2, T weight) 
 {
     if (!WeightedGraph<T>::AddEdge(vertex1, vertex2, weight)) return 0;
@@ -31,4 +31,4 @@ int UndirectedWeightedGraph<T>::GetDegree(int vertex) const
     if (!now) return 0;
     else if (selfLoop.find(vertex) == selfLoop.end()) return now;
     else return now + selfLoop.at(vertex);
-}
+}*/
