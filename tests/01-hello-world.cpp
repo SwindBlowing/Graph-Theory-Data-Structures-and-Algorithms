@@ -25,7 +25,7 @@ int main()
     assert(g.AddEdge(1, 3, 2) == true);
 
 	DepthFirstSearcher<UndirectedWeightedGraph<int>> dfs;
-	dfs.VisitAllVertices(g, 1, sum);
+	dfs.VisitAllVertices(&g, 1, sum);
 
 	return ;
 }
