@@ -4,8 +4,8 @@
 template <typename TGraph>
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
-	this->graph = graph;
-	this->action = action;
+	Graph = graph;
+	Action = action;
 
 	memset(vis, 0, sizeof(vis));
 }

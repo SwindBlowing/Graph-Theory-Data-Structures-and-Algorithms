@@ -13,9 +13,9 @@ class DepthFirstSearcher {
 
  private:
   bool vis[MAXN];
-  TGraph *graph;
-  std::function<void(int)> action;
-  std::function<bool(int)> predicate;
+  TGraph *Graph = NULL;
+  std::function<void(int)> Action;
+  std::function<bool(int)> Predicate;
 };
 
 #endif
