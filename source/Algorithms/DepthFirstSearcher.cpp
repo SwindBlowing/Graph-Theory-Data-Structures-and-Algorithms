@@ -2,7 +2,7 @@
 #include <string.h>
 
 template <typename TGraph>
-void dfs(const TGraph *graph, int x, std::function<void(int)> action)
+void DepthFirstSearcher<TGraph>::dfs(const TGraph *graph, int x, std::function<void(int)> action)
 {
 	if (vis[x]) return ;
 	vis[x] = 1;
