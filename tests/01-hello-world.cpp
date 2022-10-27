@@ -13,6 +13,12 @@ void sum(int x)
 	return ;
 }
 
+bool check(int x)
+{
+	if (x == 2) return 1;
+	return 0;
+}
+
 int main()
 {
     UndirectedWeightedGraph<int> g; // 创建一张新的图
@@ -26,6 +32,7 @@ int main()
 
 	DepthFirstSearcher<UndirectedWeightedGraph<int>> dfs;
 	dfs.VisitAllVertices(&g, 1, sum);
+	printf("%d", dfs.FindFirstVertex(&g, 1, check));
 
 	return 0;
 }
