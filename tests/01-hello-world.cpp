@@ -27,5 +27,5 @@ int main()
 	DepthFirstSearcher<UndirectedWeightedGraph<int>> dfs;
 	dfs.VisitAllVertices(&g, 1, sum);
 
-	return ;
+	return 0;
 }
