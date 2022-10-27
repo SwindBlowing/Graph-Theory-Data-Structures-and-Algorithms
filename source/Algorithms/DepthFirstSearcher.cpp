@@ -4,7 +4,11 @@
 template <typename TGraph>
 void dfs(const TGraph *graph, int x, std::function<void(int)> action)
 {
-
+	if (vis[x]) return ;
+	vis[x] = 1;
+	action(x);
+	for (int i =0; i < graph->outedges[x].size(); i++) 
+		dfs(graph, graph->outedges[x][i].destination, action);
 }
 
 template <typename TGraph>
