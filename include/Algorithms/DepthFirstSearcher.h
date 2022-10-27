@@ -17,7 +17,7 @@ class DepthFirstSearcher {
 
  private:
   static std::map<int, int> vis;
-  static const TGraph *Graph = NULL;
+  static TGraph *Graph;
   static std::function<void(int)> Action;
   static std::function<bool(int)> Predicate;
 };
