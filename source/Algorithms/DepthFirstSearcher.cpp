@@ -1,4 +1,5 @@
 #include <Algorithms/DepthFirstSearcher.h>
+#include <string.h>
 
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
