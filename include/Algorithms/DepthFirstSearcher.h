@@ -12,10 +12,14 @@ class DepthFirstSearcher {
   static std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate);
 
  private:
-  static void dfs(const TGraph *graph, int x, std::function<void(int)> action);
+  static void dfsVisit(int x);
+  static std::optional<int> dfsFind(int x);
 
  private:
   static bool vis[MAXN];
+  static const TGraph *Graph = NULL;
+  static std::function<void(int)> Action;
+  static std::function<bool(int)> predicate;
 };
 
 #endif
