@@ -27,7 +27,7 @@ std::optional<int> DepthFirstSearcher<TGraph>::dfsFind(int x)
 }
 
 template <typename TGraph>
-void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
+static void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
 	vis.clear();
 	Graph = graph;
