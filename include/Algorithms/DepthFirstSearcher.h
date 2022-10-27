@@ -13,6 +13,9 @@ class DepthFirstSearcher {
 
  private:
   bool vis[MAXN];
+  TGraph *graph;
+  std::function<void(int)> action;
+  std::function<bool(int)> predicate;
 };
 
 #endif
