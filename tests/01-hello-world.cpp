@@ -32,7 +32,7 @@ int main()
 
 	DepthFirstSearcher<UndirectedWeightedGraph<int>> dfs;
 	dfs.VisitAllVertices(&g, 1, sum);
-	printf("%d", dfs.FindFirstVertex(&g, 1, check));
+	printf("%d", dfs.FindFirstVertex(&g, 1, check).value());
 
 	return 0;
 }
