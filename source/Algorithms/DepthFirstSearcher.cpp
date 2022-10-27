@@ -1,9 +1,8 @@
 #include <Algorithms/DepthFirstSearcher.h>
 
-template <typename TGraph>
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
-
+	memset(vis, 0, sizeof(vis));
 }
 
 template <typename TGraph>
