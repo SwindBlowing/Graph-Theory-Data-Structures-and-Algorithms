@@ -15,7 +15,7 @@ void DepthFirstSearcher<TGraph>::dfsVisit(int x)
 template <typename TGraph>
 std::optional<int> DepthFirstSearcher<TGraph>::dfsFind(int x)
 {
-	if (vis[x]) return ;
+	if (vis[x]) return std::nullopt;
 	vis[x] = 1;
 	if (Predicate(x)) return x;
 	std::optional<int> now = std::nullopt;
