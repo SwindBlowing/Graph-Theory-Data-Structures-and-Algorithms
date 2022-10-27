@@ -19,7 +19,7 @@ class DepthFirstSearcher {
   static bool vis[MAXN];
   static const TGraph *Graph = NULL;
   static std::function<void(int)> Action;
-  static std::function<bool(int)> predicate;
+  static std::function<bool(int)> Predicate;
 };
 
 #endif
