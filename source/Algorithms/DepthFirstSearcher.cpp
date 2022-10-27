@@ -29,7 +29,7 @@ std::optional<int> DepthFirstSearcher<TGraph>::dfsFind(int x)
 template <typename TGraph>
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
-	memset(vis, 0, sizeof(vis));
+	vis.clear();
 	Graph = graph;
 	Action = action;
 	dfsVisit(start);
@@ -39,7 +39,7 @@ void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start
 template <typename TGraph>
 std::optional<int> DepthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
-	memset(vis, 0, sizeof(vis));
+	vis.clear();
 	Graph = graph;
 	Predicate = predicate;
 	return dfsFind(start);

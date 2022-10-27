@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <optional>
-#define MAXN 1005
+#include <map>
 
 template <typename TGraph>
 class DepthFirstSearcher {
@@ -16,7 +16,7 @@ class DepthFirstSearcher {
   static std::optional<int> dfsFind(int x);
 
  private:
-  static bool vis[MAXN];
+  static std::map<int, int> vis;
   static const TGraph *Graph = NULL;
   static std::function<void(int)> Action;
   static std::function<bool(int)> Predicate;
