@@ -61,7 +61,7 @@ std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *g
 		neighbors = graph->GetNeighbors(x);
 		for (int i = 0; i < neighbors.size(); i++) 
 			if (!vis[neighbors[i]]) {
-				vis[neighbors[i].] = 1;
+				vis[neighbors[i]] = 1;
 				Q.push(neighbors[i]);
 			}
 	}
