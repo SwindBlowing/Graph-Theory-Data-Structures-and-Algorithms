@@ -47,7 +47,7 @@ void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int sta
 template <typename TGraph>
 std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
-	if (!graph->ContainsVertex(x)) return std::nullopt;
+	if (!graph->ContainsVertex(start)) return std::nullopt;
 	std::vector <int> neighbors;
 	std::queue<int> Q;
   	std::map<int, bool> vis;
