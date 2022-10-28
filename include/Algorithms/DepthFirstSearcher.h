@@ -21,8 +21,8 @@ public:
 	static std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate);
 
 private:
-	static std::stack<int> S;
-	static std::map<int, int> vis;
+	std::stack<int> S;
+	std::map<int, int> vis;
 };
 
 template <typename TGraph>
