@@ -19,10 +19,6 @@ class DepthFirstSearcher
 public:
 	static void VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action);
 	static std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate);
-
-/*private:
-	std::stack<int> S;
-	std::map<int, int> vis;*/
 };
 
 template <typename TGraph>

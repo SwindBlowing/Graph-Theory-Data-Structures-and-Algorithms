@@ -18,16 +18,14 @@ class BreadthFirstSearcher {
  public:
   static void VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action);
   static std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate);
-
- private:
-  static std::queue<int> Q;
-  static std::map<int, bool> vis;
 };
 
 template <typename TGraph>
 void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
 	std::vector <int> neighbors;
+	std::queue<int> Q;
+  	std::map<int, bool> vis;
 	vis.clear();
 	while (!Q.empty()) Q.pop();
 	Q.push(start); vis[start] = 1;
@@ -50,6 +48,8 @@ template <typename TGraph>
 std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
 	std::vector <int> neighbors;
+	std::queue<int> Q;
+  	std::map<int, bool> vis;
 	vis.clear();
 	while (!Q.empty()) Q.pop();
 	Q.push(start); vis[start] = 1;
