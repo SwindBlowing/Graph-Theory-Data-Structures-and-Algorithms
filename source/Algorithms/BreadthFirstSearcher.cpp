@@ -1,6 +1,6 @@
 #include <Algorithms/BreadthFirstSearcher.h>
 
-template <typename TGraph>
+/*template <typename TGraph>
 void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
 	vis.clear();
@@ -38,4 +38,4 @@ std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *g
 			}
 	}
 	return std::nullopt;
-}
+}*/

@@ -1,7 +1,7 @@
 #include <Algorithms/DepthFirstSearcher.h>
 #include <string.h>
 
-template <typename TGraph>
+/*template <typename TGraph>
 void DepthFirstSearcher<TGraph>::dfsVisit(int x)
 {
 	if (vis[x]) return ;
@@ -43,4 +43,4 @@ std::optional<int> DepthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *gra
 	Graph = graph;
 	Predicate = predicate;
 	return dfsFind(start);
-}
+}*/
