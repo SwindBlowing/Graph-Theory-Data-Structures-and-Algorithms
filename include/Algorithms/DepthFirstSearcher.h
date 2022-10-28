@@ -24,6 +24,7 @@ public:
 template <typename TGraph>
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
+	if (!graph->ContainsVertex(start)) return ;
 	std::vector<int> neighbors;
 	std::stack<int> S;
 	std::map<int, int> vis;

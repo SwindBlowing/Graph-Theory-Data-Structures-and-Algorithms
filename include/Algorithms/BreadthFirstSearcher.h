@@ -23,6 +23,7 @@ class BreadthFirstSearcher {
 template <typename TGraph>
 void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
+	if (!graph->ContainsVertex(start)) return ;
 	std::vector <int> neighbors;
 	std::queue<int> Q;
   	std::map<int, bool> vis;
