@@ -27,6 +27,7 @@ class BreadthFirstSearcher {
 template <typename TGraph>
 void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
+	std::vector <int> neighbors;
 	vis.clear();
 	while (!Q.empty()) Q.pop();
 	Q.push(start); vis[start] = 1;
@@ -35,10 +36,11 @@ void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int sta
 		x = Q.front();
 		Q.pop();
 		action(x);
-		for (int i = 0; i < graph->outedges[x].size(); i++) 
-			if (!vis[graph->outedges[x][i].destination]) {
-				vis[graph->outedges[x][i].destination] = 1;
-				Q.push(graph->outedges[x][i].destination);
+		neighbors = graph->GetNeighbors(x);
+		for (int i = 0; i < neighbors.size(); i++) 
+			if (!vis[neighbors[i]]) {
+				vis[neighbors[i]] = 1;
+				Q.push(neighbors[i]);
 			}
 	}
 	return ;
@@ -47,6 +49,7 @@ void BreadthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int sta
 template <typename TGraph>
 std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
+	std::vector <int> neighbors;
 	vis.clear();
 	while (!Q.empty()) Q.pop();
 	Q.push(start); vis[start] = 1;
@@ -55,10 +58,11 @@ std::optional<int> BreadthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *g
 		x = Q.front();
 		Q.pop();
 		if (predicate(x)) return x;
-		for (int i = 0; i < graph->outedges[x].size(); i++) 
-			if (!vis[graph->outedges[x][i].destination]) {
-				vis[graph->outedges[x][i].destination] = 1;
-				Q.push(graph->outedges[x][i].destination);
+		neighbors = graph->GetNeighbors(x);
+		for (int i = 0; i < neighbors.size(); i++) 
+			if (!vis[neighbors[i]]) {
+				vis[neighbors[i].] = 1;
+				Q.push(neighbors[i]);
 			}
 	}
 	return std::nullopt;
