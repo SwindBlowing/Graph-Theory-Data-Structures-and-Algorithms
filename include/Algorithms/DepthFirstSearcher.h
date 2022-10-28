@@ -20,15 +20,17 @@ public:
 	static void VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action);
 	static std::optional<int> FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate);
 
-private:
+/*private:
 	std::stack<int> S;
-	std::map<int, int> vis;
+	std::map<int, int> vis;*/
 };
 
 template <typename TGraph>
 void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start, std::function<void(int)> action)
 {
 	std::vector<int> neighbors;
+	std::stack<int> S;
+	std::map<int, int> vis;
 	vis.clear();
 	while (!S.empty())
 		S.pop();
@@ -55,6 +57,8 @@ template <typename TGraph>
 std::optional<int> DepthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
 	std::vector<int> neighbors;
+	std::stack<int> S;
+	std::map<int, int> vis;
 	vis.clear();
 	while (!S.empty())
 		S.pop();
