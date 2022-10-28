@@ -52,6 +52,7 @@ void DepthFirstSearcher<TGraph>::VisitAllVertices(const TGraph *graph, int start
 template <typename TGraph>
 std::optional<int> DepthFirstSearcher<TGraph>::FindFirstVertex(const TGraph *graph, int start, std::function<bool(int)> predicate)
 {
+	if (!graph->ContainsVertex(x)) return std::nullopt;
 	std::vector<int> neighbors;
 	std::stack<int> S;
 	std::map<int, int> vis;
