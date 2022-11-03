@@ -24,6 +24,41 @@
 2. （Lazy，不推荐）在构造函数中存储信息，然后每次调用再计算答案，以此方法实现如果进行多次重复运算很可能导致超时。
     - 当然，你也可以在计算完之后，将计算结果都保存下来，下次需要的时候就可以直接返回。
 
+需要注意的是：
+
+- 在测试中，我们拿`ShortestPaths`的基类指针，指向了`DijkstraShortestPaths`类。在调用`HasPathTo`时，若不声明为虚函数，则无法调用`DijkstraShortestPaths`类中重写的函数。但对于模板，是不能声明成虚函数的。也就是说，在现在的框架和测试下调用`HasPathTo`，只能返回`ShortestPaths`的`HasPathTo`。
+
+因此，你需要仔细考虑如何构建。
+
+测试用例：
+```c++
+static void test1() {
+  auto *g = new WeightedGraph<int>();
+  for (int i = 1; i <= 6; ++i) {
+    g->AddVertex(i);
+  }
+  g->AddEdge(1, 2, 1);
+  g->AddEdge(2, 3, 2);
+  g->AddEdge(3, 4, 3);
+  g->AddEdge(4, 1, 4);
+  g->AddEdge(5, 6, 5);
+  g->AddEdge(6, 5, 6);
+
+  ShortestPaths<WeightedGraph, int> *p = nullptr;
+  for (int i = 1; i <= 6; ++i) {
+    p = new DijkstraShortestPaths<WeightedGraph, int>(g, i);
+    for (int j = 1; j <= 6; ++j) {
+      printf("%d", p->HasPathTo(j));
+    }
+    printf("\n");
+    delete p;
+  }
+
+  delete g;
+}
+```
+标准输出请自行比对。
+
 
 以下部分与测试无关。
 
