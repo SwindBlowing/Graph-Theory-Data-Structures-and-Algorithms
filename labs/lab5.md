@@ -9,8 +9,8 @@
 
 这两个类具有两个完全相同的接口：
 
-- `void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并在每个点上调用`action`操作
-- `std::optional<int> FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate)`表示从起点开始按照宽度优先或深度优先的方式遍历所有的点，并找到第一个满足谓词`predicate`的点的编号。由于可能不存在这样的点，所以我们用`std::optional<int>`作为返回值类型，显示表明其可能为空。如果找到了，返回包含这个点编号的optional容器，否则，返回空容器。
+- `void VisitAllVertices(const TGraph *graph, int start, const std::function<void(int)> &action)`表示从起点（start）开始按照宽度优先或深度优先的方式遍历所有可以遍历到的点，并在这些点上调用`action`操作。每个点至多调用一次`action`。
+- `std::optional<int> FindFirstVertex(const TGraph *graph, int start, const std::function<bool(int)> &predicate)`表示从起点（start）开始按照宽度优先或深度优先的方式遍历所有可以遍历到的点，并找到第一个满足谓词`predicate`的点的编号。由于可能不存在这样的点，所以我们用`std::optional<int>`作为返回值类型，显示表明其可能为空。如果找到了，返回包含这个点编号的optional容器，否则，返回空容器。
 - 对于每一个点，先调用它本身的`action`或`predicate`，然后再遍历其他的点
 - 遍历可能从不存在的点开始，对于这种情况，第一个方法什么都不做，第二个方法直接返回空值
 - 特别的，对于有权图，宽度/深度优先的定义和无权图是一致的，**不需要考虑边的权重**，不需要用优先队列
