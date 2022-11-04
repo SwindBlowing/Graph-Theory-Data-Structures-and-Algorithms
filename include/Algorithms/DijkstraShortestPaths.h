@@ -10,7 +10,7 @@ template <template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
   public:
   	typedef void (DijkstraShortestPaths::*pfn)();
-	DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source);
+	DijkstraShortestPaths(const TGraph<TValue> *graph, int source);
 	~DijkstraShortestPaths() override;
   public:
 	bool HasPathTo(int destination) const;
