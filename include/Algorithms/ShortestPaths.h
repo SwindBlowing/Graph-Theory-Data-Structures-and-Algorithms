@@ -4,11 +4,10 @@
 #include <vector>
 #include <optional>
 
-typedef void (ShortestPaths::*pfn)();
-
 template <template<typename> class TGraph, typename TValue>
 class ShortestPaths {
  public:
+  typedef void (ShortestPaths::*pfn)();
   ShortestPaths() = delete;
   ShortestPaths(const TGraph<TValue> *graph, int source);
   virtual ~ShortestPaths();
