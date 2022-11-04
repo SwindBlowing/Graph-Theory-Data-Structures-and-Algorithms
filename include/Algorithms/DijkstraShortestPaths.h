@@ -24,7 +24,7 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 	this->fn_HasPathTo = (pfn)(&DijkstraShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (pfn)(&DijkstraShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (pfn)(&DijkstraShortestPaths::TryGetShortestPathTo);
-	ShortestPaths::ShortestPaths<TGraph, TValue>(graph, source);
+	ShortestPaths::ShortestPaths(graph, source);
 }
 
 template <template<typename> class TGraph, typename TValue>
