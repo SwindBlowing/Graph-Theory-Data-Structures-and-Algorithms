@@ -81,11 +81,13 @@ template <template<typename> class TGraph, typename TValue>
 std::optional<std::vector<int>> DijkstraShortestPaths<TGraph, TValue>::TryGetShortestPathTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
-	std::optional<int> now {destination};
+	std::optional<int> now = destination;
 	std::vector<int> ans; ans.clear();
+	int nowVal = now.value;
 	while (now != std::nullopt) {
-		ans.push_back(now.value);
-		now = preCode.at(now.value);
+		nowVal = now.value;
+		ans.push_back(nowVal);
+		now = preCode.at(nowVal);
 	}
 	return ans;
 }
