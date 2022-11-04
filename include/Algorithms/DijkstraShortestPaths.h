@@ -9,6 +9,9 @@
 template <template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
   public:
+    typedef bool (*fp_Has)(int destination);
+    typedef std::optional<TValue> (*fp_Dis)(int destination);
+    typedef std::optional<std::vector<int>> (*fp_Path)(int destination);
 	DijkstraShortestPaths(const TGraph<TValue> *graph, int source);
 	~DijkstraShortestPaths() override;
   public:
@@ -20,9 +23,9 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
 template <template<typename> class TGraph, typename TValue>
 DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source)
 {
-	this->fn_HasPathTo = (void)(&DijkstraShortestPaths::HasPathTo);
-	this->fn_TryGetDistanceTo = (void)(&DijkstraShortestPaths::TryGetDistanceTo);
-	this->fn_TryGetShortestPathTo = (void)(&DijkstraShortestPaths::TryGetShortestPathTo);
+	this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
+	this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
+	this->fn_TryGetShortestPathTo = (fp_Path)(&DijkstraShortestPaths::TryGetShortestPathTo);
 }
 
 template <template<typename> class TGraph, typename TValue>

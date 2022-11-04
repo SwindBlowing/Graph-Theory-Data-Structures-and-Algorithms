@@ -7,7 +7,9 @@
 template <template<typename> class TGraph, typename TValue>
 class ShortestPaths {
  public:
-  typedef void (ShortestPaths::*pfn)();
+  typedef bool (*fp_Has)(int destination);
+  typedef std::optional<TValue> (*fp_Dis)(int destination);
+  typedef std::optional<std::vector<int>> (*fp_Path)(int destination);
   ShortestPaths() = delete;
   ShortestPaths(const TGraph<TValue> *graph, int source);
   virtual ~ShortestPaths();
@@ -28,7 +30,9 @@ class ShortestPaths {
 	return (this->*fn_TryGetShortestPathTo)(destination);
   }
  public:
-  pfn fn_HasPathTo, fn_TryGetDistanceTo, fn_TryGetShortestPathTo;
+  fp_Has fn_HasPathTo;
+  fp_Dis fn_TryGetDistanceTo;
+  fp_Path fn_TryGetShortestPathTo;
 };
 
 #endif
