@@ -4,7 +4,7 @@
 #include <vector>
 #include <optional>
 
-#include <ShortestPaths.h>
+#include <Algorithms/ShortestPaths.h>
 
 template <template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph<TValue>, TValue> {
