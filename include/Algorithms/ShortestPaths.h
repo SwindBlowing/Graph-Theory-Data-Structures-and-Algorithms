@@ -12,7 +12,7 @@ class ShortestPaths {
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
   ShortestPaths(const TGraph<TValue> *graph, int source);
-  virtual ~ShortestPaths();
+  virtual ~ShortestPaths() {}
  public:
   bool HasPathTo(int destination) const
   {
