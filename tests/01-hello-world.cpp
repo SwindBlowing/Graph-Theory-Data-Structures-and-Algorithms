@@ -46,6 +46,7 @@ static void test1() {
 	std::vector <int> now = p->TryGetShortestPathTo(4).value();
 	for (int i = 0; i < now.size(); i++)
 		printf("%d ", now[i]);
+	printf("\n");
     delete p;
   }
 
