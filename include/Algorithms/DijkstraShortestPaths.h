@@ -9,9 +9,9 @@
 template <template<typename> class TGraph, typename TValue>
 class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
   public:
-    typedef bool (*fp_Has)(int destination) const;
-    typedef std::optional<TValue> (*fp_Dis)(int destination) const;
-    typedef std::optional<std::vector<int>> (*fp_Path)(int destination) const;
+    typedef bool (ShortestPaths<TGraph, TValue>::*fp_Has)(int destination) const;
+    typedef std::optional<TValue> (ShortestPaths<TGraph, TValue>::*fp_Dis)(int destination) const;
+    typedef std::optional<std::vector<int>> (ShortestPaths<TGraph, TValue>::*fp_Path)(int destination) const;
 	DijkstraShortestPaths(const TGraph<TValue> *graph, int source);
 	~DijkstraShortestPaths() override;
   public:
