@@ -38,7 +38,7 @@ static void test1() {
     p = new DijkstraShortestPaths<WeightedGraph, int>(g, i);
     for (int j = 1; j <= 6; ++j) {
 	  if (!p->HasPathTo(j)) printf("%d ", -1);
-	  else printf("%d", p->TryGetDistanceTo(j));
+	  else printf("%d ", p->TryGetDistanceTo(j).value());
     }
     printf("\n");
     delete p;
