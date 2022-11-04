@@ -15,7 +15,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
 	bool HasPathTo(int destination) const;
 	std::optional<TValue> TryGetDistanceTo(int destination) const;
 	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
-}
+};
 
 template <template<typename> class TGraph, typename TValue>
 DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue> *graph, int source)
