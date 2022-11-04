@@ -13,6 +13,7 @@ class ShortestPaths {
   ShortestPaths() = delete;
   ShortestPaths(const TGraph<TValue> *graph, int source) {}
   virtual ~ShortestPaths() {}
+  
  public:
   bool HasPathTo(int destination) const
   {
@@ -29,10 +30,12 @@ class ShortestPaths {
 	assert(fn_TryGetShortestPathTo != NULL);
 	return (this->*fn_TryGetShortestPathTo)(destination);
   }
+
  protected:
   fp_Has fn_HasPathTo;
   fp_Dis fn_TryGetDistanceTo;
   fp_Path fn_TryGetShortestPathTo;
+
 };
 
 #endif
