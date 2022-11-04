@@ -5,6 +5,8 @@
 #include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <Algorithms/DepthFirstSearcher.h>
+#include <Algorithms/ShortestPaths.h>
+#include <Algorithms/DijkstraShortestPaths.h>
 #include <assert.h>
 #include <iostream>
 
