@@ -37,18 +37,21 @@ DijkstraShortestPaths<TGraph, TValue>::~DijkstraShortestPaths()
 template <template<typename> class TGraph, typename TValue>
 bool DijkstraShortestPaths<TGraph, TValue>::HasPathTo(int destination) const
 {
+	printf("arrived1!\n");
 	return 1;
 }
 
 template <template<typename> class TGraph, typename TValue>
 std::optional<TValue> DijkstraShortestPaths<TGraph, TValue>::TryGetDistanceTo(int destination) const
 {
+	printf("arrived2!\n");
 	return std::nullopt;
 }
 
 template <template<typename> class TGraph, typename TValue>
 std::optional<std::vector<int>> DijkstraShortestPaths<TGraph, TValue>::TryGetShortestPathTo(int destination) const
 {
+	printf("arrived3!\n");
 	return std::nullopt;
 }
 
