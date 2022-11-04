@@ -85,7 +85,7 @@ std::optional<std::vector<int>> DijkstraShortestPaths<TGraph, TValue>::TryGetSho
 	std::vector<int> ans; ans.clear();
 	int nowVal = now.value;
 	while (now != std::nullopt) {
-		nowVal = now.value;
+		nowVal = now.value();
 		ans.push_back(nowVal);
 		now = preCode.at(nowVal);
 	}
