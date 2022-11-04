@@ -66,7 +66,7 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 template <template<typename> class TGraph, typename TValue>
 bool DijkstraShortestPaths<TGraph, TValue>::HasPathTo(int destination) const
 {
-	if (!reached.find(destination)) return 0;
+	if (reached.find(destination) == reached.end()) return 0;
 	return reached.at(destination);
 }
 
