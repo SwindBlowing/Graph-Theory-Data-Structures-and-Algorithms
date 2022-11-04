@@ -25,6 +25,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
   private:
 	std::map<int, bool> vis, reached;
 	std::map<int, TValue> dist;
+	std::map<int, std::optional<int>> preCode;
 	std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> Q;
 };
 
@@ -34,13 +35,14 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 	this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (fp_Path)(&DijkstraShortestPaths::TryGetShortestPathTo);
-	vis.clear(); reached.clear(); dist.clear();
+	vis.clear(); reached.clear(); dist.clear(); preCode.clear();
 	while (!Q.empty()) Q.pop();
 	if (!graph->ContainsVertex(source)) return ;
 
 	std::vector<WeightedEdge<TValue>> outEdges;
 	reached[source] = 1;
 	dist[source] = TValue();
+	preCode[source] = std::nullopt;
 	Q.push({dist[source], source});
 	while (!Q.empty()) {
 		std::pair<TValue, int> now = Q.top();
@@ -54,32 +56,38 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 			if (!reached[y] || dist[y] > dist[now.second] + w) {
 				reached[y] = 1;
 				dist[y] = dist[now.second] + w;
+				preCode[y] = now.second;
 				Q.push({dist[y], y});
 			}
 		}
-			
 	}
 }
 
 template <template<typename> class TGraph, typename TValue>
 bool DijkstraShortestPaths<TGraph, TValue>::HasPathTo(int destination) const
 {
-	printf("arrived1!\n");
-	return 1;
+	if (!reached.find(destination)) return 0;
+	return reached.at(destination);
 }
 
 template <template<typename> class TGraph, typename TValue>
 std::optional<TValue> DijkstraShortestPaths<TGraph, TValue>::TryGetDistanceTo(int destination) const
 {
-	printf("arrived2!\n");
-	return std::nullopt;
+	if (!HasPathTo(destination)) return std::nullopt;
+	return dist.at(destination);
 }
 
 template <template<typename> class TGraph, typename TValue>
 std::optional<std::vector<int>> DijkstraShortestPaths<TGraph, TValue>::TryGetShortestPathTo(int destination) const
 {
-	printf("arrived3!\n");
-	return std::nullopt;
+	if (!HasPathTo(destination)) return std::nullopt;
+	std::optional<int> now = destination;
+	std::vector <int> ans; ans.clear();
+	while (now != std::nullopt) {
+		ans.push_back(now.value);
+		now = preCode[now.value];
+	}
+	return ans;
 }
 
 #endif
