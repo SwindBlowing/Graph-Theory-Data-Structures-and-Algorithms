@@ -13,7 +13,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph, TValue> {
     typedef std::optional<TValue> (ShortestPaths<TGraph, TValue>::*fp_Dis)(int destination) const;
     typedef std::optional<std::vector<int>> (ShortestPaths<TGraph, TValue>::*fp_Path)(int destination) const;
 	DijkstraShortestPaths(const TGraph<TValue> *graph, int source);
-	~DijkstraShortestPaths() override;
+	~ShortestPaths() override;
   public:
 	bool HasPathTo(int destination) const;
 	std::optional<TValue> TryGetDistanceTo(int destination) const;
@@ -29,7 +29,7 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 }
 
 template <template<typename> class TGraph, typename TValue>
-DijkstraShortestPaths<TGraph, TValue>::~DijkstraShortestPaths()
+DijkstraShortestPaths<TGraph, TValue>::~ShortestPaths()
 {
 
 }
