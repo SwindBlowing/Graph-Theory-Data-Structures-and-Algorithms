@@ -58,14 +58,14 @@ static void test1() {
     printf("\n");
 	//p1 = new BellmanFordShortestPaths<WeightedGraph<int>>(g1, 1);
 	p2 = new DijkstraShortestPaths<WeightedGraph<int>>(g2, 1);
-	std::vector <int> now1 = p1->TryGetShortestPathTo(4).value();
-	for (int i = 0; i < now1.size(); i++)
-		printf("%d ", now1[i]);
-	printf("\n");
-	//std::vector <int> now2 = p2->TryGetShortestPathTo(4).value();
-	//for (int i = 0; i < now2.size(); i++)
-	//	printf("%d ", now2[i]);
+	//std::vector <int> now1 = p1->TryGetShortestPathTo(4).value();
+	//for (int i = 0; i < now1.size(); i++)
+	//	printf("%d ", now1[i]);
 	//printf("\n");
+	std::vector <int> now2 = p2->TryGetShortestPathTo(4).value();
+	for (int i = 0; i < now2.size(); i++)
+		printf("%d ", now2[i]);
+	printf("\n");
     delete p1;
 	//delete p2;
   }
