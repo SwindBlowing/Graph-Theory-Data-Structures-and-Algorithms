@@ -55,7 +55,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
-			if (!reached[y] || dist[y] > dist[now.second] + w) {
+			if (!reached[y] || dist[now.second] + w < dist[y]) {
 				reached[y] = 1;
 				dist[y] = dist[now.second] + w;
 				preCode[y] = now.second;

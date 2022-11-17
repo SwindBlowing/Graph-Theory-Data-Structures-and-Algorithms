@@ -51,7 +51,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 			TValue w = edges[j].GetWeight();
 			if (reached[x]) {
 				//printf("%d %d\n", x, y);
-				if (!reached[y] || dist[y] > dist[x] + w) {
+				if (!reached[y] || dist[x] + w < dist[y]) {
 					isChanged = 1;
 					reached[y] = 1;
 					dist[y] = dist[x] + w;
