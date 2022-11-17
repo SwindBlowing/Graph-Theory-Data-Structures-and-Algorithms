@@ -77,8 +77,8 @@ struct Test {
 	int x = 0;
 	Test(int i) ;
 	//Test() = delete;
-	Test operator+(const Test& t) const;
-	bool operator<(const Test& t) const;
+	Test operator+(const Test& t);
+	bool operator<(const Test& t);
 };
 int main()
 {
