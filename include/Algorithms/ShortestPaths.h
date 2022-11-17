@@ -8,6 +8,7 @@
 
 template <typename TGraph>
 class ShortestPaths {
+ private:
   typedef typename TGraph::value_type TValue;
   static_assert(std::is_default_constructible_v<TValue>, 
 		"TValue requires default constructor");
