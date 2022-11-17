@@ -13,7 +13,11 @@ class ShortestPaths {
   typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
-  ShortestPaths(const TGraph *graph, int source) {}
+  ShortestPaths(const TGraph *graph, int source) 
+  {
+	static_assert(std::is_constructible_v<TValue>, 
+		"TValue requires default constructor");
+  }
   virtual ~ShortestPaths() {}
   
  public:
