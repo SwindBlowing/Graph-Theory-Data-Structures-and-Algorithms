@@ -40,7 +40,7 @@ static void test1() {
   g->AddEdge(6, 5, 6);*/
 
   ShortestPaths<WeightedGraph<fuck>> *p = nullptr;
-  p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, i);
+  p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, 1);
   /*for (int i = 1; i <= 6; ++i) {
     p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, i);
     for (int j = 1; j <= 6; ++j) {
