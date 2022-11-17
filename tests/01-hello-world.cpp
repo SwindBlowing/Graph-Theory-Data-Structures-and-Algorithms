@@ -76,11 +76,7 @@ static void test1() {
 struct Test {
 	int x = 0;
 	//Test(int i) {x = i; };
-	Test operator+(const Test& t) const {
-		Test now;
-		now.x = x + t.x;
-		return now;
-	};
+	Test operator+(const Test& t) const ;
 	bool operator<(const Test& t) const {
 		return x < t.x;
 	};
