@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include <algorithm>
+#include <assert.h>
 #include <DataStructures/Edge.h>
 #define MAXN 1005
 

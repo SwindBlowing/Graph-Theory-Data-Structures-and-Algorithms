@@ -68,7 +68,7 @@ bool Graph::RemoveEdge(int vertex1, int vertex2)
     t = std::find(it_in->second.begin(), it_in->second.end(), e);
     it_in->second.erase(t);
     t = std::find(it_out->second.begin(), it_out->second.end(), e);
-    //assert(t != it_out->second.end());
+    assert(t != it_out->second.end());
     it_out->second.erase(t);
     edgeNum--;
     return 1;
