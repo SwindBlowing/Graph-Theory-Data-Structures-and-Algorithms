@@ -13,11 +13,12 @@
 #define MAXN 1005
 
 template <typename T>
-class UndirectedWeightedGraph : public WeightedGraph<T> {
+class UndirectedWeightedGraph<T> : public WeightedGraph<T> {
  public:
   UndirectedWeightedGraph() {selfLoop.clear();}
   ~UndirectedWeightedGraph() {selfLoop.clear();}
  public:
+  typedef T value_type;
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
   bool AddEdge(int vertex1, int vertex2, T weight) override;
