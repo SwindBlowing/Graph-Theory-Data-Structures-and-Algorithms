@@ -40,7 +40,8 @@ static void test1() {
   g->AddEdge(6, 5, 6);
 
   ShortestPaths<WeightedGraph<fuck>> *p = nullptr;
-  for (int i = 1; i <= 6; ++i) {
+  p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, i);
+  /*for (int i = 1; i <= 6; ++i) {
     p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, i);
     for (int j = 1; j <= 6; ++j) {
 	  if (!p->HasPathTo(j)) printf("%d ", -1);
@@ -53,7 +54,7 @@ static void test1() {
 		printf("%d ", now[i]);
 	printf("\n");
     delete p;
-  }
+  }*/
 
   delete g;
 }
