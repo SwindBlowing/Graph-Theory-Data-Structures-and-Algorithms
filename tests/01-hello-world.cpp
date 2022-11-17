@@ -23,7 +23,7 @@ bool check(int x)
 }
 
 static void test1() {
-  auto *g = new WeightedGraph<std::pair<int, int>>>();
+  auto *g = new WeightedGraph<std::pair<int, int>>();
   /*for (int i = 1; i <= 6; ++i) {
     g->AddVertex(i);
   }
@@ -34,7 +34,7 @@ static void test1() {
   g->AddEdge(5, 6, 5);
   g->AddEdge(6, 5, 6);*/
 
-  ShortestPaths<WeightedGraph<std::pair<int, int>>>> *p = nullptr;
+  ShortestPaths<WeightedGraph<std::pair<int, int>>> *p = nullptr;
   p = new BellmanFordShortestPaths<WeightedGraph<std::pair<int, int>>>(g, 1);
   /*for (int i = 1; i <= 6; ++i) {
     p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, i);
