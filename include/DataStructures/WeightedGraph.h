@@ -18,7 +18,7 @@ class WeightedGraph : public Graph {
   WeightedGraph() {Weights.clear();}
   ~WeightedGraph() {Weights.clear();}
  public:
-  typedef T value_type;
+  typedef int value_type;
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
   virtual bool AddEdge(int vertex1, int vertex2, T weight);
