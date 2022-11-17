@@ -43,7 +43,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 
 	std::vector<WeightedEdge<TValue>> outEdges;
 	reached[source] = 1;
-	const bool fuck = std::is_default_constructible_v(TValue);
+	const bool fuck = std::is_default_constructible_v<TValue>;
 	#if (fuck)
 		dist[source] = TValue();
 	#endif
