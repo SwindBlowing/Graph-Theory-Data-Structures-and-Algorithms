@@ -75,7 +75,7 @@ static void test1() {
 }
 struct Test {
 	int x;
-	Test(int i) {.x = i};
+	Test(int i) {x = i; };
 	Test operator+(const Test& t) {
 		return Test(x + t.x);
 	};
