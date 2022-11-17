@@ -13,7 +13,7 @@
 #define MAXN 1005
 
 template <typename T>
-class UndirectedWeightedGraph<T> : public WeightedGraph<T> {
+class UndirectedWeightedGraph : public WeightedGraph<T> {
  public:
   UndirectedWeightedGraph() {selfLoop.clear();}
   ~UndirectedWeightedGraph() {selfLoop.clear();}
