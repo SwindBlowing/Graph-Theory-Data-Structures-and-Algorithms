@@ -1,5 +1,5 @@
-#ifndef DIJKSTRA_SHORTEST_PATHS
-#define DIJKSTRA_SHORTEST_PATHS
+#ifndef DIJKSTRA_SHORTEST_PATHS_H
+#define DIJKSTRA_SHORTEST_PATHS_h
 
 #include <vector>
 #include <optional>
@@ -7,7 +7,9 @@
 #include <queue>
 
 #include <Algorithms/ShortestPaths.h>
-#include <DataStructures/WeightedEdge.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
+#include <DataStructures/UndirectedGraph.h>
+
 #define MAXN 1005
 
 template <typename TGraph>

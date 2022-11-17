@@ -1,12 +1,8 @@
-#ifndef BREADTH_FIRST_SEARCHER
-#define BREADTH_FIRST_SEARCHER
+#ifndef BREADTH_FIRST_SEARCHER_H
+#define BREADTH_FIRST_SEARCHER_H
 
-#include <DataStructures/Edge.h>
-#include <DataStructures/Graph.h>
 #include <DataStructures/UndirectedGraph.h>
 #include <DataStructures/UndirectedWeightedGraph.h>
-#include <DataStructures/WeightedEdge.h>
-#include <DataStructures/WeightedGraph.h>
 
 #include <functional>
 #include <optional>

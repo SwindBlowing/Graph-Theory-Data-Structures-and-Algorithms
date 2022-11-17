@@ -1,8 +1,11 @@
-#ifndef SHORTEST_PATHS
-#define SHORTEST_PATHS
+#ifndef SHORTEST_PATHS_H
+#define SHORTEST_PATHS_H
 
 #include <vector>
 #include <optional>
+
+#include <DataStructures/UndirectedGraph.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 
 #define TValue typename TGraph::value_type
 
