@@ -28,7 +28,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 	std::map<int, bool> vis, reached;
 	std::map<int, TValue> dist;
 	std::map<int, std::optional<int>> preCode;
-	std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> Q;
+	//std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> Q;
 };
 
 template <typename TGraph>
@@ -45,13 +45,27 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	reached[source] = 1;
 	dist[source] = TValue();
 	preCode[source] = std::nullopt;
-	Q.push({dist[source], source});
-	while (!Q.empty()) {
-		std::pair<TValue, int> now = Q.top();
-		Q.pop();
-		if (vis[now.second]) continue;
-		vis[now.second] = 1;
-		outEdges = graph->GetOutgoingEdges(now.second);
+	//Q.push({dist[source], source});
+	//while (!Q.empty()) {
+	std::vector<int> vertices;
+	vertices = graph->GetVertices();
+	for (int i = 1; i < graph->CountVertices(); i++) {
+		bool first = 1;
+		TValue now = TValue();
+		int node = 0;
+		for (int j = 0; j < vertices.size(); j++) 
+			if (!vis[vertices[j]] && reached[vertices[j]]) {
+				if (first) {
+					first = 0;
+					now = dist[vertices[j]];
+					node = vertices[j];
+				}
+				else if (dist[vertices[j]] < now) {
+					now = dist[vertices[j]];
+					node = vertices[j];
+				}
+			}
+		outEdges = graph->GetOutgoingEdges(node);
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
@@ -59,7 +73,6 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 				reached[y] = 1;
 				dist[y] = dist[now.second] + w;
 				preCode[y] = now.second;
-				Q.push({dist[y], y});
 			}
 		}
 	}
