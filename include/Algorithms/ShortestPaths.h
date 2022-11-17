@@ -5,6 +5,7 @@
 #include <optional>
 
 #define TValue typename TGraph::value_type
+#define fuck std::is_default_constructible_v<TValue>
 
 template <typename TGraph>
 class ShortestPaths {
@@ -19,7 +20,7 @@ class ShortestPaths {
 
   bool HasPathTo(int destination) const
   {
-	const bool fuck = std::is_default_constructible_v<TValue>;
+	//const bool fuck = std::is_default_constructible_v<TValue>;
  	#if (fuck)
 	if (reached.find(destination) == reached.end()) return 0;
 	return reached.at(destination);
@@ -30,7 +31,7 @@ class ShortestPaths {
 
   std::optional<TValue> TryGetDistanceTo(int destination) const
   {
-	const bool fuck = std::is_default_constructible_v<TValue>;
+	//const bool fuck = std::is_default_constructible_v<TValue>;
  	#if (fuck)
 	if (!HasPathTo(destination)) return std::nullopt;
 	return dist.at(destination);
@@ -41,7 +42,7 @@ class ShortestPaths {
 
   std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const
   {
-	const bool fuck = std::is_default_constructible_v<TValue>;
+	//const bool fuck = std::is_default_constructible_v<TValue>;
  	#if (fuck)
 	if (!HasPathTo(destination)) return std::nullopt;
 	std::optional<int> now = destination;
