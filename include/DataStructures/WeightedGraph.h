@@ -14,8 +14,6 @@
 
 template <typename T>
 class WeightedGraph : public Graph {
- static_assert(std::is_default_constructible_v<T>, 
- 		"TValue requires default constructor");
  public:
   WeightedGraph() {Weights.clear();}
   ~WeightedGraph() {Weights.clear();}
@@ -49,7 +47,10 @@ template <typename T>
 bool WeightedGraph<T>::AddEdge(int vertex1, int vertex2, T weight)
 {
     if (!Graph::AddEdge(vertex1, vertex2)) return 0;
-    Weights.insert(std::pair<Edge, T>{(Edge){vertex1, vertex2}, weight});
+	if (Weights.find((Edge){vertex1, vertex2}) == Weights.end()) {
+		Weights.insert(std::pair<Edge, T>{(Edge){vertex1, vertex2}, weight});
+	}
+    else Weights.find((Edge){vertex1, vertex2})->second = weight;
     return 1;
 }
 
