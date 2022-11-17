@@ -42,7 +42,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	std::vector<WeightedEdge<TValue>> edges;
 	edges = graph->GetEdges();
 	reached[source] = 1;
-	dist[source] = TValue();
+	dist.insert({source, TValue()});
 	preCode[source] = std::nullopt;
 	for (int i = 1; i <= (graph->CountVertices()) - 1; i++) {
 		bool isChanged = 0;
