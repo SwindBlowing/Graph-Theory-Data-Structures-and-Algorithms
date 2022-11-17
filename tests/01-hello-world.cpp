@@ -74,9 +74,9 @@ static void test1() {
   delete g2;
 }
 struct Test {
-	int x = 0;
-	//Test(int i) ;
-	//Test() = delete;
+	//int x = 0;
+	Test(int i) ;
+	Test() = delete;
 	Test operator+(const Test& t);
 	bool operator<(const Test& t);
 };
