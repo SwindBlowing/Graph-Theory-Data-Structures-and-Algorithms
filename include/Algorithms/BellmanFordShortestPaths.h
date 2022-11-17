@@ -33,8 +33,6 @@ class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
 template <typename TGraph>
 BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
-	static_assert(std::is_default_constructible<TValue>::value, 
-		"TValue requires default constructor");
 	this->fn_HasPathTo = (fp_Has)(&BellmanFordShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (fp_Path)(&BellmanFordShortestPaths::TryGetShortestPathTo);

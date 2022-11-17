@@ -22,7 +22,7 @@ bool check(int x)
 	return 0;
 }
 
-/*static void test1() {
+static void test1() {
   auto *g = new WeightedGraph<std::pair<int, int>>();
   for (int i = 1; i <= 6; ++i) {
     g->AddVertex(i);
@@ -35,7 +35,7 @@ bool check(int x)
   g->AddEdge(6, 5, 6);
 
   ShortestPaths<WeightedGraph<std::pair<int, int>>> *p = nullptr;
-  p = new BellmanFordShortestPaths<WeightedGraph<std::pair<int, int>>>(g, 1);
+  //p = new BellmanFordShortestPaths<WeightedGraph<std::pair<int, int>>>(g, 1);
   for (int i = 1; i <= 6; ++i) {
     p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, i);
     for (int j = 1; j <= 6; ++j) {
@@ -52,14 +52,10 @@ bool check(int x)
   }
 
   delete g;
-}*/
-class fuck
-{
-	fuck() = delete;
-};
+}
 int main()
 {
-	std::cout << std::is_default_constructible<fuck>::value << std::endl;
-	//test1();
+	//std::cout << std::is_default_constructible<fuck>::value << std::endl;
+	test1();
 	return 0;
 }

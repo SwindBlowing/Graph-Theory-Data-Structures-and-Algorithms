@@ -8,16 +8,14 @@
 
 template <typename TGraph>
 class ShortestPaths {
+  static_assert(std::is_default_constructible<TValue>::value, 
+		"TValue requires default constructor");
  public:
   typedef bool (ShortestPaths::*fp_Has)(int destination) const;
   typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
-  ShortestPaths(const TGraph *graph, int source) 
-  {
-	static_assert(std::is_default_constructible<TValue>::value, 
-		"TValue requires default constructor");
-  }
+  ShortestPaths(const TGraph *graph, int source) {};
   virtual ~ShortestPaths() {}
   
  public:
