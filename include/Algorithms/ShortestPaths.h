@@ -21,7 +21,7 @@ class ShortestPaths {
   bool HasPathTo(int destination) const
   {
 	//const bool fuck = std::is_default_constructible_v<TValue>;
- 	#if (fuck)
+ 	#if fuck
 	if (reached.find(destination) == reached.end()) return 0;
 	return reached.at(destination);
 	#else
@@ -32,7 +32,7 @@ class ShortestPaths {
   std::optional<TValue> TryGetDistanceTo(int destination) const
   {
 	//const bool fuck = std::is_default_constructible_v<TValue>;
- 	#if (fuck)
+ 	#if fuck
 	if (!HasPathTo(destination)) return std::nullopt;
 	return dist.at(destination);
 	#else
@@ -43,7 +43,7 @@ class ShortestPaths {
   std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const
   {
 	//const bool fuck = std::is_default_constructible_v<TValue>;
- 	#if (fuck)
+ 	#if fuck
 	if (!HasPathTo(destination)) return std::nullopt;
 	std::optional<int> now = destination;
 	std::vector<int> ans; ans.clear();
