@@ -7,6 +7,7 @@
 #include <queue>
 
 #include <Algorithms/ShortestPaths.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
 
 #define MAXN 1005
 
