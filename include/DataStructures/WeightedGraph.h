@@ -18,6 +18,7 @@ class WeightedGraph : public Graph {
   WeightedGraph() {Weights.clear();}
   ~WeightedGraph() {Weights.clear();}
  public:
+  const bool fuck = std::is_default_constructible_v<TValue>;
   typedef T value_type;
   //bool AddVertex(int vertex);
   //bool RemoveVertex(int vertex);
@@ -42,7 +43,7 @@ class WeightedGraph : public Graph {
   //std::map <int, int> index, outdex;
   //int vertexNum = 0, edgeNum = 0;
 };
-
+#if (fuck)
 template <typename T>
 bool WeightedGraph<T>::AddEdge(int vertex1, int vertex2, T weight)
 {
@@ -88,5 +89,6 @@ std::vector<WeightedEdge<T>> WeightedGraph<T>::GetOutgoingEdges(int vertex) cons
         wedges.push_back((WeightedEdge<T>){t->GetSource(), t->GetDestination(), Weights.at(*t)});
     return wedges;
 }
+#endif
 
 #endif
