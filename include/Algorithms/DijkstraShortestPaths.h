@@ -38,7 +38,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (fp_Path)(&DijkstraShortestPaths::TryGetShortestPathTo);
 	vis.clear(); reached.clear(); dist.clear(); preCode.clear();
-	while (!Q.empty()) Q.pop();
+	//while (!Q.empty()) Q.pop();
 	if (!graph->ContainsVertex(source)) return ;
 
 	std::vector<WeightedEdge<TValue>> outEdges;
