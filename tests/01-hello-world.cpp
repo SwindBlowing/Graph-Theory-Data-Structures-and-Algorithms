@@ -84,7 +84,7 @@ int main()
 {
 	//static_assert(std::is_default_constructible_v<Test>);
 	auto *g = new WeightedGraph<Test>();
-	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
+	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
 	delete g;
 	//test1();
 	return 0;
