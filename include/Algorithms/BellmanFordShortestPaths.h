@@ -1,8 +1,6 @@
 #ifndef BELLMANFORD_SHORTEST_PATHS
 #define BELLMANFORD_SHORTEST_PATHS
 
-//#define TValue typename TGraph::value_type
-
 #include <vector>
 #include <optional>
 #include <map>
@@ -14,7 +12,6 @@
 
 template <typename TGraph>
 class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
-	//typedef typename TGraph::value_type TValue;
   public:
     typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
