@@ -21,6 +21,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 	DijkstraShortestPaths(const TGraph *graph, int source);
 	~DijkstraShortestPaths() {};
   public:
+  	const bool fuck = std::is_default_constructible_v<TValue>;
 	bool HasPathTo(int destination) const;
 	std::optional<TValue> TryGetDistanceTo(int destination) const;
 	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
@@ -30,6 +31,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 	std::map<int, std::optional<int>> preCode;
 	//std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> Q;
 };
+#if (this->fuck)
 
 template <typename TGraph>
 DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
@@ -109,5 +111,7 @@ std::optional<std::vector<int>> DijkstraShortestPaths<TGraph>::TryGetShortestPat
 	}
 	return ans;
 }
+
+#endif
 
 #endif
