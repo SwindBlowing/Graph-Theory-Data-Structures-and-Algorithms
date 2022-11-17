@@ -6,10 +6,6 @@
 #include <map>
 #include <stack>
 
-
-#include <DataStructures/UndirectedGraph.h>
-#include <DataStructures/UndirectedWeightedGraph.h>
-
 template <typename TGraph>
 class DepthFirstSearcher {
  public:

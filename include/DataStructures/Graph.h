@@ -4,7 +4,6 @@
 #include <vector>
 #include <map>
 #include <set>
-#include <assert.h>
 #include <algorithm>
 #include <DataStructures/Edge.h>
 #define MAXN 1005

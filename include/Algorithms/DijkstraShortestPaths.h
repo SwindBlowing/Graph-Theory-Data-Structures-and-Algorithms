@@ -6,8 +6,6 @@
 #include <map>
 
 #include <Algorithms/ShortestPaths.h>
-#include <DataStructures/UndirectedGraph.h>
-#include <DataStructures/UndirectedWeightedGraph.h>
 
 #define MAXN 1005
 
