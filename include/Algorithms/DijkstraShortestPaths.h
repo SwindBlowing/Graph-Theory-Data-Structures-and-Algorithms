@@ -22,8 +22,6 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 template <typename TGraph>
 DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
-	const bool fuck = std::is_default_constructible_v<TValue>;
- 	#if (fuck)
 	vis.clear(); this->reached.clear(); this->dist.clear(); this->preCode.clear();
 	if (!graph->ContainsVertex(source)) return ;
 
@@ -63,7 +61,6 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 			}
 		}
 	}
-	#endif
 }
 
 #endif
