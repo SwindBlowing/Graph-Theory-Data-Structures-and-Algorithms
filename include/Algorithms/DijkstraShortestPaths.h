@@ -5,6 +5,8 @@
 #include <optional>
 #include <map>
 
+#include <ShortestPaths.h>
+
 #define MAXN 1005
 
 template <typename TGraph>
