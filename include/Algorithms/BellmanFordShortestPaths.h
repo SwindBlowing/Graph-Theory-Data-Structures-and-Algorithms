@@ -44,6 +44,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	reached[source] = 1;
 	dist[source] = TValue();
 	preCode[source] = std::nullopt;
+	outEdges = graph->GetOutgoingEdges(source);
 	for (int i = 1; i <= (graph->CountVertices()) - 1; i++)
 		for (int j = 0; j < edges.size(); j++) {
 			int x = edges[j].GetSource(), y = edges[j].GetDestination();
