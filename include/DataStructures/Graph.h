@@ -4,8 +4,6 @@
 #include <vector>
 #include <map>
 #include <set>
-#include <iostream>
-#include <utility>
 #include <assert.h>
 #include <algorithm>
 #include <DataStructures/Edge.h>
