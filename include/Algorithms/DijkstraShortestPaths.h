@@ -5,7 +5,7 @@
 #include <optional>
 #include <map>
 
-#include <ShortestPaths.h>
+#include <Algorithms/ShortestPaths.h>
 
 #define MAXN 1005
 
