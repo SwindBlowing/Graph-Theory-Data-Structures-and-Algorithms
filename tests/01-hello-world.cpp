@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 
-/*void sum(int x)
+void sum(int x)
 {
 	return ;
 }
@@ -72,7 +72,7 @@ static void test1() {
 
   delete g1;
   delete g2;
-}*/
+}
 struct Test {
 	//int x = 0;
 	Test(int i) ;
@@ -83,9 +83,9 @@ struct Test {
 int main()
 {
 	//static_assert(std::is_default_constructible_v<Test>);
-	auto *g = new WeightedGraph<Test>();
-	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
-	delete g;
+	//auto *g = new WeightedGraph<Test>();
+	//ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
+	//delete g;
 	test1();
 	return 0;
 }
