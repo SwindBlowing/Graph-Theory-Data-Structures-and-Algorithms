@@ -14,6 +14,8 @@
 
 template <typename T>
 class WeightedGraph : public Graph {
+ static_assert(std::is_default_constructible_v<T>, 
+ 		"TValue requires default constructor");
  public:
   WeightedGraph() {Weights.clear();}
   ~WeightedGraph() {Weights.clear();}
