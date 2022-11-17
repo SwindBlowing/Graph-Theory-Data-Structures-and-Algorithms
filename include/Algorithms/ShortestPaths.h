@@ -13,34 +13,46 @@ class ShortestPaths {
   static_assert(std::is_default_constructible_v<TValue>, 
 		"TValue requires default constructor");
  public:
-  typedef bool (ShortestPaths::*fp_Has)(int destination) const;
-  typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
-  typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
+  //typedef bool (ShortestPaths::*fp_Has)(int destination) const;
+  //typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
+  //typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
   ShortestPaths(const TGraph *graph, int source) {};
   virtual ~ShortestPaths() {}
   
  public:
+
   bool HasPathTo(int destination) const
   {
-	assert(fn_HasPathTo != NULL);
-	return (this->*fn_HasPathTo)(destination);
-  }
+	if (reached.find(destination) == reached.end()) return 0;
+	return reached.at(destination);
+  };
+
   std::optional<TValue> TryGetDistanceTo(int destination) const
   {
-	assert(fn_TryGetDistanceTo != NULL);
-	return (this->*fn_TryGetDistanceTo)(destination);
-  }
+	if (!HasPathTo(destination)) return std::nullopt;
+	return dist.at(destination);
+  };
+
   std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const
   {
-	assert(fn_TryGetShortestPathTo != NULL);
-	return (this->*fn_TryGetShortestPathTo)(destination);
-  }
+	if (!HasPathTo(destination)) return std::nullopt;
+	std::optional<int> now = destination;
+	std::vector<int> ans; ans.clear();
+	while (now != std::nullopt) {
+		ans.push_back(now.value());
+		now = preCode.at(now.value());
+	}
+	return ans;
+  };
 
  protected:
-  fp_Has fn_HasPathTo;
-  fp_Dis fn_TryGetDistanceTo;
-  fp_Path fn_TryGetShortestPathTo;
+  //fp_Has fn_HasPathTo;
+  //fp_Dis fn_TryGetDistanceTo;
+  //fp_Path fn_TryGetShortestPathTo;
+  std::map<int, bool> reached;
+  std::map<int, TValue> dist;
+  std::map<int, std::optional<int>> preCode;
 
 };
 

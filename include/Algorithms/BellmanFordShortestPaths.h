@@ -13,19 +13,15 @@
 template <typename TGraph>
 class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
   public:
-    typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
-    typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
-    typedef std::optional<std::vector<int>> (ShortestPaths<TGraph>::*fp_Path)(int destination) const;
+    //typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
+    //typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
+    //typedef std::optional<std::vector<int>> (ShortestPaths<TGraph>::*fp_Path)(int destination) const;
 	BellmanFordShortestPaths(const TGraph *graph, int source);
 	~BellmanFordShortestPaths() {};
-  public:
-	bool HasPathTo(int destination) const;
-	std::optional<TValue> TryGetDistanceTo(int destination) const;
-	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
-  private:
-	std::map<int, bool> reached;
-	std::map<int, TValue> dist;
-	std::map<int, std::optional<int>> preCode;
+  //public:
+	//bool HasPathTo(int destination) const;
+	//std::optional<TValue> TryGetDistanceTo(int destination) const;
+	//std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
 };
 
 template <typename TGraph>
@@ -62,7 +58,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	}
 }
 
-template <typename TGraph>
+/*template <typename TGraph>
 bool BellmanFordShortestPaths<TGraph>::HasPathTo(int destination) const
 {
 	if (reached.find(destination) == reached.end()) return 0;
@@ -87,6 +83,6 @@ std::optional<std::vector<int>> BellmanFordShortestPaths<TGraph>::TryGetShortest
 		now = preCode.at(now.value());
 	}
 	return ans;
-}
+}*/
 
 #endif
