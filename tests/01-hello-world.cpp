@@ -53,10 +53,13 @@ bool check(int x)
 
   delete g;
 }*/
-
+class fuck
+{
+	fuck() = delete;
+};
 int main()
 {
-	std::cout << std::is_default_constructible<std::pair<int, int>>::value << std::endl;
+	std::cout << std::is_default_constructible<fuck>::value << std::endl;
 	//test1();
 	return 0;
 }
