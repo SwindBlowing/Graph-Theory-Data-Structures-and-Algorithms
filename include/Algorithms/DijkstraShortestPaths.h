@@ -10,7 +10,7 @@
 #include <DataStructures/WeightedEdge.h>
 #define MAXN 1005
 
-template <template<typename> class TGraph>
+template <typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
   public:
     typedef bool (ShortestPaths<TGraph, TValue>::*fp_Has)(int destination) const;
