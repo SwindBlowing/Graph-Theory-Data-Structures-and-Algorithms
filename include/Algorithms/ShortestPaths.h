@@ -4,12 +4,12 @@
 #include <vector>
 #include <optional>
 
-//#define TValue typename TGraph::value_type
+#define TValue typename TGraph::value_type
 
 template <typename TGraph>
 class ShortestPaths {
  private:
-  typedef typename TGraph::value_type TValue;
+  //typedef typename TGraph::value_type TValue;
   static_assert(std::is_default_constructible_v<TValue>, 
 		"TValue requires default constructor");
  public:
