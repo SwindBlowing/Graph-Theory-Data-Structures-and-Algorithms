@@ -55,19 +55,17 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	vertices = graph->GetVertices();
 	for (int i = 1; i < graph->CountVertices(); i++) {
 		bool first = 1;
-		#if (fuck)
-			TValue now = TValue();
-		#endif
+		TValue now = TValue();
 		int nowNode = 0;
 		for (int j = 0; j < vertices.size(); j++) 
 			if (!vis[vertices[j]] && reached[vertices[j]]) {
 				if (first) {
 					first = 0;
-					now = dist[vertices[j]];
+					now = dist.at(vertices[j]);
 					nowNode = vertices[j];
 				}
-				else if (dist[vertices[j]] < now) {
-					now = dist[vertices[j]];
+				else if (dist.at(vertices[j]) < now) {
+					now = dist.at(vertices[j]);
 					nowNode = vertices[j];
 				}
 			}
@@ -76,9 +74,10 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
-			if (!reached[y] || dist[nowNode] + w < dist[y]) {
+			if (!reached[y] || dist.at(nowNode) + w < dist.at(y)) {
 				reached[y] = 1;
-				dist[y] = dist[nowNode] + w;
+				dist.insert({y, dist.at(nowNode) + w});
+				//dist[y] = dist[nowNode] + w;
 				preCode[y] = nowNode;
 			}
 		}
