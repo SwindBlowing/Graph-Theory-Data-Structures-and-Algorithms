@@ -17,7 +17,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
     typedef bool (ShortestPaths<TGraph, TValue>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph, TValue>::*fp_Dis)(int destination) const;
     typedef std::optional<std::vector<int>> (ShortestPaths<TGraph, TValue>::*fp_Path)(int destination) const;
-	DijkstraShortestPaths(const TGraph<TValue> *graph, int source);
+	DijkstraShortestPaths(const TGraph *graph, int source);
 	~DijkstraShortestPaths() {};
   public:
 	bool HasPathTo(int destination) const;
@@ -30,8 +30,8 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 	std::priority_queue<std::pair<TValue, int>, std::vector<std::pair<TValue, int>>, std::greater<std::pair<TValue, int>>> Q;
 };
 
-template <template<typename> class TGraph, typename TValue>
-DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue> *graph, int source) : ShortestPaths<TGraph, TValue>(graph, source)
+template <typename TGraph>
+DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
 	this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
@@ -64,22 +64,22 @@ DijkstraShortestPaths<TGraph, TValue>::DijkstraShortestPaths(const TGraph<TValue
 	}
 }
 
-template <template<typename> class TGraph, typename TValue>
-bool DijkstraShortestPaths<TGraph, TValue>::HasPathTo(int destination) const
+template <typename TGraph>
+bool DijkstraShortestPaths<TGraph>::HasPathTo(int destination) const
 {
 	if (reached.find(destination) == reached.end()) return 0;
 	return reached.at(destination);
 }
 
-template <template<typename> class TGraph, typename TValue>
-std::optional<TValue> DijkstraShortestPaths<TGraph, TValue>::TryGetDistanceTo(int destination) const
+template <typename TGraph>
+std::optional<TValue> DijkstraShortestPaths<TGraph>::TryGetDistanceTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
 	return dist.at(destination);
 }
 
-template <template<typename> class TGraph, typename TValue>
-std::optional<std::vector<int>> DijkstraShortestPaths<TGraph, TValue>::TryGetShortestPathTo(int destination) const
+template <typename TGraph>
+std::optional<std::vector<int>> DijkstraShortestPaths<TGraph>::TryGetShortestPathTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
 	std::optional<int> now = destination;
