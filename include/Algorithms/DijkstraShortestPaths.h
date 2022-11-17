@@ -43,7 +43,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 
 	std::vector<WeightedEdge<TValue>> outEdges;
 	reached[source] = 1;
-	const bool fuck = std::is_default_constructible_v<TValue>;
+	//const bool fuck = std::is_default_constructible_v<TValue>;
 	TValue newTValue = TValue();
 	dist.insert({source, newTValue});
 	//if (std::is_default_constructible_v(TValue)) dist[source] = TValue();
@@ -77,8 +77,6 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 				if (!reached[y]) dist.insert({y, dist.at(nowNode) + w});
 				else dist.find(y)->second = dist.at(nowNode) + w;
 				reached[y] = 1;
-				
-				//dist[y] = dist[nowNode] + w;
 				preCode[y] = nowNode;
 			}
 		}
