@@ -7,7 +7,7 @@
 template <template<typename> class TGraph>
 class ShortestPaths {
  public:
-  typename class TGraph::value_type temp;
+  typename template<typename> class TGraph::value_type temp;
   typedef bool (ShortestPaths::*fp_Has)(int destination) const;
   typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
