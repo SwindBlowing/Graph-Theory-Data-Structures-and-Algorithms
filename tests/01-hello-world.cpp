@@ -56,6 +56,7 @@ static void test1() {
 
 int main()
 {
-	test1();
+	std::cout << std::is_default_constructible<pair<int, int>>::value << std::endl;
+	//test1();
 	return 0;
 }
