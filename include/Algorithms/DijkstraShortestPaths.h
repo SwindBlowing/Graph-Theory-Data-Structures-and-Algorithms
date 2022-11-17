@@ -65,6 +65,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 					node = vertices[j];
 				}
 			}
+		vis[node] = 1;
 		outEdges = graph->GetOutgoingEdges(node);
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
