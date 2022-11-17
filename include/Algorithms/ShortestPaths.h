@@ -7,8 +7,9 @@
 template <template<typename> class TGraph>
 class ShortestPaths {
  public:
+  typename TGraph::value_type temp;
   typedef bool (ShortestPaths::*fp_Has)(int destination) const;
-  typedef std::optional<TGraph::value_type> (ShortestPaths::*fp_Dis)(int destination) const;
+  typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
   ShortestPaths(const TGraph<TValue> *graph, int source) {}
