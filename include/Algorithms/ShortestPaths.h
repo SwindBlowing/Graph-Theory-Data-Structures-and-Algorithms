@@ -5,7 +5,7 @@
 #include <optional>
 
 template <template<typename> class TGraph>
-class ShortestPaths<TGraph> {
+class ShortestPaths {
  public:
   typename class TGraph::value_type temp;
   typedef bool (ShortestPaths::*fp_Has)(int destination) const;

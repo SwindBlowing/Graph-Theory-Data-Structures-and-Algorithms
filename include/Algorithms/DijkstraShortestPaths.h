@@ -11,7 +11,7 @@
 #define MAXN 1005
 
 template <template<typename> class TGraph>
-class DijkstraShortestPaths<TGraph> : public ShortestPaths<TGraph> {
+class DijkstraShortestPaths : public ShortestPaths<TGraph> {
   public:
     typedef bool (ShortestPaths<TGraph, TValue>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph, TValue>::*fp_Dis)(int destination) const;
