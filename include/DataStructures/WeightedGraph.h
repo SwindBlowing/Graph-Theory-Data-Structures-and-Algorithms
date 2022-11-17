@@ -13,7 +13,7 @@
 #define MAXN 1005
 
 template <typename T>
-class WeightedGraph<T> : public Graph {
+class WeightedGraph : public Graph {
  public:
   WeightedGraph() {Weights.clear();}
   ~WeightedGraph() {Weights.clear();}
