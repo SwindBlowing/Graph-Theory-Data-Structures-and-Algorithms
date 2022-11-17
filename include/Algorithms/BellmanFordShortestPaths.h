@@ -44,19 +44,23 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	reached[source] = 1;
 	dist[source] = TValue();
 	preCode[source] = std::nullopt;
-	for (int i = 1; i <= (graph->CountVertices()) - 1; i++)
+	for (int i = 1; i <= (graph->CountVertices()) - 1; i++) {
+		bool isChanged = 0;
 		for (int j = 0; j < edges.size(); j++) {
 			int x = edges[j].GetSource(), y = edges[j].GetDestination();
 			TValue w = edges[j].GetWeight();
 			if (reached[x]) {
 				//printf("%d %d\n", x, y);
 				if (!reached[y] || dist[y] > dist[x] + w) {
+					isChanged = 1;
 					reached[y] = 1;
 					dist[y] = dist[x] + w;
 					preCode[y] = x;
 				}
 			}
 		}
+		if (!isChanged) break;
+	}
 }
 
 template <typename TGraph>
