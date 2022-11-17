@@ -39,30 +39,19 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	reached.clear(); dist.clear(); preCode.clear();
 	if (!graph->ContainsVertex(source)) return ;
 
-	std::vector<WeightedEdge<TValue>> outEdges;
-	std::vector<WeightedEdge<TValue>> edgePile;
-	std::vector<WeightedEdge<TValue>> newEdges;
-	edgePile.clear(); newEdges.clear();
+	std::vector<WeightedEdge<TValue>> edges;
+	edges = graph->GetEdges();
 	reached[source] = 1;
 	dist[source] = TValue();
 	preCode[source] = std::nullopt;
-	outEdges = graph->GetOutgoingEdges(source);
-	for (int i = 0; i < outEdges.size(); i++)
-		edgePile.push_back(outEdges[i]);
 	for (int i = 1; i <= (graph->CountVertices()) - 1; i++) {
 		bool isChanged = 0;
-		newEdges.clear();
-		for (int j = 0; j < edgePile.size(); j++) {
-			int x = edgePile[j].GetSource(), y = edgePile[j].GetDestination();
-			TValue w = edgePile[j].GetWeight();
+		for (int j = 0; j < edges.size(); j++) {
+			int x = edges[j].GetSource(), y = edges[j].GetDestination();
+			TValue w = edges[j].GetWeight();
 			if (reached[x]) {
 				//printf("%d %d\n", x, y);
 				if (!reached[y] || dist[y] > dist[x] + w) {
-					if (!reached[y]) {
-						outEdges = graph->GetOutgoingEdges(y);
-						for (int i = 0; i < outEdges.size(); i++)
-							newEdges.push_back(outEdges[i]);
-					}
 					isChanged = 1;
 					reached[y] = 1;
 					dist[y] = dist[x] + w;
@@ -71,8 +60,6 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 			}
 		}
 		if (!isChanged) break;
-		for (int j = 0; j < newEdges.size(); j++)
-			edgePile.push_back(newEdges[j]);
 	}
 }
 
