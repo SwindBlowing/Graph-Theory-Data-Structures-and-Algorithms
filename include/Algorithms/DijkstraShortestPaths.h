@@ -14,7 +14,7 @@
 
 template <typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
-  //typedef typename TGraph::value_type TValue;
+  typedef typename TGraph::value_type TValue;
   private:
 	std::map<int, bool> vis, reached;
 	std::map<int, TValue> dist;
