@@ -1,7 +1,7 @@
 #ifndef BELLMANFORD_SHORTEST_PATHS
 #define BELLMANFORD_SHORTEST_PATHS
 
-#define TValue typename TGraph::value_type
+//#define TValue typename TGraph::value_type
 
 #include <vector>
 #include <optional>
