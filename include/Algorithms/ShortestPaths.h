@@ -15,7 +15,7 @@ class ShortestPaths {
   ShortestPaths() = delete;
   ShortestPaths(const TGraph *graph, int source) 
   {
-	static_assert(std::is_constructible_v<TValue>, 
+	static_assert(std::_Enable_default_constructor_tag<TValue>, 
 		"TValue requires default constructor");
   }
   virtual ~ShortestPaths() {}
