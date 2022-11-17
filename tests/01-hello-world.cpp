@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 
-void sum(int x)
+/*void sum(int x)
 {
 	return ;
 }
@@ -72,7 +72,7 @@ static void test1() {
 
   delete g1;
   delete g2;
-}
+}*/
 struct Test {
 	//int x = 0;
 	Test(int i) ;

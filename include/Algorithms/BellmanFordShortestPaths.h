@@ -43,9 +43,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	edges = graph->GetEdges();
 	reached[source] = 1;
 	const bool fuck = std::is_default_constructible_v<TValue>;
-	#if (fuck)
-		dist[source] = TValue();
-	#endif
+	dist[source] = TValue();
 	preCode[source] = std::nullopt;
 	for (int i = 1; i <= (graph->CountVertices()) - 1; i++) {
 		bool isChanged = 0;
