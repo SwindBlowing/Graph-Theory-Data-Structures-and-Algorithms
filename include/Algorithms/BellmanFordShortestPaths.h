@@ -20,7 +20,7 @@ class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
 	~BellmanFordShortestPaths() {};
   //public:
 	//bool HasPathTo(int destination) const;
-	//std::optional<TValue> TryGetDistanceTo(int destination) const;
+	//std::optional<TValue> TryGetthis->DistanceTo(int destination) const;
 	//std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
 };
 
@@ -28,29 +28,29 @@ template <typename TGraph>
 BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
 	//this->fn_HasPathTo = (fp_Has)(&BellmanFordShortestPaths::HasPathTo);
-	//this->fn_TryGetDistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetDistanceTo);
+	//this->fn_TryGetthis->DistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetthis->DistanceTo);
 	//this->fn_TryGetShortestPathTo = (fp_Path)(&BellmanFordShortestPaths::TryGetShortestPathTo);
-	reached.clear(); dist.clear(); preCode.clear();
+	this->reached.clear(); this->dist.clear(); this->preCode.clear();
 	if (!graph->ContainsVertex(source)) return ;
 
 	std::vector<WeightedEdge<TValue>> edges;
 	edges = graph->GetEdges();
-	reached[source] = 1;
+	this->reached[source] = 1;
 	const bool fuck = std::is_default_constructible_v<TValue>;
-	dist[source] = TValue();
-	preCode[source] = std::nullopt;
+	this->dist[source] = TValue();
+	this->preCode[source] = std::nullopt;
 	for (int i = 1; i <= (graph->CountVertices()) - 1; i++) {
 		bool isChanged = 0;
 		for (int j = 0; j < edges.size(); j++) {
 			int x = edges[j].GetSource(), y = edges[j].GetDestination();
 			TValue w = edges[j].GetWeight();
-			if (reached[x]) {
+			if (this->reached[x]) {
 				//printf("%d %d\n", x, y);
-				if (!reached[y] || dist[x] + w < dist[y]) {
+				if (!this->reached[y] || this->dist[x] + w < this->dist[y]) {
 					isChanged = 1;
-					reached[y] = 1;
-					dist[y] = dist[x] + w;
-					preCode[y] = x;
+					this->reached[y] = 1;
+					this->dist[y] = this->dist[x] + w;
+					this->preCode[y] = x;
 				}
 			}
 		}
@@ -61,15 +61,15 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 /*template <typename TGraph>
 bool BellmanFordShortestPaths<TGraph>::HasPathTo(int destination) const
 {
-	if (reached.find(destination) == reached.end()) return 0;
-	return reached.at(destination);
+	if (this->reached.find(destination) == this->reached.end()) return 0;
+	return this->reached.at(destination);
 }
 
 template <typename TGraph>
-std::optional<TValue> BellmanFordShortestPaths<TGraph>::TryGetDistanceTo(int destination) const
+std::optional<TValue> BellmanFordShortestPaths<TGraph>::TryGetthis->DistanceTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
-	return dist.at(destination);
+	return this->dist.at(destination);
 }
 
 template <typename TGraph>
@@ -80,7 +80,7 @@ std::optional<std::vector<int>> BellmanFordShortestPaths<TGraph>::TryGetShortest
 	std::vector<int> ans; ans.clear();
 	while (now != std::nullopt) {
 		ans.push_back(now.value());
-		now = preCode.at(now.value());
+		now = this->preCode.at(now.value());
 	}
 	return ans;
 }*/
