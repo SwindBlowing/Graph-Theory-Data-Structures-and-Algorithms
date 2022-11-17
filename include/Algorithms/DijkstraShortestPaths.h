@@ -43,7 +43,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
     typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
     typedef std::optional<std::vector<int>> (ShortestPaths<TGraph>::*fp_Path)(int destination) const;
-	DijkstraShortestPaths(const TGraph *graph, int source) {
+	DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {
 		this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
 		this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
 		this->fn_TryGetShortestPathTo = (fp_Path)(&DijkstraShortestPaths::TryGetShortestPathTo);
