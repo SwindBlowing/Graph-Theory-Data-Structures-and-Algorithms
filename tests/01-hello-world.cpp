@@ -82,7 +82,7 @@ struct Test {
 int main()
 {
 	auto *g = new WeightedGraph<Test>();
-	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
+	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
 	delete g;
 	return 0;
 }
