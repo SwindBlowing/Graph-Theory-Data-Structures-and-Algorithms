@@ -14,6 +14,7 @@
 
 template <typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
+  typedef typename TGraph::value_type TValue;
   public:
 	//typedef typename TGraph::value_type TValue;
     typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
@@ -33,6 +34,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 };
 
 template <typename TGraph>
+typedef typename TGraph::value_type TValue;
 DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
 	this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
@@ -85,6 +87,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 }
 
 template <typename TGraph>
+typedef typename TGraph::value_type TValue;
 bool DijkstraShortestPaths<TGraph>::HasPathTo(int destination) const
 {
 	if (reached.find(destination) == reached.end()) return 0;
@@ -92,6 +95,7 @@ bool DijkstraShortestPaths<TGraph>::HasPathTo(int destination) const
 }
 
 template <typename TGraph>
+typedef typename TGraph::value_type TValue;
 std::optional<TValue> DijkstraShortestPaths<TGraph>::TryGetDistanceTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
@@ -99,6 +103,7 @@ std::optional<TValue> DijkstraShortestPaths<TGraph>::TryGetDistanceTo(int destin
 }
 
 template <typename TGraph>
+typedef typename TGraph::value_type TValue;
 std::optional<std::vector<int>> DijkstraShortestPaths<TGraph>::TryGetShortestPathTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
