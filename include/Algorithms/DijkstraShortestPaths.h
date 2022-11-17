@@ -20,7 +20,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 	~DijkstraShortestPaths() {};
   /*public:
 	bool HasPathTo(int destination) const;
-	std::optional<TValue> TryGetDistanceTo(int destination) const;
+	std::optional<TValue> TryGetthis->DistanceTo(int destination) const;
 	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;*/
   private:
 	std::map<int, bool> vis;
@@ -30,20 +30,20 @@ template <typename TGraph>
 DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
 	//this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
-	//this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
+	//this->fn_TryGetthis->DistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetthis->DistanceTo);
 	//this->fn_TryGetShortestPathTo = (fp_Path)(&DijkstraShortestPaths::TryGetShortestPathTo);
-	vis.clear(); reached.clear(); dist.clear(); preCode.clear();
+	vis.clear(); this->reached.clear(); this->dist.clear(); this->preCode.clear();
 	//while (!Q.empty()) Q.pop();
 	if (!graph->ContainsVertex(source)) return ;
 
 	std::vector<WeightedEdge<TValue>> outEdges;
-	reached[source] = 1;
+	this->reached[source] = 1;
 	//const bool fuck = std::is_default_constructible_v<TValue>;
 	TValue newTValue = TValue();
-	dist.insert({source, newTValue});
-	//if (std::is_default_constructible_v(TValue)) dist[source] = TValue();
-	preCode[source] = std::nullopt;
-	//Q.push({dist[source], source});
+	this->dist.insert({source, newTValue});
+	//if (std::is_default_constructible_v(TValue)) this->dist[source] = TValue();
+	this->preCode[source] = std::nullopt;
+	//Q.push({this->dist[source], source});
 	//while (!Q.empty()) {
 	std::vector<int> vertices;
 	vertices = graph->GetVertices();
@@ -52,14 +52,14 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 		TValue now = TValue();
 		int nowNode = 0;
 		for (int j = 0; j < vertices.size(); j++) 
-			if (!vis[vertices[j]] && reached[vertices[j]]) {
+			if (!vis[vertices[j]] && this->reached[vertices[j]]) {
 				if (first) {
 					first = 0;
-					now = dist.at(vertices[j]);
+					now = this->dist.at(vertices[j]);
 					nowNode = vertices[j];
 				}
-				else if (dist.at(vertices[j]) < now) {
-					now = dist.at(vertices[j]);
+				else if (this->dist.at(vertices[j]) < now) {
+					now = this->dist.at(vertices[j]);
 					nowNode = vertices[j];
 				}
 			}
@@ -68,11 +68,11 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
-			if (!reached[y] || dist.at(nowNode) + w < dist.at(y)) {
-				if (!reached[y]) dist.insert({y, dist.at(nowNode) + w});
-				else dist.find(y)->second = dist.at(nowNode) + w;
-				reached[y] = 1;
-				preCode[y] = nowNode;
+			if (!this->reached[y] || this->dist.at(nowNode) + w < this->dist.at(y)) {
+				if (!this->reached[y]) this->dist.insert({y, this->dist.at(nowNode) + w});
+				else this->dist.find(y)->second = this->dist.at(nowNode) + w;
+				this->reached[y] = 1;
+				this->preCode[y] = nowNode;
 			}
 		}
 	}
@@ -81,15 +81,15 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 /*template <typename TGraph>
 bool DijkstraShortestPaths<TGraph>::HasPathTo(int destination) const
 {
-	if (reached.find(destination) == reached.end()) return 0;
-	return reached.at(destination);
+	if (this->reached.find(destination) == this->reached.end()) return 0;
+	return this->reached.at(destination);
 }
 
 template <typename TGraph>
-std::optional<TValue> DijkstraShortestPaths<TGraph>::TryGetDistanceTo(int destination) const
+std::optional<TValue> DijkstraShortestPaths<TGraph>::TryGetthis->DistanceTo(int destination) const
 {
 	if (!HasPathTo(destination)) return std::nullopt;
-	return dist.at(destination);
+	return this->dist.at(destination);
 }
 
 template <typename TGraph>
@@ -100,7 +100,7 @@ std::optional<std::vector<int>> DijkstraShortestPaths<TGraph>::TryGetShortestPat
 	std::vector<int> ans; ans.clear();
 	while (now != std::nullopt) {
 		ans.push_back(now.value());
-		now = preCode.at(now.value());
+		now = this->preCode.at(now.value());
 	}
 	return ans;
 }*/
