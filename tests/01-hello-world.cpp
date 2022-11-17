@@ -66,12 +66,12 @@ static void test1() {
 	for (int i = 0; i < now2.size(); i++)
 		printf("%d ", now2[i]);
 	printf("\n");
-    delete p1;
-	//delete p2;
+    //delete p1;
+	delete p2;
   }
 
-  delete g1;
-  //delete g2;
+  //delete g1;
+  delete g2;
 }
 struct Test {
 	//int x = 0;
