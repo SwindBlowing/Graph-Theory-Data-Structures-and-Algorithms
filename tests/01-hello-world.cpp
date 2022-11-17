@@ -56,8 +56,8 @@ static void test1() {
 	  else printf("%d ", p2->TryGetDistanceTo(j).value());
     }
     printf("\n");
-	p1 = new BellmanFordShortestPaths<WeightedGraph<int>>(g, 1);
-	p2 = new DijkstraShortestPaths<WeightedGraph<int>>(g, 1);
+	p1 = new BellmanFordShortestPaths<WeightedGraph<int>>(g1, 1);
+	p2 = new DijkstraShortestPaths<WeightedGraph<int>>(g2, 1);
 	std::vector <int> now1 = p1->TryGetShortestPathTo(4).value();
 	for (int i = 0; i < now1.size(); i++)
 		printf("%d ", now1[i]);
