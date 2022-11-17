@@ -77,15 +77,15 @@ struct Test {
 	int x = 0;
 	Test(int i) ;
 	//Test() = delete;
-	Test operator+(const Test& t) const;
+	Test operator+(const Test& t);
 	bool operator<(const Test& t);
 };
 int main()
 {
 	//static_assert(std::is_default_constructible_v<Test>);
-	//auto *g = new WeightedGraph<Test>();
-	//ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
-	//delete g;
-	test1();
+	auto *g = new WeightedGraph<Test>();
+	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
+	delete g;
+	//test1();
 	return 0;
 }
