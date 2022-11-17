@@ -1,0 +1,27 @@
+In file included from /home/swind/ps2021-3-lab/tests/01-hello-world.cpp:8:
+/home/swind/ps2021-3-lab/include/Algorithms/ShortestPaths.h: In instantiation of ‘class ShortestPaths<WeightedGraph<Test> >’:
+/home/swind/ps2021-3-lab/include/Algorithms/DijkstraShortestPaths.h:16:7:   required from ‘class DijkstraShortestPaths<WeightedGraph<Test> >’
+/home/swind/ps2021-3-lab/tests/01-hello-world.cpp:87:94:   required from here
+/home/swind/ps2021-3-lab/include/Algorithms/ShortestPaths.h:11:22: error: static assertion failed: TValue requires default constructor
+   11 |   static_assert(std::is_default_constructible_v<TValue>,
+      |                 ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/swind/ps2021-3-lab/include/Algorithms/ShortestPaths.h:11:22: note: ‘std::is_default_constructible_v<Test>’ evaluates to false
+/home/swind/ps2021-3-lab/tests/01-hello-world.cpp: In function ‘int main()’:
+/home/swind/ps2021-3-lab/tests/01-hello-world.cpp:87:101: error: no matching function for call to ‘DijkstraShortestPaths<WeightedGraph<Test> >::DijkstraShortestPaths(WeightedGraph<Test>**, int)’
+   87 |         ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
+      |                                                                                                     ^
+In file included from /home/swind/ps2021-3-lab/tests/01-hello-world.cpp:10:
+/home/swind/ps2021-3-lab/include/Algorithms/DijkstraShortestPaths.h:35:1: note: candidate: ‘DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph*, int) [with TGraph = WeightedGraph<Test>]’
+   35 | DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/swind/ps2021-3-lab/include/Algorithms/DijkstraShortestPaths.h:35:68: note:   no known conversion for argument 1 from ‘WeightedGraph<Test>**’ to ‘const WeightedGraph<Test>*’
+   35 | DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
+      |                                                      ~~~~~~~~~~~~~~^~~~~
+/home/swind/ps2021-3-lab/include/Algorithms/DijkstraShortestPaths.h:16:7: note: candidate: ‘DijkstraShortestPaths<WeightedGraph<Test> >::DijkstraShortestPaths(const DijkstraShortestPaths<WeightedGraph<Test> >&)’
+   16 | class DijkstraShortestPaths : public ShortestPaths<TGraph> {
+      |       ^~~~~~~~~~~~~~~~~~~~~
+/home/swind/ps2021-3-lab/include/Algorithms/DijkstraShortestPaths.h:16:7: note:   candidate expects 1 argument, 2 provided
+make[3]: *** [CMakeFiles/Test01.dir/build.make:76: CMakeFiles/Test01.dir/tests/01-hello-world.cpp.o] Error 1
+make[2]: *** [CMakeFiles/Makefile2:165: CMakeFiles/Test01.dir/all] Error 2
+make[1]: *** [Makefile:91: all] Error 2
+make: *** [Makefile:7: all] Error 2
