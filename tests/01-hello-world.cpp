@@ -6,7 +6,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <Algorithms/DepthFirstSearcher.h>
 #include <Algorithms/ShortestPaths.h>
-#include <Algorithms/DijkstraShortestPaths.h>
+#include <Algorithms/BellmanFordShortestPaths.h>
 #include <assert.h>
 #include <iostream>
 #include <vector>
@@ -36,13 +36,13 @@ static void test1() {
 
   ShortestPaths<WeightedGraph<int>> *p = nullptr;
   for (int i = 1; i <= 6; ++i) {
-    p = new DijkstraShortestPaths<WeightedGraph<int>>(g, i);
+    p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, i);
     for (int j = 1; j <= 6; ++j) {
 	  if (!p->HasPathTo(j)) printf("%d ", -1);
 	  else printf("%d ", p->TryGetDistanceTo(j).value());
     }
     printf("\n");
-	p = new DijkstraShortestPaths<WeightedGraph<int>>(g, 1);
+	p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, 1);
 	std::vector <int> now = p->TryGetShortestPathTo(4).value();
 	for (int i = 0; i < now.size(); i++)
 		printf("%d ", now[i]);
