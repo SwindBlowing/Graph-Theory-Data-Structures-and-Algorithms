@@ -16,8 +16,8 @@ class ShortestPaths {
   virtual ~ShortestPaths() {}
   
  public:
- 
- #if (std::is_default_constructible_v<TValue>)
+ const bool fuck = std::is_default_constructible_v<TValue>;
+ #if (fuck)
 
   bool HasPathTo(int destination) const
   {
