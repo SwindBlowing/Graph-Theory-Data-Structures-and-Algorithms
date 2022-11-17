@@ -1,5 +1,5 @@
 #ifndef DIJKSTRA_SHORTEST_PATHS_H
-#define DIJKSTRA_SHORTEST_PATHS_h
+#define DIJKSTRA_SHORTEST_PATHS_H
 
 #include <vector>
 #include <optional>
