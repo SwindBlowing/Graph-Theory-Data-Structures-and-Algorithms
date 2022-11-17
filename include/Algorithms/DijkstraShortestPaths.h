@@ -16,12 +16,12 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
     typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
     typedef std::optional<std::vector<int>> (ShortestPaths<TGraph>::*fp_Path)(int destination) const;
-	DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source) {};
+	DijkstraShortestPaths(const TGraph *graph, int source);
 	~DijkstraShortestPaths() {};
   public:
-	bool HasPathTo(int destination) const{};
-	std::optional<TValue> TryGetDistanceTo(int destination) const{};
-	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const{};
+	bool HasPathTo(int destination) const;
+	std::optional<TValue> TryGetDistanceTo(int destination) const;
+	std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
   private:
 	std::map<int, bool> vis, reached;
 	std::map<int, TValue> dist;
