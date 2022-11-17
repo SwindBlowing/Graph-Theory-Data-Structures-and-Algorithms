@@ -34,7 +34,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
 template <typename TGraph>
 DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
-	static_assert(std::is_default_constructible_v<TValue>, 
+	static_assert(std::is_trivially_default_constructible_v<TValue>, 
 		"TValue requires default constructor");
 	this->fn_HasPathTo = (fp_Has)(&DijkstraShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (fp_Dis)(&DijkstraShortestPaths::TryGetDistanceTo);
