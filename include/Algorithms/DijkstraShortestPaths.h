@@ -74,8 +74,10 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
 			if (!reached[y] || dist.at(nowNode) + w < dist.at(y)) {
+				if (!reached[y]) dist.insert({y, dist.at(nowNode) + w});
+				else dist.find(y)->second = dist.at(nowNode) + w;
 				reached[y] = 1;
-				dist.insert({y, dist.at(nowNode) + w});
+				
 				//dist[y] = dist[nowNode] + w;
 				preCode[y] = nowNode;
 			}
