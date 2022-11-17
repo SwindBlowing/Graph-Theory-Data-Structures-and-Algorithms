@@ -6,6 +6,10 @@
 #include <queue>
 #include <map>
 
+
+#include <DataStructures/UndirectedGraph.h>
+#include <DataStructures/UndirectedWeightedGraph.h>
+
 template <typename TGraph>
 class BreadthFirstSearcher {
  public:
