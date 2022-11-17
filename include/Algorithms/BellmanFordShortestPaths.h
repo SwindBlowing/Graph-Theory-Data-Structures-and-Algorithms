@@ -6,8 +6,6 @@
 #include <map>
 #include <queue>
 
-#include <Algorithms/ShortestPaths.h>
-
 #define MAXN 1005
 
 template <typename TGraph>

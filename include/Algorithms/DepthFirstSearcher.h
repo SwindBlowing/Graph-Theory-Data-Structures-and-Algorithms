@@ -1,9 +1,6 @@
 #ifndef DEPTH_FIRST_SEARCHER_H
 #define DEPTH_FIRST_SEARCHER_H
 
-#include <DataStructures/UndirectedGraph.h>
-#include <DataStructures/UndirectedWeightedGraph.h>
-
 #include <functional>
 #include <optional>
 #include <map>
