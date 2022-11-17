@@ -29,7 +29,7 @@ class fuck
 
 static void test1() {
   auto *g = new WeightedGraph<fuck>();
-  for (int i = 1; i <= 6; ++i) {
+  /*for (int i = 1; i <= 6; ++i) {
     g->AddVertex(i);
   }
   g->AddEdge(1, 2, 1);
@@ -37,7 +37,7 @@ static void test1() {
   g->AddEdge(3, 4, 3);
   g->AddEdge(4, 1, 4);
   g->AddEdge(5, 6, 5);
-  g->AddEdge(6, 5, 6);
+  g->AddEdge(6, 5, 6);*/
 
   ShortestPaths<WeightedGraph<fuck>> *p = nullptr;
   p = new BellmanFordShortestPaths<WeightedGraph<fuck>(g, i);
