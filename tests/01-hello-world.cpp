@@ -74,10 +74,12 @@ static void test1() {
   delete g2;
 }*/
 struct Test {
-	int x;
-	Test(int i) {x = i; };
+	int x = 0;
+	//Test(int i) {x = i; };
 	Test operator+(const Test& t) {
-		return Test(x + t.x);
+		Test now;
+		now.x = x + t.x;
+		return now;
 	};
 	bool operator<(const Test& t) {
 		return x < t.x;
