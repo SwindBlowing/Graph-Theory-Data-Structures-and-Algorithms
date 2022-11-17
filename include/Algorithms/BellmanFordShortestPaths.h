@@ -37,7 +37,6 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	this->fn_TryGetDistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (fp_Path)(&BellmanFordShortestPaths::TryGetShortestPathTo);
 	reached.clear(); dist.clear(); preCode.clear();
-	while (!Q.empty()) Q.pop();
 	if (!graph->ContainsVertex(source)) return ;
 
 	std::vector<WeightedEdge<TValue>> edges;
