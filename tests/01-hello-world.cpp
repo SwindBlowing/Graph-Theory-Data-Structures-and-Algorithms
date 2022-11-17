@@ -77,9 +77,7 @@ struct Test {
 	int x = 0;
 	//Test(int i) {x = i; };
 	Test operator+(const Test& t) const ;
-	bool operator<(const Test& t) const {
-		return x < t.x;
-	};
+	bool operator<(const Test& t) const ;
 };
 int main()
 {
