@@ -52,28 +52,28 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	for (int i = 1; i < graph->CountVertices(); i++) {
 		bool first = 1;
 		TValue now = TValue();
-		int node = 0;
+		int nowNode = 0;
 		for (int j = 0; j < vertices.size(); j++) 
 			if (!vis[vertices[j]] && reached[vertices[j]]) {
 				if (first) {
 					first = 0;
 					now = dist[vertices[j]];
-					node = vertices[j];
+					nowNode = vertices[j];
 				}
 				else if (dist[vertices[j]] < now) {
 					now = dist[vertices[j]];
-					node = vertices[j];
+					nowNode = vertices[j];
 				}
 			}
-		vis[node] = 1;
-		outEdges = graph->GetOutgoingEdges(node);
+		vis[nowNode] = 1;
+		outEdges = graph->GetOutgoingEdges(nowNode);
 		for (int i = 0; i < outEdges.size(); i++) {
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
-			if (!reached[y] || dist[node] + w < dist[y]) {
+			if (!reached[y] || dist[nowNode] + w < dist[y]) {
 				reached[y] = 1;
-				dist[y] = dist[node] + w;
-				preCode[y] = node;
+				dist[y] = dist[nowNode] + w;
+				preCode[y] = nowNode;
 			}
 		}
 	}
