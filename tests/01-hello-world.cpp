@@ -35,7 +35,7 @@ static void test1() {
   g->AddEdge(6, 5, 6);*/
 
   ShortestPaths<WeightedGraph<std::pair<int, int>>> *p = nullptr;
-  p = new BellmanFordShortestPaths<WeightedGraph<std::pair<int, int>>>(g, i);
+  p = new BellmanFordShortestPaths<WeightedGraph<std::pair<int, int>>>(g, 1);
   /*for (int i = 1; i <= 6; ++i) {
     p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, i);
     for (int j = 1; j <= 6; ++j) {
