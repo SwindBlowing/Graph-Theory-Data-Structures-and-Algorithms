@@ -13,6 +13,7 @@
 template <typename TGraph>
 class DijkstraShortestPaths : public ShortestPaths<TGraph> {
   public:
+  	typedef typename TGraph::value_type TValue;
     typedef bool (ShortestPaths<TGraph, TValue>::*fp_Has)(int destination) const;
     typedef std::optional<TValue> (ShortestPaths<TGraph, TValue>::*fp_Dis)(int destination) const;
     typedef std::optional<std::vector<int>> (ShortestPaths<TGraph, TValue>::*fp_Path)(int destination) const;
