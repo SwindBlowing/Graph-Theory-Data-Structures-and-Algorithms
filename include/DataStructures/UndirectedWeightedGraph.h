@@ -8,8 +8,7 @@
 #include <algorithm>
 #include <assert.h>
 #include <iostream>
-#include <DataStructures/WeightedGraph.h>
-#include <DataStructures/WeightedEdge.h>
+
 #define MAXN 1005
 
 template <typename T>
