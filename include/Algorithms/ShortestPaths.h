@@ -1,8 +1,6 @@
 #ifndef SHORTEST_PATHS
 #define SHORTEST_PATHS
 
-#define TValue typename template<typename> class TGraph::value_type 
-
 #include <vector>
 #include <optional>
 
