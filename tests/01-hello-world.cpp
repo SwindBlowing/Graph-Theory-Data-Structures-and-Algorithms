@@ -47,8 +47,8 @@ static void test1() {
   ShortestPaths<WeightedGraph<int>> *p2 = nullptr;
   //p = new BellmanFordShortestPaths<WeightedGraph<int>>(g, 1);
   for (int i = 1; i <= 6; ++i) {
-    p1 = new BellmanFordShortestPaths<WeightedGraph<int>>(g, i);
-	p2 = new DijkstraShortestPaths<WeightedGraph<int>>(g, i);
+    p1 = new BellmanFordShortestPaths<WeightedGraph<int>>(g1, i);
+	p2 = new DijkstraShortestPaths<WeightedGraph<int>>(g2, i);
     for (int j = 1; j <= 6; ++j) {
 	  if (!p1->HasPathTo(j)) printf("%d ", -1);
 	  else printf("%d ", p1->TryGetDistanceTo(j).value());
