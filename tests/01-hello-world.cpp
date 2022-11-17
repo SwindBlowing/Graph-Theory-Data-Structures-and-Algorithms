@@ -6,7 +6,7 @@
 #include <DataStructures/UndirectedWeightedGraph.h>
 #include <Algorithms/DepthFirstSearcher.h>
 #include <Algorithms/ShortestPaths.h>
-//#include <Algorithms/BellmanFordShortestPaths.h>
+#include <Algorithms/BellmanFordShortestPaths.h>
 #include <Algorithms/DijkstraShortestPaths.h>
 #include <assert.h>
 #include <iostream>
