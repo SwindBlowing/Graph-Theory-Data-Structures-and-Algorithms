@@ -8,14 +8,9 @@
 
 template <typename TGraph>
 class ShortestPaths {
- private:
-  //typedef typename TGraph::value_type TValue;
   static_assert(std::is_default_constructible_v<TValue>, 
 		"TValue requires default constructor");
  public:
-  //typedef bool (ShortestPaths::*fp_Has)(int destination) const;
-  //typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
-  //typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
   ShortestPaths() = delete;
   ShortestPaths(const TGraph *graph, int source) {};
   virtual ~ShortestPaths() {}
@@ -47,9 +42,6 @@ class ShortestPaths {
   };
 
  protected:
-  //fp_Has fn_HasPathTo;
-  //fp_Dis fn_TryGetDistanceTo;
-  //fp_Path fn_TryGetShortestPathTo;
   std::map<int, bool> reached;
   std::map<int, TValue> dist;
   std::map<int, std::optional<int>> preCode;

@@ -13,23 +13,13 @@
 template <typename TGraph>
 class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
   public:
-    //typedef bool (ShortestPaths<TGraph>::*fp_Has)(int destination) const;
-    //typedef std::optional<TValue> (ShortestPaths<TGraph>::*fp_Dis)(int destination) const;
-    //typedef std::optional<std::vector<int>> (ShortestPaths<TGraph>::*fp_Path)(int destination) const;
 	BellmanFordShortestPaths(const TGraph *graph, int source);
 	~BellmanFordShortestPaths() {};
-  //public:
-	//bool HasPathTo(int destination) const;
-	//std::optional<TValue> TryGetthis->DistanceTo(int destination) const;
-	//std::optional<std::vector<int>> TryGetShortestPathTo(int destination) const;
 };
 
 template <typename TGraph>
 BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, int source) : ShortestPaths<TGraph>(graph, source)
 {
-	//this->fn_HasPathTo = (fp_Has)(&BellmanFordShortestPaths::HasPathTo);
-	//this->fn_TryGetthis->DistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetthis->DistanceTo);
-	//this->fn_TryGetShortestPathTo = (fp_Path)(&BellmanFordShortestPaths::TryGetShortestPathTo);
 	this->reached.clear(); this->dist.clear(); this->preCode.clear();
 	if (!graph->ContainsVertex(source)) return ;
 
@@ -57,32 +47,5 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 		if (!isChanged) break;
 	}
 }
-
-/*template <typename TGraph>
-bool BellmanFordShortestPaths<TGraph>::HasPathTo(int destination) const
-{
-	if (this->reached.find(destination) == this->reached.end()) return 0;
-	return this->reached.at(destination);
-}
-
-template <typename TGraph>
-std::optional<TValue> BellmanFordShortestPaths<TGraph>::TryGetthis->DistanceTo(int destination) const
-{
-	if (!HasPathTo(destination)) return std::nullopt;
-	return this->dist.at(destination);
-}
-
-template <typename TGraph>
-std::optional<std::vector<int>> BellmanFordShortestPaths<TGraph>::TryGetShortestPathTo(int destination) const
-{
-	if (!HasPathTo(destination)) return std::nullopt;
-	std::optional<int> now = destination;
-	std::vector<int> ans; ans.clear();
-	while (now != std::nullopt) {
-		ans.push_back(now.value());
-		now = this->preCode.at(now.value());
-	}
-	return ans;
-}*/
 
 #endif
