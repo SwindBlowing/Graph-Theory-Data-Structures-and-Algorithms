@@ -55,7 +55,9 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	vertices = graph->GetVertices();
 	for (int i = 1; i < graph->CountVertices(); i++) {
 		bool first = 1;
-		TValue now = TValue();
+		#if (fuck)
+			TValue now = TValue();
+		#endif
 		int nowNode = 0;
 		for (int j = 0; j < vertices.size(); j++) 
 			if (!vis[vertices[j]] && reached[vertices[j]]) {
