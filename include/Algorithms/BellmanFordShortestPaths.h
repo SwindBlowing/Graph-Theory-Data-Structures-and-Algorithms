@@ -36,7 +36,7 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 	this->fn_HasPathTo = (fp_Has)(&BellmanFordShortestPaths::HasPathTo);
 	this->fn_TryGetDistanceTo = (fp_Dis)(&BellmanFordShortestPaths::TryGetDistanceTo);
 	this->fn_TryGetShortestPathTo = (fp_Path)(&BellmanFordShortestPaths::TryGetShortestPathTo);
-	vis.clear(); reached.clear(); dist.clear(); preCode.clear();
+	reached.clear(); dist.clear(); preCode.clear();
 	while (!Q.empty()) Q.pop();
 	if (!graph->ContainsVertex(source)) return ;
 
