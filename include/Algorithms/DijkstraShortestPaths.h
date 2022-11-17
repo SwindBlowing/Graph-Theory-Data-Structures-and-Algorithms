@@ -15,7 +15,7 @@ class DijkstraShortestPaths : public ShortestPaths<TGraph> {
   public:
  	DijkstraShortestPaths(const TGraph *graph, int source);
 	~DijkstraShortestPaths() {};
- private:
+  private:
 	std::map<int, bool> vis;
 };
 
@@ -28,7 +28,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 	std::vector<WeightedEdge<TValue>> outEdges;
 	this->reached[source] = 1;
 	TValue newTValue = TValue();
-	this->dist.insert({source, newTValue});
+	this->dist.insert(std::pair<int, TValue>{source, newTValue});
 	this->preCode[source] = std::nullopt;
 	std::vector<int> vertices;
 	vertices = graph->GetVertices();
@@ -54,7 +54,7 @@ DijkstraShortestPaths<TGraph>::DijkstraShortestPaths(const TGraph *graph, int so
 			int y = outEdges[i].GetDestination();
 			TValue w = outEdges[i].GetWeight();
 			if (!this->reached[y] || this->dist.at(nowNode) + w < this->dist.at(y)) {
-				if (!this->reached[y]) this->dist.insert({y, this->dist.at(nowNode) + w});
+				if (!this->reached[y]) this->dist.insert(std::pair<int, TValue>{y, this->dist.at(nowNode) + w});
 				else this->dist.find(y)->second = this->dist.at(nowNode) + w;
 				this->reached[y] = 1;
 				this->preCode[y] = nowNode;
