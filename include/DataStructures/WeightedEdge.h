@@ -2,6 +2,8 @@
 #define WEIGHTEDEDGE_H
 
 #include <DataStructures/Edge.h>
+#include <iostream>
+#include <utility>
 
 template <typename T>
 class WeightedEdge : public Edge{
