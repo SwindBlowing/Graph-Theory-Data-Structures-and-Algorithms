@@ -4,7 +4,7 @@
 #include <vector>
 #include <optional>
 
-#define TValue typename TGraph::value_type
+typedef typename TGraph::value_type TValue;
 
 template <typename TGraph>
 class ShortestPaths {
