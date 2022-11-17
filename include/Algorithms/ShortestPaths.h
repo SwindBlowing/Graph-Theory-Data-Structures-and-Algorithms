@@ -4,7 +4,6 @@
 #include <vector>
 #include <optional>
 
-#include <DataStructures/UndirectedWeightedGraph.h>
 
 #define TValue typename TGraph::value_type
 

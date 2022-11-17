@@ -5,6 +5,9 @@
 #include <map>
 #include <DataStructures/WeightedEdge.h>
 #include <DataStructures/Graph.h>
+#include <iostream>
+#include <utility>
+#include <assert.h>
 #define MAXN 1005
 
 template <typename T>

@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <map>
+#include <iostream>
+#include <utility>
+#include <assert.h>
 #include <DataStructures/WeightedGraph.h>
 #include <DataStructures/WeightedEdge.h>
 #define MAXN 1005
