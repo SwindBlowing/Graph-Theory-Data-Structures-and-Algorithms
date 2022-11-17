@@ -8,9 +8,8 @@
 #include <algorithm>
 #include <assert.h>
 #include <iostream>
-
+#include <DataStructures/Graph.h>
 #include <DataStructures/Edge.h>
-
 #define MAXN 1005
 
 class UndirectedGraph : public Graph {
