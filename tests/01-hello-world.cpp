@@ -24,7 +24,7 @@ bool check(int x)
 
 class fuck
 {
-	fuck() = delete();
+	fuck() = delete;
 };
 
 static void test1() {
