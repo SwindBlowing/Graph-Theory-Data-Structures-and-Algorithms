@@ -73,9 +73,16 @@ static void test1() {
   delete g1;
   delete g2;
 }
+struct Test {
+	Test(int i);
+	Test() = delete;
+	Test operator+(const Test& t);
+	bool operator<(const Test& t);
+};
 int main()
 {
-	//std::cout << std::is_default_constructible<fuck>::value << std::endl;
-	test1();
+	auto *g = new WeightedGraph<Test>();
+	ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(&g, 1);
+	delete g;
 	return 0;
 }
