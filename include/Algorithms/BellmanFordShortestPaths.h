@@ -6,7 +6,7 @@
 #include <map>
 #include <queue>
 
-#include <ShortestPaths.h>
+#include <Algorithms/ShortestPaths.h>
 
 #define MAXN 1005
 
