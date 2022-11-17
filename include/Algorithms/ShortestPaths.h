@@ -4,9 +4,10 @@
 #include <vector>
 #include <optional>
 
-template <template<typename> class TGraph, typename TValue>
+template <template<typename> class TGraph>
 class ShortestPaths {
  public:
+  typedef TValue typename TGraph::value_type;
   typedef bool (ShortestPaths::*fp_Has)(int destination) const;
   typedef std::optional<TValue> (ShortestPaths::*fp_Dis)(int destination) const;
   typedef std::optional<std::vector<int>> (ShortestPaths::*fp_Path)(int destination) const;
