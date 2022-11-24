@@ -39,7 +39,7 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 				if (this->reached[k].find(j) == this->reached[k].end()) continue;
 				if (this->reached[i].find(j) == this->reached[i].end()
 					|| this->dist[i].at(k) + this->dist[k].at(j) < this->dist[i].at(j) ) {
-						if (this->reached[i].find(j) == this->reached[i].end)
+						if (this->reached[i].find(j) == this->reached[i].end())
 							this->reached[i].insert(std::pair<int, TValue> {j, this->dist[i].at(k) + this->dist[k].at(j)});
 						else this->reached[i].find(j)->second = this->dist[i].at(k) + this->dist[k].at(j);
 						this->preCode[i][j] = k;
