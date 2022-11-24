@@ -10,7 +10,7 @@
 #define MAXN 1005
 
 template <typename TGraph>
-class FloydShortestPaths : public ShortestPaths<TGraph> {
+class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
   public:
  	FloydShortestPaths(const TGraph *graph);
 	~FloydShortestPaths() {};
