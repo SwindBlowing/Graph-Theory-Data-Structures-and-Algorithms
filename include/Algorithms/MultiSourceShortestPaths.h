@@ -19,13 +19,13 @@ class MultiSourceShortestPaths {
   bool HasPathOf(int source, int destination) const
   {
 	if (reached.find(source) == reached.end()) return 0;
-	if (reached[source].find(destination) == reached[source].end()) return 0;
-	return reached[source][destination];
+	if (reached.at(source).find(destination) == reached.at(source).end()) return 0;
+	return reached.at(source).at(destination);
   };
   std::optional<TValue> TryGetDistanceOf(int source, int destination) const
   {
 	if (!HasPathOf(source, destination)) return std::nullopt;
-	return dist[source][destination];
+	return dist.at(source).at(destination);
   };
   std::optional<std::vector<int>> TryGetShortestPathOf(int source, int destination) const
   {
@@ -34,7 +34,7 @@ class MultiSourceShortestPaths {
 	std::vector<int> ans; ans.clear();
 	while (now != std::nullopt) {
 		ans.push_back(now.value());
-		now = preCode[source][now.value()];
+		now = preCode.at(source).at(now.value());
 	}
 	return ans;
   };
