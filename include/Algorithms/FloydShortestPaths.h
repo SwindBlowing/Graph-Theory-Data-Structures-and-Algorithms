@@ -23,9 +23,9 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 	this->reached.clear(); this->dist.clear(); this->preCode.clear();
 
 	std::vector <int> nodes = graph->GetVertices();
-	if (!nodes.size()) return ;
 	std::vector <WeightedEdge<TValue>> edges = graph->GetEdges();
-	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki]) {
+	for (int ki = 0; ki < nodes.size(); ki++) {
+		int k = nodes[ki];
 		this->reached[k].insert(std::pair<int, bool> {k, 1});
 		TValue newTValue = TValue();
 		this->dist[k].insert(std::pair<int, TValue> {k, newTValue});
@@ -34,15 +34,19 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 	for (int k = 0; k < edges.size(); k++) {
 		int i = edges[k].GetSource(), j = edges[k].GetDestination();
 		TValue w = edges[k].GetWeight();
-		this->reached[i].insert(std::pair<int, bool> {j, 1});
-		this->dist[i].insert(std::pair<int, TValue> {j, w});
-		this->preCode[i].insert(std::pair<int, std::optional<int>> {j, i});
+		if (this->reached[i].find(j) == this->reached[i].end() || w < this->dist[i].at(j)) {
+			this->reached[i].insert(std::pair<int, bool> {j, 1});
+			this->dist[i].insert(std::pair<int, TValue> {j, w});
+			this->preCode[i].insert(std::pair<int, std::optional<int>> {j, i});
+		}
 	}
 
-	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki])
-		for (int ii = 0, i = nodes[ii]; ii < nodes.size(); ii++, i = nodes[ii]) {
+	for (int ki = 0; ki < nodes.size(); ki++)
+		for (int ii = 0; ii < nodes.size(); ii++) {
+			int k = nodes[ki], i = nodes[ii];
 			if (this->reached[i].find(k) == this->reached[i].end()) continue;
-			for (int ji = 0, j = nodes[ji]; ji < nodes.size(); ji++, j = nodes[ji]) {
+			for (int ji = 0; ji < nodes.size(); ji++) {
+				int j = nodes[ji];
 				if (this->reached[k].find(j) == this->reached[k].end()) continue;
 				if (this->reached[i].find(j) == this->reached[i].end()
 					|| this->dist[i].at(k) + this->dist[k].at(j) < this->dist[i].at(j) ) {
