@@ -13,8 +13,8 @@ class MultiSourceShortestPaths {
 	"TValue requires default constructor");
  public:
   MultiSourceShortestPaths() = delete;
-  explicit MultiSourceShortestPaths(const TGraph *graph);
-  virtual ~MultiSourceShortestPaths();
+  explicit MultiSourceShortestPaths(const TGraph *graph) {};
+  virtual ~MultiSourceShortestPaths() {};
  public:
   bool HasPathOf(int source, int destination) const
   {
