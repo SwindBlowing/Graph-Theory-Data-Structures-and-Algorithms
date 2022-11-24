@@ -4,6 +4,7 @@
 #include <vector>
 #include <optional>
 #include <map>
+#include <cstdio>
 
 #include <Algorithms/MultiSourceShortestPaths.h>
 
