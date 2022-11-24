@@ -39,14 +39,17 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 	std::vector<WeightedEdge<TValue>> outEdges;
 	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki])
 		for (int ii = 0, i = nodes[ii]; ii < nodes.size(); ii++, i = nodes[ii]) {
+			printf("arrived1!\n");
 			if (this->reached[i].find(k) == this->reached[i].end()) continue;
 			outEdges = graph->GetOutgoingEdges(i);
 			for (int l = 0; l < outEdges.size(); l++) {
+				printf("arrived2!\n");
 				int j = outEdges[l].GetDestination();
 				TValue w = outEdges[l].GetWeight();
 				if (this->reached[k].find(j) == this->reached[k].end()) continue;
 				if (this->reached[i].find(j) == this->reached[i].end()
 					|| this->dist[i].at(k) + this->dist[k].at(j) < this->dist[i].at(j) ) {
+						printf("arrived3!\n");
 						if (this->reached[i].find(j) == this->reached[i].end())
 							this->dist[i].insert(std::pair<int, TValue> {j, this->dist[i].at(k) + this->dist[k].at(j)});
 						else this->dist[i].find(j)->second = this->dist[i].at(k) + this->dist[k].at(j);
