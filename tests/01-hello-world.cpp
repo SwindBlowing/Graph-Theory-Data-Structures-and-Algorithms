@@ -44,6 +44,7 @@ static void test1() {
 	  if (!p->HasPathOf(i, j)) printf("%d ", -1);
 	  else printf("%d ", p->TryGetDistanceOf(i, j).value());
     }
+	printf("\n");
   }
 
   delete g;
