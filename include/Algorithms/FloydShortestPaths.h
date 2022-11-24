@@ -23,6 +23,7 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 	this->reached.clear(); this->dist.clear(); this->preCode.clear();
 
 	std::vector <int> nodes = graph->GetVertices();
+	if (!nodes.size()) return ;
 	std::vector <WeightedEdge<TValue>> edges = graph->GetEdges();
 	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki]) {
 		this->reached[k].insert(std::pair<int, bool> {k, 1});
