@@ -22,11 +22,19 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 	this->reached.clear(); this->dist.clear(); this->preCode.clear();
 
 	std::vector <int> nodes = graph->GetVertices();
+	std::vector <int> edges = graph->GetEdges();
 	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki]) {
 		this->reached[k].insert(std::pair<int, bool> {k, 1});
 		TValue newTValue = TValue();
-		this->dist[k].insert(std::pair<int, bool> {k, newTValue});
+		this->dist[k].insert(std::pair<int, TValue> {k, newTValue});
 		this->preCode[k].insert(std::pair<int, std::optional<int>> {k, std::nullopt});
+	}
+	for (int k = 0; k < edges.size(); k++) {
+		int i = edges[k].GetSource(), j = edges[k].GetDestination();
+		TValue w = edges[k].GetWeight();
+		this->reached[i].insert(std::pair<int, bool> {j, 1});
+		this->dist[i].insert(std::pair<int, TValue> {j, w});
+		this->preCode[i].insert(std::pair<int, std::optional<int>> {j, i});
 	}
 	std::vector<WeightedEdge<TValue>> outEdges;
 	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki])
