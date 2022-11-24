@@ -40,14 +40,11 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 
 	for (int ki = 0, k = nodes[ki]; ki < nodes.size(); ki++, k = nodes[ki])
 		for (int ii = 0, i = nodes[ii]; ii < nodes.size(); ii++, i = nodes[ii]) {
-			printf("arrived1!\n");
 			if (this->reached[i].find(k) == this->reached[i].end()) continue;
 			for (int ji = 0, j = nodes[ji]; ji < nodes.size(); ji++, j = nodes[ji]) {
-				printf("arrived2!\n");
 				if (this->reached[k].find(j) == this->reached[k].end()) continue;
 				if (this->reached[i].find(j) == this->reached[i].end()
 					|| this->dist[i].at(k) + this->dist[k].at(j) < this->dist[i].at(j) ) {
-						printf("arrived3!\n");
 						if (this->reached[i].find(j) == this->reached[i].end())
 							this->dist[i].insert(std::pair<int, TValue> {j, this->dist[i].at(k) + this->dist[k].at(j)});
 						else this->dist[i].find(j)->second = this->dist[i].at(k) + this->dist[k].at(j);
