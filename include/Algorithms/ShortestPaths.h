@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <optional>
+#include <map>
 
 #define TValue typename TGraph::value_type
 
