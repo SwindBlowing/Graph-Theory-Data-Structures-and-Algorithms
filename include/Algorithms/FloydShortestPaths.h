@@ -51,7 +51,7 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 				if (this->reached[i].find(j) == this->reached[i].end()
 					|| this->dist[i][k] + this->dist[k][j] < this->dist[i][j]) {
 						this->dist[i][j] = this->dist[i][k] + this->dist[k][j];
-						this->preCode[i][j] = k;
+						this->preCode[i][j] = this->preCode[k][j];
 						this->reached[i][j] = 1;
 					}
 			}
