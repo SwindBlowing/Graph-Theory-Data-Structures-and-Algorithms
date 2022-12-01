@@ -12,7 +12,7 @@ class NegativeCycleException : public GLException {
   std::string errorAlgorithm;
  public:
   NegativeCycleException(const std::string &s) : errorAlgorithm(errorType), GLException(errorType) {};
-  std::string GetMessage() const override;
+  std::string GetMessage() const ;
 };
 
 std::string NegativeCycleException::GetMessage() const
