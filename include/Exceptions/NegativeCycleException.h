@@ -20,9 +20,9 @@ std::string NegativeCycleException::GetMessage() const
 	return errorAlgorithm;
 }
 
-/*std::ostream &operator<<(std::ostream &os, const NegativeCycleException &e)
+std::ostream &operator<<(std::ostream &os, const NegativeCycleException &e)
 {
 	return os << e.GetMessage();
-}*/
+}
 
 #endif
