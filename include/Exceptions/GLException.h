@@ -5,6 +5,8 @@
 #include <exception>
 #include <string>
 
+using namespace std;
+
 class GLException : public std::exception {
  protected:
   std::string message;
@@ -15,7 +17,7 @@ class GLException : public std::exception {
   }
 };
 
-inline std::ostream &operator<<(std::ostream &os, const GLException &e)
+ostream &operator<<(ostream &os, const GLException &e)
 {
   return os << e.GetMessage();
 }
