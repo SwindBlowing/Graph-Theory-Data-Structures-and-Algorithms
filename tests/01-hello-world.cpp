@@ -69,7 +69,7 @@ int main()
 	try {
 		test1();
 	} catch(const NegativeCycleException& e) {
-		std::cout << e.GetMessage() << std::endl;
+		std::cout << e << std::endl;
 	}
 	return 0;
 }
