@@ -13,7 +13,9 @@ class GLException : public std::exception {
   virtual std::string GetMessage() const;
 };
 
-std::ostream &operator<<(std::ostream &os, GLException const& e);
+std::ostream &operator<<(std::ostream &os, const GLException &e){
+  return os << e.GetMessage();
+}
 
 #endif
 
