@@ -28,7 +28,7 @@ bool check(int x)
 }
 
 static void test1() {
-  auto *g = new WeightedGraph<int>();
+  auto *g = new WeightedGraph<float>();
   for (int i = 1; i <= 6; ++i) {
 	g->AddVertex(i);
   }
@@ -41,8 +41,8 @@ static void test1() {
   g->AddEdge(1, 2, -1);
   g->AddEdge(2, 1, -1);
 
-  MultiSourceShortestPaths<WeightedGraph<int>> *p = nullptr;
-  p = new FloydShortestPaths<WeightedGraph<int>>(g);
+  MultiSourceShortestPaths<WeightedGraph<float>> *p = nullptr;
+  p = new FloydShortestPaths<WeightedGraph<float>>(g);
   for (int i = 1; i <= 6; ++i) {
     for (int j = 1; j <= 6; ++j) {
 	  if (!p->HasPathOf(i, j)) printf("%d ", -1);
