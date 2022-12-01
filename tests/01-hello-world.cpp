@@ -45,8 +45,8 @@ static void test1() {
   p = new FloydShortestPaths<WeightedGraph<float>>(g);
   for (int i = 1; i <= 6; ++i) {
     for (int j = 1; j <= 6; ++j) {
-	  if (!p->HasPathOf(i, j)) printf("%d ", -1);
-	  else printf("%d ", p->TryGetDistanceOf(i, j).value());
+	  if (!p->HasPathOf(i, j)) printf("%f ", -1);
+	  else printf("%f ", p->TryGetDistanceOf(i, j).value());
     }
 	printf("\n");
   }
