@@ -12,11 +12,6 @@
 #define MAXN 1005
 
 template<typename TypeValue>
-TypeValue epsilon() {
-    return epsilon_real<TypeValue>(std::is_floating_point<TypeValue>());
-}
-
-template<typename TypeValue>
 TypeValue epsilon_real(std::true_type) {
     return 1e-6;
 }
@@ -24,6 +19,11 @@ TypeValue epsilon_real(std::true_type) {
 template<typename TypeValue>
 TypeValue epsilon_real(std::false_type) {
     return TypeValue();
+}
+
+template<typename TypeValue>
+TypeValue epsilon() {
+    return epsilon_real<TypeValue>(std::is_floating_point<TypeValue>());
 }
 
 template <typename TGraph>
