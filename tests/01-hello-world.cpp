@@ -10,6 +10,8 @@
 #include <Algorithms/DijkstraShortestPaths.h>
 #include <Algorithms/MultiSourceShortestPaths.h>
 #include <Algorithms/FloydShortestPaths.h>
+#include <Exceptions/GLException.h>
+#include <Exceptions/NegativeCycleException.h>
 #include <assert.h>
 #include <iostream>
 #include <vector>
@@ -62,6 +64,10 @@ int main()
 	//auto *g = new WeightedGraph<Test>();
 	//ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
 	//delete g;
-	test1();
+	try {
+		test1();
+	} catch(const NegativeCycleException& e) {
+		cout << e;
+	}
 	return 0;
 }
