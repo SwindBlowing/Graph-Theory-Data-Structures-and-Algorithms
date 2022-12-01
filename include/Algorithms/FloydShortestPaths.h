@@ -7,6 +7,7 @@
 #include <cstdio>
 
 #include <Algorithms/MultiSourceShortestPaths.h>
+#include <Exceptions/NegativeCycleException.h>
 
 #define MAXN 1005
 
@@ -15,6 +16,8 @@ class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
   public:
  	FloydShortestPaths(const TGraph *graph);
 	~FloydShortestPaths() {};
+  private:
+    std::string algorithmName = "Floyd";
 };
 
 template <typename TGraph>
@@ -56,6 +59,11 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 					}
 			}
 		}
+	for (int ki = 0; ki < nodes.size(); ki++) {
+		int k = nodes[ki];
+		if (this->dist[k][k] < 0) 
+			throw NegativeCycleException(algorithmName);
+	}
 }
 
 #endif

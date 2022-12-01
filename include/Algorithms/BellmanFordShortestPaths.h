@@ -7,6 +7,7 @@
 #include <queue>
 
 #include <Algorithms/ShortestPaths.h>
+#include <Exceptions/NegativeCycleException.h>
 
 #define MAXN 1005
 
@@ -15,6 +16,8 @@ class BellmanFordShortestPaths : public ShortestPaths<TGraph> {
   public:
 	BellmanFordShortestPaths(const TGraph *graph, int source);
 	~BellmanFordShortestPaths() {};
+  private:
+	std::string algorithmName = "Bellman-Ford";
 };
 
 template <typename TGraph>
@@ -45,6 +48,15 @@ BellmanFordShortestPaths<TGraph>::BellmanFordShortestPaths(const TGraph *graph, 
 			}
 		}
 		if (!isChanged) break;
+	}
+	for (int j = 0; j < edges.size(); j++) {
+		int x = edges[j].GetSource(), y = edges[j].GetDestination();
+		TValue w = edges[j].GetWeight();
+		if (this->reached[x]) {
+			//printf("%d %d\n", x, y);
+			if (!this->reached[y] || this->dist[x] + w < this->dist[y]) 
+				throw NegativeCycleException(algorithmName);
+		}
 	}
 }
 
