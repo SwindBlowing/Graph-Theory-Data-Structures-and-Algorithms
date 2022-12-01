@@ -5,10 +5,23 @@
 #include <Exceptions/GLException.h>
 
 class NegativeCycleException : public GLException {
- private:
+ protected:
   std::string errorType = "NegativeCycleException";
+  std::string errorAlgorithm;
  public:
-  NegativeCycleException(const std::string &s) : GLExption(s) {};
+  NegativeCycleException(const std::string &s) : GLExption(errorType) 
+  {
+	errorAlgorithm = s;
+  };
+  std::string GetErrorAlgorithm() const
+  {
+	return errorAlgorithm;
+  }
 };
+
+ostream &operator<<(ostream &os, const NegativeCycleException &e)
+{
+	return os << e.GetErrorAlgorithm();
+}
 
 #endif
