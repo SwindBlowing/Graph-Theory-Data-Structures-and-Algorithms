@@ -15,7 +15,7 @@ class NegativeCycleException : public GLException {
   {
 	errorAlgorithm = s;
   };
-  std::string GetMessage() const
+  std::string GetMessage() const override
   {
 	return errorAlgorithm;
   };
