@@ -1,6 +1,7 @@
 #ifndef NEGATIVE_CYCLE_EXCEPTION
 #define NEGATIVE_CYCLE_EXCEPTION
 
+#include <iostream>
 #include <string>
 #include <Exceptions/GLException.h>
 
