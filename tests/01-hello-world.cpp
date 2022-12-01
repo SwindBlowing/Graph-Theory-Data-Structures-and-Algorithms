@@ -66,7 +66,7 @@ int main()
 	//delete g;
 	try {
 		test1();
-	} catch(const NegativeCycleException& e) {
+	} catch(const GLException& e) {
 		std::cout << e;
 	}
 	return 0;
