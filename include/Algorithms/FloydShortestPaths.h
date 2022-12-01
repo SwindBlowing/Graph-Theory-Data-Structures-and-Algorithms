@@ -11,6 +11,12 @@
 
 #define MAXN 1005
 
+template<typename TypeValue>
+TypeValue epsilon() {
+    return std::is_floating_point<TypeValue>() ? 
+		1e-6 : TypeValue();
+}
+
 template <typename TGraph>
 class FloydShortestPaths : public MultiSourceShortestPaths<TGraph> {
   public:
@@ -61,7 +67,7 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 		}
 	for (int ki = 0; ki < nodes.size(); ki++) {
 		int k = nodes[ki];
-		if (this->dist[k][k] < 0) 
+		if (this->dist[k][k] + epsilon<TValue>() < 0) 
 			throw NegativeCycleException(algorithmName);
 	}
 }
