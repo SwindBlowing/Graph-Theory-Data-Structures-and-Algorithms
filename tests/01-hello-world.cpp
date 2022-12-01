@@ -66,6 +66,7 @@ int main()
 	//delete g;
 	try {
 		test1();
+		throw GLException("fuck");
 	} catch(const GLException& e) {
 		std::cout << e;
 	}
