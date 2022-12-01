@@ -65,7 +65,7 @@ int main()
 	//ShortestPaths<WeightedGraph<Test>> *p = new DijkstraShortestPaths<WeightedGraph<Test>>(g, 1);
 	//delete g;
 	try {
-		test1();
+		//test1();
 		std::string st = "fuck";
 		throw GLException(st);
 	} catch(const GLException& e) {

@@ -15,7 +15,8 @@ class GLException : public std::exception {
   }
 };
 
-std::ostream &operator<<(std::ostream &os, const GLException &e){
+std::ostream &operator<<(std::ostream &os, const GLException &e)
+{
   return os << e.GetMessage();
 }
 
