@@ -38,6 +38,8 @@ static void test1() {
   g->AddEdge(4, 1, 4);
   g->AddEdge(5, 6, 5);
   g->AddEdge(6, 5, 6);
+  g->AddEdge(1, 2, -1);
+  g->AddEdge(2, 1, -1);
 
   MultiSourceShortestPaths<WeightedGraph<int>> *p = nullptr;
   p = new FloydShortestPaths<WeightedGraph<int>>(g);
