@@ -11,7 +11,7 @@ class NegativeCycleException : public GLException {
   std::string errorType = "NegativeCycleException";
   std::string errorAlgorithm;
  public:
-  NegativeCycleException(const std::string &s) : GLExption(errorType) 
+  NegativeCycleException(const std::string &s) : GLException(errorType) 
   {
 	errorAlgorithm = s;
   };
