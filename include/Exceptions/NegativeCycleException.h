@@ -11,15 +11,14 @@ class NegativeCycleException : public GLException {
   std::string errorType = "NegativeCycleException";
   std::string errorAlgorithm;
  public:
-  NegativeCycleException(const std::string &s) : GLException(errorType) 
-  {
-	errorAlgorithm = s;
-  };
-  std::string GetMessage() const override
-  {
-	return errorAlgorithm;
-  };
+  NegativeCycleException(const std::string &s) : errorAlgorithm(s), GLException(errorType) {};
+  std::string GetMessage() const override;
 };
+
+std::string NegativeCycleException::GetMessage()
+{
+	return errorAlgorithm;
+}
 
 std::ostream &operator<<(std::ostream &os, const NegativeCycleException &e)
 {
