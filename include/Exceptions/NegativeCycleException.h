@@ -2,6 +2,7 @@
 #define NEGATIVE_CYCLE_EXCEPTION
 
 #include <iostream>
+#include <exception>
 #include <string>
 #include <Exceptions/GLException.h>
 
