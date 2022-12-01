@@ -13,7 +13,7 @@ class GLException : public std::exception {
   virtual std::string GetMessage() const;
 };
 
-ostream &operator<<(ostream &os, const GLException &e);
+std::ostream &operator<<(std::ostream &os, const GLException &e);
 
 #endif
 

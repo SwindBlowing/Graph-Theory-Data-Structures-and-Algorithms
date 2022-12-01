@@ -21,7 +21,7 @@ class NegativeCycleException : public GLException {
   }
 };
 
-ostream &operator<<(ostream &os, const NegativeCycleException &e)
+std::ostream &operator<<(std::ostream &os, const NegativeCycleException &e)
 {
 	return os << e.GetErrorAlgorithm();
 }
