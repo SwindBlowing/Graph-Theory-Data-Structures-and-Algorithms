@@ -67,7 +67,7 @@ FloydShortestPaths<TGraph>::FloydShortestPaths(const TGraph *graph) : MultiSourc
 		}
 	for (int ki = 0; ki < nodes.size(); ki++) {
 		int k = nodes[ki];
-		if (this->dist[k][k] + epsilon<TValue>() < 0) 
+		if (this->dist[k][k] + epsilon<TValue>() < TValue()) 
 			throw NegativeCycleException(algorithmName);
 	}
 }
