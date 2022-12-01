@@ -15,15 +15,15 @@ class NegativeCycleException : public GLException {
   {
 	errorAlgorithm = s;
   };
-  std::string GetErrorAlgorithm() const
+  std::string GetMessage() const
   {
 	return errorAlgorithm;
-  }
+  };
 };
 
 std::ostream &operator<<(std::ostream &os, const NegativeCycleException &e)
 {
-	return os << e.GetErrorAlgorithm();
+	return os << e.GetMessage();
 }
 
 #endif
